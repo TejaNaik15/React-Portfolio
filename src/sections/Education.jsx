@@ -26,13 +26,13 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" ref={sectionRef} className="min-h-screen bg-gray-800 text-white p-8 flex flex-col items-center justify-center transition-opacity-transform">
+    <section id="education" ref={sectionRef} className="min-h-screen bg-gray-800/60 backdrop-blur-sm text-white p-8 flex flex-col items-center justify-center transition-opacity-transform">
       <div className="container mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-purple">Education</h1>
 
         <div className="space-y-8 max-w-3xl mx-auto">
           {educationData.map((edu, index) => (
-            <div key={index} className="bg-gray-700 p-6 rounded-lg shadow-lg text-left">
+            <div key={index} className="bg-gray-700/60 backdrop-blur-sm p-6 rounded-lg shadow-lg text-left">
               <h2 className="text-2xl font-semibold text-accent-pink mb-1">{edu.degree}</h2>
               <h3 className="text-xl text-text-muted mb-2">{edu.institution}</h3>
               <p className="text-accent-yellow mb-3">{edu.year}</p>
