@@ -1,10 +1,8 @@
 import React from 'react';
-import GradientBlinds from '../components/GradientBlinds';
 
 const Home = () => {
   return (
-    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center text-white bg-primary-dark overflow-hidden">
-      <GradientBlinds className="absolute inset-0" mixBlendMode="lighten" />
+    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center text-white overflow-hidden">
       <div className="relative z-10 text-center p-8 max-w-4xl mx-auto">
         <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white">
           Hi, I'm Teja Naik
