@@ -44,7 +44,7 @@ const projectsData = [
     id: 5,
     title: 'AI-Resume Analyzer',
     description: 'Upload your resume, analyze it, and view AI-driven insights such as scores, summaries, and improvement suggestions.',
-    image: 'https://images.unsplash.com/photo-1551817958-20204d6ab3d9?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/Screenshot 2025-09-06 202225.png',
     technologies: ['Three.js', 'React Three Fiber', 'Vite'],
     githubLink: 'https://github.com/TejaNaik15',
     liveDemoLink: '#',
