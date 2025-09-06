@@ -13,13 +13,7 @@ const About = () => {
       About Me
     </h2>
     <div className="mb-6">
-      {/* Shiny accent */}
-      <span>
-        {(() => {
-          const ShinyText = require('../components/ShinyText').default;
-          return <ShinyText text="A glimpse into who I am" speed={6} className="text-2xl md:text-3xl" />;
-        })()}
-      </span>
+      <ShinyText text="A glimpse into who I am" speed={6} className="text-2xl md:text-3xl" />
     </div>
     <p className="text-lg md:text-xl leading-relaxed mb-4 text-text-muted">
       Hello there! I'm Teja Naik, a dedicated **MERN Stack Developer** fueled by curiosity and a relentless passion for crafting innovative web solutions.
