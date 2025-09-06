@@ -1,6 +1,8 @@
 import React from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
 import ShinyText from '../components/ShinyText';
+import VariableProximity from '../components/VariableProximity';
+import React, { useRef } from 'react';
 
 const About = () => {
   const sectionRef = useScrollReveal({ threshold: 0.1 }); 
