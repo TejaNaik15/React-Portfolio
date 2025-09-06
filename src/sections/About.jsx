@@ -5,8 +5,8 @@ const About = () => {
   const sectionRef = useScrollReveal({ threshold: 0.1 }); 
 
   return (
-    <section id="about" className="py-16 bg-secondary-dark text-white text-center px-4">
-  
+    <section id="about" className="py-16 text-white text-center px-4 bg-[#1F2937]/60 backdrop-blur-sm">
+
   <div className="container mx-auto max-w-4xl">
     <h2 className="text-4xl md:text-5xl font-bold mb-8 text-accent-pink">
       About Me
