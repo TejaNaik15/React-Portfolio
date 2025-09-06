@@ -53,7 +53,7 @@ const projectsData = [
     id: 6,
     title: 'AI-Powered Developer Assistant',
     description: 'This app allows users to chat with an AI assistant in real-time and store their chat history securely.',
-    image: 'https://images.unsplash.com/photo-1542228262-3d663b306a56?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/Screenshot 2025-09-06 203810.png',
     technologies: ['React', 'Tailwind CSS', 'Firebase'],
     githubLink: 'https://github.com/TejaNaik15/CodeMentorAI',
     liveDemoLink: 'https://code-mentor-ai-neir.vercel.app/',
