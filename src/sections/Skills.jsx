@@ -17,7 +17,7 @@ const Skills = () => {
     { id: 'java', img: cdn('java/java-original.svg'), height: 300, url: 'https://www.oracle.com/java/' },
     { id: 'mongodb', img: cdn('mongodb/mongodb-original.svg'), height: 300, url: 'https://mongodb.com' },
     { id: 'express', img: cdn('express/express-original.svg'), height: 260, url: 'https://expressjs.com' },
-    { id: 'tailwind', img: cdn('tailwindcss/tailwindcss-plain.svg'), height: 280, url: 'https://tailwindcss.com' },
+    { id: 'tailwind', img: cdn('tailwindcss/tailwindcss-original.svg'), height: 280, url: 'https://tailwindcss.com' },
     { id: 'nextjs', img: cdn('nextjs/nextjs-original.svg'), height: 300, url: 'https://nextjs.org' },
     { id: 'git', img: cdn('git/git-original.svg'), height: 260, url: 'https://git-scm.com' },
     { id: 'github', img: cdn('github/github-original.svg'), height: 260, url: 'https://github.com' },
