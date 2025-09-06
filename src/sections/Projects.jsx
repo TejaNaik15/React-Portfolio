@@ -35,7 +35,7 @@ const projectsData = [
     id: 4,
     title: 'Portfolio Website',
     description: 'Personal portfolio showcasing projects, animations, and interactive UI components.',
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop',
+    image: '/assets/Screenshot 2025-09-06 204252.png',
     technologies: ['React', 'Tailwind CSS', 'GSAP'],
     githubLink: 'https://github.com/TejaNaik15/React-Portfolio',
     liveDemoLink: 'https://react-portfolio-eight-sable.vercel.app/',
