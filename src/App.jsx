@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NavBar from './components/NavBar';
 import LightRays from './components/LightRays';
+import GooeyNav from './components/GooeyNav';
 import Home from './sections/Home';
 import About from './sections/About';
 import Skills from './sections/Skills';
@@ -15,7 +15,20 @@ function App() {
     <Router>
       <div className="relative flex flex-col min-h-screen bg-primary-dark">
         <LightRays />
-        <NavBar />
+        <div className="fixed inset-0 z-40 pointer-events-none flex items-center justify-center">
+          <div className="pointer-events-auto">
+            <GooeyNav
+              items={[
+                { label: 'Home', href: '#home' },
+                { label: 'About', href: '#about' },
+                { label: 'Skills', href: '#skills' },
+                { label: 'Projects', href: '#projects' },
+                { label: 'Education', href: '#education' },
+                { label: 'Contact', href: '#contact' },
+              ]}
+            />
+          </div>
+        </div>
         <main className="relative z-10 flex-grow">
           <Routes>
             <Route
