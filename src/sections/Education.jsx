@@ -1,44 +1,34 @@
 import React from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
+import FlowingMenu from '../components/FlowingMenu';
 
 const Education = () => {
-  const sectionRef = useScrollReveal({ threshold: 0.1 }); 
+  const sectionRef = useScrollReveal({ threshold: 0.1 });
 
-  const educationData = [
+  const items = [
     {
-      degree: 'Bachelor of Technology in [AIDS]',
-      institution: 'CMR Institute Of Technology Hyderabad (CMRIT)',
-      year: '2021 - 2025 ',
-      details: 'Focused on core computer science concepts, software development methodologies, and data structures.',
+      text: 'B.Tech (AIDS) · CMRIT Hyderabad · 2021–2025',
+      link: '#education',
+      image: 'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1200&auto=format&fit=crop'
     },
     {
-      degree: 'Intermediate (MPC)',
-      institution: 'Sri Chaitanya  Junior College khammam',
-      year: '2019 - 2021',
-      details: 'Studied Mathematics, Physics, and Chemistry, building a strong foundation in science.',
+      text: 'Intermediate (MPC) · Sri Chaitanya Junior College · 2019–2021',
+      link: '#education',
+      image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop'
     },
     {
-      degree: 'SSC',
-      institution: 'Montessori high school  [khammam]',
-      year: 'Up to 2019',
-      details: 'Completed secondary education with a focus on holistic development.',
-    },
+      text: 'SSC · Montessori High School, Khammam · Up to 2019',
+      link: '#education',
+      image: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1200&auto=format&fit=crop'
+    }
   ];
 
   return (
-    <section id="education" ref={sectionRef} className="min-h-screen bg-gray-800/60 backdrop-blur-sm text-white p-8 flex flex-col items-center justify-center transition-opacity-transform">
-      <div className="container mx-auto text-center">
+    <section id="education" ref={sectionRef} className="min-h-screen bg-gray-800/60 backdrop-blur-sm text-white p-8 flex flex-col items-center justify-center">
+      <div className="container mx-auto text-center w-full">
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-purple">Education</h1>
-
-        <div className="space-y-8 max-w-3xl mx-auto">
-          {educationData.map((edu, index) => (
-            <div key={index} className="bg-gray-700/60 backdrop-blur-sm p-6 rounded-lg shadow-lg text-left">
-              <h2 className="text-2xl font-semibold text-accent-pink mb-1">{edu.degree}</h2>
-              <h3 className="text-xl text-text-muted mb-2">{edu.institution}</h3>
-              <p className="text-accent-yellow mb-3">{edu.year}</p>
-              <p className="text-lg">{edu.details}</p>
-            </div>
-          ))}
+        <div className="w-full h-[70vh] max-h-[800px] rounded-2xl overflow-hidden border border-white/10">
+          <FlowingMenu items={items} />
         </div>
       </div>
     </section>
