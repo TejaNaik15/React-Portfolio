@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LightRays from './components/LightRays';
 import GooeyNav from './components/GooeyNav';
-import FluidGlassHover from './components/FluidGlassHover';
 import Home from './sections/Home';
 import About from './sections/About';
 import Skills from './sections/Skills';
@@ -28,7 +27,6 @@ function App() {
             ]}
           />
         </div>
-        <FluidGlassHover />
         <main className="relative z-10 flex-grow">
           <Routes>
             <Route
