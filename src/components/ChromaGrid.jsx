@@ -115,9 +115,10 @@ export const ChromaGrid = ({
     });
   };
 
-  const handleCardClick = url => {
-    if (url) {
-      window.open(url, '_blank', 'noopener,noreferrer');
+  const handleCardClick = (item) => {
+    const target = item?.liveUrl || item?.url || item?.codeUrl;
+    if (target) {
+      window.open(target, '_blank', 'noopener,noreferrer');
     }
   };
 
@@ -147,7 +148,7 @@ export const ChromaGrid = ({
           key={i}
           className="chroma-card"
           onMouseMove={handleCardMove}
-          onClick={() => handleCardClick(c.url)}
+          onClick={() => handleCardClick(c)}
           style={{
             '--card-border': c.borderColor || 'transparent',
             '--card-gradient': c.gradient,
@@ -162,6 +163,28 @@ export const ChromaGrid = ({
             {c.handle && <span className="handle">{c.handle}</span>}
             <p className="role">{c.subtitle}</p>
             {c.location && <span className="location">{c.location}</span>}
+            <div className="chroma-actions">
+              <button
+                className={`chroma-btn ${c.liveUrl ? '' : 'disabled'}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (c.liveUrl) window.open(c.liveUrl, '_blank', 'noopener,noreferrer');
+                }}
+                aria-disabled={!c.liveUrl}
+              >
+                Live Demo
+              </button>
+              <button
+                className={`chroma-btn outline ${c.codeUrl ? '' : 'disabled'}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (c.codeUrl) window.open(c.codeUrl, '_blank', 'noopener,noreferrer');
+                }}
+                aria-disabled={!c.codeUrl}
+              >
+                Code
+              </button>
+            </div>
           </footer>
         </article>
       ))}
