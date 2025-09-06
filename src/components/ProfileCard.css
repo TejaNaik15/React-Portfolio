@@ -234,7 +234,7 @@
   z-index: 4;
 }
 .pc-avatar-content {
-  mix-blend-mode: screen;
+  
   overflow: hidden;
 }
 .pc-avatar-content .avatar {
