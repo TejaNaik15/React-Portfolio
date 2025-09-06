@@ -7,7 +7,7 @@ const Contact = () => {
   const sectionRef = useScrollReveal({ threshold: 0.1 }); 
 
   return (
-    <section id="contact" ref={sectionRef} className="min-h-screen bg-gray-900 text-white p-8 flex flex-col items-center justify-center transition-opacity-transform">
+    <section id="contact" ref={sectionRef} className="min-h-screen bg-gray-900/60 backdrop-blur-sm text-white p-8 flex flex-col items-center justify-center transition-opacity-transform">
       <div className="container mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-pink">Contact Me</h1>
 
@@ -16,13 +16,8 @@ const Contact = () => {
           You can connect with me via email or LinkedIn.
         </p>
 
-       
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          
-         
-
-         
-          <div className="bg-gray-800 p-6 rounded-lg shadow-lg text-left col-span-1 md:col-span-2 mx-auto w-full md:max-w-xl">
+          <div className="bg-gray-800/60 backdrop-blur-sm p-6 rounded-lg shadow-lg text-left col-span-1 md:col-span-2 mx-auto w-full md:max-w-xl">
             <h2 className="text-2xl font-semibold mb-4 text-accent-purple">Send a Message</h2>
             <form className="space-y-4">
               <div>
@@ -30,7 +25,7 @@ const Contact = () => {
                 <input
                   type="text"
                   id="name"
-                  className="w-full p-3 rounded-md bg-gray-700 border border-gray-600 focus:border-accent-pink focus:ring focus:ring-accent-pink focus:ring-opacity-50 outline-none"
+                  className="w-full p-3 rounded-md bg-gray-700/70 border border-gray-600 focus:border-accent-pink focus:ring focus:ring-accent-pink focus:ring-opacity-50 outline-none"
                   placeholder="Your Name"
                 />
               </div>
@@ -39,7 +34,7 @@ const Contact = () => {
                 <input
                   type="email"
                   id="email"
-                  className="w-full p-3 rounded-md bg-gray-700 border border-gray-600 focus:border-accent-pink focus:ring focus:ring-accent-pink focus:ring-opacity-50 outline-none"
+                  className="w-full p-3 rounded-md bg-gray-700/70 border border-gray-600 focus:border-accent-pink focus:ring focus:ring-accent-pink focus:ring-opacity-50 outline-none"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -48,7 +43,7 @@ const Contact = () => {
                 <textarea
                   id="message"
                   rows="5"
-                  className="w-full p-3 rounded-md bg-gray-700 border border-gray-600 focus:border-accent-pink focus:ring focus:ring-accent-pink focus:ring-opacity-50 outline-none"
+                  className="w-full p-3 rounded-md bg-gray-700/70 border border-gray-600 focus:border-accent-pink focus:ring focus:ring-accent-pink focus:ring-opacity-50 outline-none"
                   placeholder="Your message..."
                 ></textarea>
               </div>

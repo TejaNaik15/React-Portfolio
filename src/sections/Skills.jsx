@@ -1,41 +1,37 @@
-import React from 'react';
-import SkillCard from '../components/SkillCard'; 
-import useScrollReveal from '../hooks/useScrollReveal'; 
-import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaNpm, FaPython, FaCode } from 'react-icons/fa'; 
-import { SiTailwindcss, SiStyledcomponents, SiMongodb, SiExpress, SiFirebase, SiVite, SiKnexdotjs, SiBootstrap } from 'react-icons/si';
+import React, { useMemo } from 'react';
+import useScrollReveal from '../hooks/useScrollReveal';
+import Masonry from '../components/Masonry';
 
+const cdn = (path) => `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${path}`;
 
 const Skills = () => {
   const sectionRef = useScrollReveal({ threshold: 0.1 });
 
-  const skillsData = [
-    { name: 'HTML5', icon: FaHtml5 },
-    { name: 'CSS3', icon: FaCss3Alt },
-    { name: 'JavaScript', icon: FaJsSquare },
-    { name: 'React.js', icon: FaReact },
-    { name: 'Node.js', icon: FaNodeJs },
-    { name: 'MongoDB', icon: SiMongodb },
-    { name: 'Express.js', icon: SiExpress },
-    { name: 'Tailwind CSS', icon: SiTailwindcss },
-    { name: 'Next.js', icon: SiKnexdotjs },
-    { name: 'Git', icon: FaGitAlt },
-    { name: 'GitHub', icon: FaGithub },
-    { name: 'BootStrap', icon: SiBootstrap },
-    { name: 'Vite', icon: SiVite },
-    { name: 'C Language', icon: FaCode }, 
-    { name: 'python', icon: FaPython},
-  ];
+  const items = useMemo(() => [
+    { id: 'html5', img: cdn('html5/html5-original.svg'), height: 280, url: 'https://developer.mozilla.org/docs/Web/HTML' },
+    { id: 'css3', img: cdn('css3/css3-original.svg'), height: 260, url: 'https://developer.mozilla.org/docs/Web/CSS' },
+    { id: 'javascript', img: cdn('javascript/javascript-original.svg'), height: 300, url: 'https://developer.mozilla.org/docs/Web/JavaScript' },
+    { id: 'typescript', img: cdn('typescript/typescript-original.svg'), height: 280, url: 'https://www.typescriptlang.org' },
+    { id: 'react', img: cdn('react/react-original.svg'), height: 320, url: 'https://react.dev' },
+    { id: 'nodejs', img: cdn('nodejs/nodejs-original.svg'), height: 260, url: 'https://nodejs.org' },
+    { id: 'java', img: cdn('java/java-original.svg'), height: 300, url: 'https://www.oracle.com/java/' },
+    { id: 'mongodb', img: cdn('mongodb/mongodb-original.svg'), height: 300, url: 'https://mongodb.com' },
+    { id: 'express', img: cdn('express/express-original.svg'), height: 260, url: 'https://expressjs.com' },
+    { id: 'tailwind', img: cdn('tailwindcss/tailwindcss-original.svg'), height: 280, url: 'https://tailwindcss.com' },
+    { id: 'nextjs', img: cdn('nextjs/nextjs-original.svg'), height: 300, url: 'https://nextjs.org' },
+    { id: 'git', img: cdn('git/git-original.svg'), height: 260, url: 'https://git-scm.com' },
+    { id: 'github', img: cdn('github/github-original.svg'), height: 260, url: 'https://github.com' },
+    { id: 'bootstrap', img: cdn('bootstrap/bootstrap-original.svg'), height: 260, url: 'https://getbootstrap.com' },
+    { id: 'vite', img: cdn('vite/vite-original.svg'), height: 260, url: 'https://vitejs.dev' },
+    { id: 'c', img: cdn('c/c-original.svg'), height: 240, url: 'https://en.wikipedia.org/wiki/C_(programming_language)' },
+    { id: 'python', img: cdn('python/python-original.svg'), height: 300, url: 'https://python.org' },
+  ], []);
 
   return (
-    <section id="skills" ref={sectionRef} className="min-h-screen bg-gray-800 text-white p-8 flex flex-col items-center justify-center transition-opacity-transform">
+    <section id="skills" ref={sectionRef} className="min-h-screen bg-gray-800/60 backdrop-blur-sm text-white p-8 flex flex-col items-center justify-center transition-opacity-transform">
       <div className="container mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-purple">My Skills</h1>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
-          {skillsData.map((skill, index) => (
-            <SkillCard key={index} name={skill.name} icon={skill.icon} />
-          ))}
-        </div>
+        <Masonry items={items} animateFrom="random" colorShiftOnHover={true} />
       </div>
     </section>
   );
