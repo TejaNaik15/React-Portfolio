@@ -239,12 +239,15 @@
 }
 .pc-avatar-content .avatar {
   width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure it covers the whole area without distortion */
   position: absolute;
   left: 50%;
-  transform: translateX(-50%) scale(1);
-  bottom: 2px;
+  top: 50%;
+  transform: translate(-50%, -50%);
   opacity: calc(1.75 - var(--pointer-from-center));
 }
+
 .pc-avatar-content::before {
   content: '';
   position: absolute;
