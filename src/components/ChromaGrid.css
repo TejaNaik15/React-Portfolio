@@ -90,18 +90,41 @@
 .chroma-info {
   position: relative;
   z-index: 1;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1rem 1rem 1rem;
   color: #fff;
   font-family: system-ui, sans-serif;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  row-gap: 0.25rem;
-  column-gap: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.25rem;
 }
 
 .chroma-info .role, .chroma-info .handle {
   color: #aaa;
 }
+
+.chroma-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.chroma-btn {
+  appearance: none;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  line-height: 1;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+.chroma-btn:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.45); }
+.chroma-btn:active { transform: translateY(1px); }
+.chroma-btn.outline { background: transparent; }
+.chroma-btn.disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
 
 .chroma-overlay {
   position: absolute;
