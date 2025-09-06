@@ -27,7 +27,7 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" ref={sectionRef} className="min-h-screen bg-gray-800 text-white p-8 flex flex-col items-center justify-center transition-opacity-transform">
+    <section id="skills" ref={sectionRef} className="min-h-screen bg-gray-800/60 backdrop-blur-sm text-white p-8 flex flex-col items-center justify-center transition-opacity-transform">
       <div className="container mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-purple">My Skills</h1>
 
