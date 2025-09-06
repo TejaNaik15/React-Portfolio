@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import TextPlugin from 'gsap/TextPlugin';
 import ProfileCard from '../components/ProfileCard';
 import SocialIcons from '../components/SocialIcons';
+import ShinyText from '../components/ShinyText';
 
 const Home = () => {
   const typeRef = useRef(null);
@@ -41,6 +42,7 @@ const Home = () => {
           <h1 ref={headingRef} className="text-4xl md:text-6xl font-extrabold leading-tight">
             Hi there, I'm <span className="text-accent-blue">Teja Naik</span>
           </h1>
+          <ShinyText text="Crafting modern web experiences" speed={6} className="text-2xl md:text-3xl mb-2" />
           <p ref={subRef} className="text-lg md:text-2xl text-text-muted">
             I'm into <span className="text-white"><span ref={typeRef} className="border-r-2 border-white pr-1" /></span>
           </p>
