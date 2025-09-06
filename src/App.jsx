@@ -15,19 +15,17 @@ function App() {
     <Router>
       <div className="relative flex flex-col min-h-screen bg-primary-dark">
         <LightRays />
-        <div className="fixed inset-0 z-40 pointer-events-none flex items-center justify-center">
-          <div className="pointer-events-auto">
-            <GooeyNav
-              items={[
-                { label: 'Home', href: '#home' },
-                { label: 'About', href: '#about' },
-                { label: 'Skills', href: '#skills' },
-                { label: 'Projects', href: '#projects' },
-                { label: 'Education', href: '#education' },
-                { label: 'Contact', href: '#contact' },
-              ]}
-            />
-          </div>
+        <div className="fixed top-0 left-0 right-0 z-40 flex justify-center pt-4">
+          <GooeyNav
+            items={[
+              { label: 'Home', href: '#home' },
+              { label: 'About', href: '#about' },
+              { label: 'Skills', href: '#skills' },
+              { label: 'Projects', href: '#projects' },
+              { label: 'Education', href: '#education' },
+              { label: 'Contact', href: '#contact' },
+            ]}
+          />
         </div>
         <main className="relative z-10 flex-grow">
           <Routes>
