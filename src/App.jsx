@@ -28,6 +28,7 @@ function App() {
             ]}
           />
         </div>
+        <FluidGlassHover />
         <main className="relative z-10 flex-grow">
           <Routes>
             <Route
