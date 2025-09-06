@@ -67,6 +67,8 @@ const Projects = () => {
 
   const items = projectsData.map((p, idx) => {
     const color = colorPalette[idx % colorPalette.length];
+    const liveUrl = p.liveDemoLink && p.liveDemoLink !== '#' ? p.liveDemoLink : undefined;
+    const codeUrl = p.githubLink && p.githubLink !== '#' ? p.githubLink : undefined;
     return {
       image: p.image,
       title: p.title,
@@ -74,7 +76,9 @@ const Projects = () => {
       handle: p.technologies.join(' · '),
       borderColor: color,
       gradient: `linear-gradient(145deg, ${color}, #000)`,
-      url: p.liveDemoLink || p.githubLink,
+      liveUrl,
+      codeUrl,
+      url: liveUrl || codeUrl,
     };
   });
 
