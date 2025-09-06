@@ -8,9 +8,18 @@ const About = () => {
     <section id="about" className="py-16 text-white text-center px-4 bg-[#1F2937]/60 backdrop-blur-sm">
 
   <div className="container mx-auto max-w-4xl">
-    <h2 className="text-4xl md:text-5xl font-bold mb-8 text-accent-pink">
+    <h2 className="text-4xl md:text-5xl font-bold mb-2 text-accent-pink">
       About Me
     </h2>
+    <div className="mb-6">
+      {/* Shiny accent */}
+      <span>
+        {(() => {
+          const ShinyText = require('../components/ShinyText').default;
+          return <ShinyText text="A glimpse into who I am" speed={6} className="text-2xl md:text-3xl" />;
+        })()}
+      </span>
+    </div>
     <p className="text-lg md:text-xl leading-relaxed mb-4 text-text-muted">
       Hello there! I'm Teja Naik, a dedicated **MERN Stack Developer** fueled by curiosity and a relentless passion for crafting innovative web solutions.
     </p>
