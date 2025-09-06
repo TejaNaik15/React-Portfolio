@@ -42,8 +42,8 @@ const projectsData = [
   },
   {
     id: 5,
-    title: '3D Product Showcase',
-    description: 'Interactive 3D product scenes on the web using Three.js and modern shaders.',
+    title: 'AI-Resume Analyzer',
+    description: 'Upload your resume, analyze it, and view AI-driven insights such as scores, summaries, and improvement suggestions.',
     image: 'https://images.unsplash.com/photo-1551817958-20204d6ab3d9?q=80&w=1200&auto=format&fit=crop',
     technologies: ['Three.js', 'React Three Fiber', 'Vite'],
     githubLink: 'https://github.com/TejaNaik15',
