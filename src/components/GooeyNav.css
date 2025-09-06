@@ -92,9 +92,9 @@
 }
 
 .gooey-nav-container nav ul li.active::after {
-  background: var(--rays-color, #ffffff);
-  opacity: 0.9;
-  transform: scale(1);
+  background: transparent;
+  opacity: 0;
+  transform: scale(0.98);
 }
 
 .gooey-nav-container .effect {
@@ -136,7 +136,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--rays-color, #ffffff);
+  background: transparent;
   transform: scale(0);
   opacity: 0;
   z-index: -1;
@@ -144,7 +144,8 @@
 }
 
 .gooey-nav-container .effect.active::after {
-  animation: pill 0.3s ease both;
+  animation: none;
+  opacity: 0;
 }
 
 @keyframes pill {
