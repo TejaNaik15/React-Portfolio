@@ -42,10 +42,11 @@ const Home = () => {
           <h1 ref={headingRef} className="text-4xl md:text-6xl font-extrabold leading-tight">
             Hi there, I'm <span className="text-accent-blue">Teja Naik</span>
           </h1>
-          <ShinyText text="I’m a passionate MERN Stack Developer specializing in building modern, responsive, and scalable web applications." speed={6} className="text-2xl md:text-3xl mb-2" />
-          <p ref={subRef} className="text-lg md:text-2xl text-text-muted">
+           <p ref={subRef} className="text-lg md:text-2xl text-text-muted">
             I'm into <span className="text-white"><span ref={typeRef} className="border-r-2 border-white pr-1" /></span>
           </p>
+          <ShinyText text="I’m a passionate MERN Stack Developer specializing in building modern, responsive, and scalable web applications." speed={6} className="text-2xl md:text-3xl mb-2" />
+         
           <div className="flex items-center gap-6 pt-2">
             <SocialIcons type="linkedin" link="https://www.linkedin.com/in/teja-naik-0b3021282" />
             <SocialIcons type="email" link="tinkuteja740@gmail.com" />
