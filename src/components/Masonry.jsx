@@ -172,6 +172,12 @@ const Masonry = ({
     }
   };
 
+  useLayoutEffect(() => {
+    if (!containerRef.current) return;
+    const h = grid.length ? Math.max(...grid.map((i) => i.y + i.h)) : 0;
+    containerRef.current.style.height = `${Math.ceil(h)}px`;
+  }, [grid, containerRef]);
+
   return (
     <div ref={containerRef} className="list">
       {grid.map((item) => {
