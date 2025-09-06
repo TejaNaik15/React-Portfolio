@@ -13,8 +13,8 @@ import Footer from './layouts/Footer';
 function App() {
   return (
     <Router>
-      <div className="relative flex flex-col min-h-screen bg-primary-dark">
-        <LightRays />
+      <div className="relative flex flex-col min-h-screen bg-primary-dark" style={{ ['--rays-color']: '#13ADC7' }}>
+        <LightRays raysColor="#13ADC7" />
         <div className="fixed top-0 left-0 right-0 z-40 flex justify-center pt-4">
           <GooeyNav
             items={[
