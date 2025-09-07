@@ -89,6 +89,7 @@ const Particles = ({
   sizeRandomness = 1,
   cameraDistance = 20,
   disableRotation = false,
+  interactive = false,
   className
 }) => {
   const containerRef = useRef(null);
@@ -220,7 +221,7 @@ const Particles = ({
     disableRotation
   ]);
 
-  return <div ref={containerRef} className={`particles-container ${className || ''}`} />;
+  return <div ref={containerRef} className={`particles-container ${className || ''}`} style={{ pointerEvents: interactive ? 'auto' : 'none' }} />;
 };
 
 export default Particles;
