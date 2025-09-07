@@ -7,14 +7,12 @@ const eduData = [
     school: 'CMR Institute of Technology, Hyderabad',
     degree: 'B.Tech (Artificial Intelligence & Data Science)',
     date: '2021 – 2025',
-    grade: 'CGPA: 8.5+',
-    desc: 'Coursework in Data Structures, Algorithms, DBMS, Operating Systems, Web Development, and ML. Built multiple MERN projects and led tech fests.'
+    desc: 'Coursework in Web Development, Data Structures, Algorithms, DBMS, Operating Systems, and ML. Built multiple MERN projects and led tech fests.'
   },
   {
     school: 'Sri Chaitanya Junior College',
     degree: 'Intermediate (MPC)',
     date: '2019 – 2021',
-    grade: 'Score: 95%+',
     desc: 'Focused on Mathematics and Physics fundamentals. Participated in science exhibitions and olympiads.'
   },
   {
