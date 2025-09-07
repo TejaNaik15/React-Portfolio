@@ -158,7 +158,8 @@ const GooeyNav = ({
           {items.map((item, index) => (
             <li key={index} className={activeIndex === index ? 'active' : ''}>
               <a href={item.href} onClick={(e) => handleClick(e, index)} onKeyDown={(e) => handleKeyDown(e, index)}>
-                {item.label}
+                {item.icon && <span className="inline-flex mr-2 align-middle">{item.icon}</span>}
+                <span className="align-middle">{item.label}</span>
               </a>
             </li>
           ))}

@@ -7,9 +7,9 @@ const Contact = () => {
   const sectionRef = useScrollReveal({ threshold: 0.1 }); 
 
   return (
-    <section id="contact" ref={sectionRef} className="min-h-screen bg-gray-900/60 backdrop-blur-sm text-white p-8 flex flex-col items-center justify-center transition-opacity-transform">
+    <section id="contact" ref={sectionRef} className="min-h-screen bg-primary-dark text-white p-8 flex flex-col items-center justify-center transition-opacity-transform scroll-mt-28 md:scroll-mt-40">
       <div className="container mx-auto text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-pink">Contact Me</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-blue">Contact Me</h1>
 
         <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
           Feel free to reach out to me for collaborations, job opportunities, or just a chat!
@@ -18,7 +18,7 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div className="bg-gray-800/60 backdrop-blur-sm p-6 rounded-lg shadow-lg text-left col-span-1 md:col-span-2 mx-auto w-full md:max-w-xl">
-            <h2 className="text-2xl font-semibold mb-4 text-accent-purple">Send a Message</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-accent-blue">Send a Message</h2>
             <form className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-lg font-medium text-text-muted mb-1">Name</label>
@@ -49,7 +49,7 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-accent-pink text-white px-6 py-3 rounded-full text-lg hover:bg-accent-purple transition-colors duration-300"
+                className="w-full bg-accent-blue text-white px-6 py-3 rounded-full text-lg hover:bg-accent-purple transition-colors duration-300"
               >
                 Send Message
               </button>

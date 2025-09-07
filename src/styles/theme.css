@@ -1,0 +1,40 @@
+.theme-dark { color-scheme: dark; }
+.theme-light { color-scheme: light; }
+
+/* Base text/background overrides for light theme */
+.theme-light .bg-primary-dark { background-color: #f8fafc !important; }
+.theme-light .text-white { color: #0f172a !important; }
+.theme-light .text-text-muted { color: #334155 !important; }
+.theme-light h1, .theme-light h2, .theme-light h3, .theme-light h4 { color: #0f172a; }
+.theme-light a { color: #0f172a; }
+
+/* Sections with blurred dark backgrounds -> soften for light */
+.theme-light .bg-gray-800\/60 { background-color: rgba(148, 163, 184, 0.16) !important; }
+.theme-light .bg-gray-900\/60 { background-color: rgba(100, 116, 139, 0.12) !important; }
+
+/* Nav (gooey) */
+.theme-light .gooey-nav-container nav ul { background: rgba(255,255,255,0.75); border-color: rgba(0,0,0,0.1); }
+.theme-light .gooey-nav-container nav ul li { color: #0f172a; }
+.theme-light .gooey-nav-container .effect.text { color: #0f172a; }
+
+/* Buttons */
+.theme-light .chroma-btn { color: #0f172a; border-color: rgba(0,0,0,0.2); background: rgba(15,23,42,0.04); }
+.theme-light .chroma-btn:hover { background: rgba(15,23,42,0.08); border-color: rgba(0,0,0,0.35); }
+
+/* ChromaGrid */
+.theme-light .chroma-info { color: #0f172a; }
+.theme-light .chroma-info .role, .theme-light .chroma-info .handle { color: #475569; }
+.theme-light .chroma-card { border-color: rgba(0,0,0,0.12); }
+.theme-light .chroma-overlay, .theme-light .chroma-fade { backdrop-filter: grayscale(0.9) brightness(1); -webkit-backdrop-filter: grayscale(0.9) brightness(1); }
+
+/* Contact form */
+.theme-light input, .theme-light textarea { background: #eef2f7 !important; border-color: #cbd5e1 !important; color: #0f172a !important; }
+.theme-light input::placeholder, .theme-light textarea::placeholder { color: #64748b !important; }
+
+/* Settings panel */
+.settings-toggle { display: inline-flex; align-items: center; gap: 0.5rem; }
+.settings-pop { display: inline-flex; gap: 0.4rem; padding-left: 0.25rem; }
+.settings-btn { display:inline-grid; place-items:center; width:40px; height:40px; border-radius:999px; border:1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.06); color:#fff; transition: background .2s ease, transform .15s ease; }
+.settings-btn:hover { background: rgba(255,255,255,0.15); }
+.theme-light .settings-btn { color:#0f172a; border-color: rgba(0,0,0,0.2); background: rgba(0,0,0,0.05); }
+.theme-light .settings-btn:hover { background: rgba(0,0,0,0.1); }

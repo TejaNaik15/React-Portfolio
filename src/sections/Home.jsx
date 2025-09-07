@@ -36,11 +36,11 @@ const Home = () => {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center text-white overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center text-white overflow-hidden scroll-mt-28 md:scroll-mt-40">
       <div className="relative z-10 container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div className="space-y-6">
           <h1 ref={headingRef} className="text-4xl md:text-6xl font-extrabold leading-tight">
-            Hi, I am<br /> <span className="text-accent-blue">Keloth Teja Naik</span>
+            Hi, I am<br /> <span className="gradient-name">Keloth Teja Naik</span>
           </h1>
            <p ref={subRef} className="text-lg md:text-2xl text-text-muted">
             I'm into <span className="text-white"><span ref={typeRef} className="border-r-2 border-white pr-1" /></span>
@@ -58,9 +58,7 @@ const Home = () => {
             </a>
           </div>
         </div>
-        <div className="md:justify-self-end">
-          <ProfileCard name="Teja Naik" title="MERN Developer" handle="tejanaik" />
-        </div>
+        <div id="profile-home-slot" className="md:justify-self-end min-h-[360px]" />
       </div>
     </section>
   );
