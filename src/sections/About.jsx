@@ -2,6 +2,7 @@ import React from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
 import ShinyText from '../components/ShinyText';
 import VariableProximity from '../components/VariableProximity';
+import SocialIcons from '../components/SocialIcons';
 
 const About = () => {
   const sectionRef = useScrollReveal({ threshold: 0.1 });
@@ -55,12 +56,8 @@ const About = () => {
               Download Resume
             </a>
             <div className="flex items-center gap-3">
-              <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="text-3xl text-white hover:text-accent-pink transition-colors duration-300" aria-label="Instagram">
-                <i className="ri-instagram-line" />
-              </a>
-              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="text-3xl text-white hover:text-accent-blue transition-colors duration-300" aria-label="Twitter">
-                <i className="ri-twitter-x-line" />
-              </a>
+              <SocialIcons type="instagram" link="https://instagram.com/" />
+              <SocialIcons type="twitter" link="https://twitter.com/" />
             </div>
           </div>
         </div>
