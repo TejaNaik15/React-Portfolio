@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
 import Masonry from '../components/Masonry';
 import Particles from '../components/Particles';
@@ -9,26 +9,26 @@ const Skills = () => {
   const sectionRef = useScrollReveal({ threshold: 0.1 });
 
   const items = useMemo(() => [
-    { id: 'html5', img: cdn('html5/html5-original.svg'), height: 280, url: 'https://developer.mozilla.org/docs/Web/HTML' },
-    { id: 'css3', img: cdn('css3/css3-original.svg'), height: 260, url: 'https://developer.mozilla.org/docs/Web/CSS' },
-    { id: 'javascript', img: cdn('javascript/javascript-original.svg'), height: 300, url: 'https://developer.mozilla.org/docs/Web/JavaScript' },
-    { id: 'typescript', img: cdn('typescript/typescript-original.svg'), height: 280, url: 'https://www.typescriptlang.org' },
-    { id: 'react', img: cdn('react/react-original.svg'), height: 320, url: 'https://react.dev' },
-    { id: 'nodejs', img: cdn('nodejs/nodejs-original.svg'), height: 260, url: 'https://nodejs.org' },
-    { id: 'java', img: cdn('java/java-original.svg'), height: 300, url: 'https://www.oracle.com/java/' },
-    { id: 'mongodb', img: cdn('mongodb/mongodb-original.svg'), height: 300, url: 'https://mongodb.com' },
-    { id: 'express', img: cdn('express/express-original.svg'), height: 260, url: 'https://expressjs.com' },
-    { id: 'tailwind', img: cdn('tailwindcss/tailwindcss-original.svg'), height: 280, url: 'https://tailwindcss.com' },
-    { id: 'nextjs', img: cdn('nextjs/nextjs-original.svg'), height: 300, url: 'https://nextjs.org' },
-    { id: 'git', img: cdn('git/git-original.svg'), height: 260, url: 'https://git-scm.com' },
-    { id: 'github', img: cdn('github/github-original.svg'), height: 260, url: 'https://github.com' },
-    { id: 'bootstrap', img: cdn('bootstrap/bootstrap-original.svg'), height: 260, url: 'https://getbootstrap.com' },
-    { id: 'vite', img: cdn('vite/vite-original.svg'), height: 260, url: 'https://vitejs.dev' },
-    { id: 'c', img: cdn('c/c-original.svg'), height: 240, url: 'https://en.wikipedia.org/wiki/C_(programming_language)' },
-    { id: 'python', img: cdn('python/python-original.svg'), height: 300, url: 'https://python.org' },
-    { id: 'firebase', img: cdn('firebase/firebase-plain.svg'), height: 260, url: 'https://firebase.google.com' },
-    { id: 'reactrouter', img: cdn('reactrouter/reactrouter-plain.svg'), height: 240, url: 'https://reactrouter.com' },
-    { id: 'figma', img: cdn('figma/figma-original.svg'), height: 260, url: 'https://www.figma.com' },
+    { id: 'html5', name: 'HTML5', img: cdn('html5/html5-original.svg'), height: 280, url: 'https://developer.mozilla.org/docs/Web/HTML' },
+    { id: 'css3', name: 'CSS3', img: cdn('css3/css3-original.svg'), height: 260, url: 'https://developer.mozilla.org/docs/Web/CSS' },
+    { id: 'javascript', name: 'JavaScript', img: cdn('javascript/javascript-original.svg'), height: 300, url: 'https://developer.mozilla.org/docs/Web/JavaScript' },
+    { id: 'typescript', name: 'TypeScript', img: cdn('typescript/typescript-original.svg'), height: 280, url: 'https://www.typescriptlang.org' },
+    { id: 'react', name: 'React', img: cdn('react/react-original.svg'), height: 320, url: 'https://react.dev' },
+    { id: 'nodejs', name: 'Node.js', img: cdn('nodejs/nodejs-original.svg'), height: 260, url: 'https://nodejs.org' },
+    { id: 'java', name: 'Java', img: cdn('java/java-original.svg'), height: 300, url: 'https://www.oracle.com/java/' },
+    { id: 'mongodb', name: 'MongoDB', img: cdn('mongodb/mongodb-original.svg'), height: 300, url: 'https://mongodb.com' },
+    { id: 'express', name: 'Express.js', img: cdn('express/express-original.svg'), height: 260, url: 'https://expressjs.com' },
+    { id: 'tailwind', name: 'Tailwind CSS', img: cdn('tailwindcss/tailwindcss-original.svg'), height: 280, url: 'https://tailwindcss.com' },
+    { id: 'nextjs', name: 'Next.js', img: cdn('nextjs/nextjs-original.svg'), height: 300, url: 'https://nextjs.org' },
+    { id: 'git', name: 'Git', img: cdn('git/git-original.svg'), height: 260, url: 'https://git-scm.com' },
+    { id: 'github', name: 'GitHub', img: cdn('github/github-original.svg'), height: 260, url: 'https://github.com' },
+    { id: 'bootstrap', name: 'Bootstrap', img: cdn('bootstrap/bootstrap-original.svg'), height: 260, url: 'https://getbootstrap.com' },
+    { id: 'vite', name: 'Vite', img: cdn('vite/vite-original.svg'), height: 260, url: 'https://vitejs.dev' },
+    { id: 'c', name: 'C Programming', img: cdn('c/c-original.svg'), height: 240, url: 'https://en.wikipedia.org/wiki/C_(programming_language)' },
+    { id: 'python', name: 'Python', img: cdn('python/python-original.svg'), height: 300, url: 'https://python.org' },
+    { id: 'firebase', name: 'Firebase', img: cdn('firebase/firebase-plain.svg'), height: 260, url: 'https://firebase.google.com' },
+    { id: 'reactrouter', name: 'React Router', img: cdn('reactrouter/reactrouter-plain.svg'), height: 240, url: 'https://reactrouter.com' },
+    { id: 'figma', name: 'Figma', img: cdn('figma/figma-original.svg'), height: 260, url: 'https://www.figma.com' },
   ], []);
 
   return (
@@ -36,9 +36,26 @@ const Skills = () => {
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Particles className="w-full h-full" alphaParticles={true} particleCount={160} speed={0.1} particleBaseSize={70} sizeRandomness={1} />
       </div>
+
       <div className="relative z-10 container mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-blue">My Skills</h1>
-        <Masonry items={items} animateFrom="random" colorShiftOnHover={true} />
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+          {items.map((item) => (
+            <a
+              key={item.id}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative flex flex-col items-center justify-center p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition"
+            >
+              <img src={item.img} alt={item.name} className="w-20 h-20 object-contain" />
+              {/* Tooltip */}
+              <span className="absolute bottom-2 opacity-0 group-hover:opacity-100 bg-gray-900 text-white text-sm px-2 py-1 rounded shadow transition-opacity">
+                {item.name}
+              </span>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   );
