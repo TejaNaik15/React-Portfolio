@@ -43,14 +43,20 @@
 
 .gooey-nav-container nav ul {
   display: flex;
-  gap: 2em;
+  gap: 1.2em;
   list-style: none;
-  padding: 0 1em;
+  padding: 0.4em 0.6em;
   margin: 0;
   position: relative;
   z-index: 3;
   color: white;
   text-shadow: 0 1px 1px hsl(205deg 30% 10% / 0.2);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 999px;
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 
 .gooey-nav-container nav ul li {
@@ -68,6 +74,12 @@
 .gooey-nav-container nav ul li a {
   display: inline-block;
   padding: 0.6em 1em;
+  border-radius: 999px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.gooey-nav-container nav ul li:hover a {
+  background: rgba(255,255,255,0.08);
 }
 
 .gooey-nav-container nav ul li:focus-within:has(:focus-visible) {
