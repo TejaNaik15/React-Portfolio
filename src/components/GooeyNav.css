@@ -123,12 +123,7 @@
 }
 
 .gooey-nav-container .effect.text {
-  color: white;
-  transition: color 0.3s ease;
-}
-
-.gooey-nav-container .effect.text.active {
-  color: white;
+  display: none;
 }
 
 .gooey-nav-container .effect.filter {
