@@ -19,7 +19,7 @@ const eduData = [
     school: 'Montessori High School, Khammam',
     degree: 'SSC',
     date: 'Up to 2019',
-    grade: 'GPA: 10/10',
+    
     desc: 'Excelled in academics and extracurriculars; developed strong problem-solving foundations.'
   }
 ];
