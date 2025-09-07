@@ -40,24 +40,27 @@ const Skills = () => {
       <div className="relative z-10 container mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-blue">My Skills</h1>
 
-        <Masonry items={items.map(item => ({
-          ...item,
-          content: (
-            <a
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative flex flex-col items-center justify-center p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition"
-            >
-              <img src={item.img} alt={item.name} className="w-20 h-20 object-contain" />
-              
-              {/* Tooltip */}
-              <span className="absolute bottom-2 opacity-0 group-hover:opacity-100 bg-gray-900 text-white text-sm px-2 py-1 rounded shadow transition-opacity">
-                {item.name}
-              </span>
-            </a>
-          )
-        }))} animateFrom="random" colorShiftOnHover={true} />
+        <Masonry
+          items={items.map(item => ({
+            ...item,
+            img: (
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex flex-col items-center justify-center"
+              >
+                <img src={item.img} alt={item.name} className="w-20 h-20 object-contain" />
+                {/* Tooltip */}
+                <span className="absolute bottom-0 mt-2 opacity-0 group-hover:opacity-100 bg-gray-900 text-white text-sm px-2 py-1 rounded shadow transition-opacity whitespace-nowrap">
+                  {item.name}
+                </span>
+              </a>
+            )
+          }))}
+          animateFrom="random"
+          colorShiftOnHover={true}
+        />
       </div>
     </section>
   );
