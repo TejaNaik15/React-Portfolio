@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
 import Masonry from '../components/Masonry';
 import Particles from '../components/Particles';
@@ -39,23 +39,25 @@ const Skills = () => {
 
       <div className="relative z-10 container mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-blue">My Skills</h1>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-          {items.map((item) => (
+
+        <Masonry items={items.map(item => ({
+          ...item,
+          content: (
             <a
-              key={item.id}
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative flex flex-col items-center justify-center p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition"
             >
               <img src={item.img} alt={item.name} className="w-20 h-20 object-contain" />
+              
               {/* Tooltip */}
               <span className="absolute bottom-2 opacity-0 group-hover:opacity-100 bg-gray-900 text-white text-sm px-2 py-1 rounded shadow transition-opacity">
                 {item.name}
               </span>
             </a>
-          ))}
-        </div>
+          )
+        }))} animateFrom="random" colorShiftOnHover={true} />
       </div>
     </section>
   );
