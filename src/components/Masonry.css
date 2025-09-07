@@ -16,7 +16,7 @@
 .item-img {
   position: absolute;
   inset: 0;
-  background-size: 70% auto;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   background-color: rgba(17,24,39,0.6);
