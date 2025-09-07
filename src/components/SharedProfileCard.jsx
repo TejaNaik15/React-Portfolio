@@ -34,14 +34,21 @@ const SharedProfileCard = () => {
           const state = Flip.getState(container);
           targetSlot.appendChild(container);
           currentSlot.current = targetSlot;
-          Flip.from(state, {
-            duration: 1.1,
-            ease: 'expo.inOut',
+          gsap.set(container, { transformStyle: 'preserve-3d' });
+          const tl = gsap.timeline();
+          tl.add(Flip.from(state, {
+            duration: 2.2,
+            ease: 'power4.inOut',
             absolute: true,
-            stagger: 0.02,
-            onEnter: (els) => gsap.fromTo(els, { rotateY: -35, rotate: -12, scale: 0.8, opacity: 0 }, { rotateY: 0, rotate: 0, scale: 1, opacity: 1, duration: 1.1, ease: 'expo.out' }),
-            onLeave: (els) => gsap.to(els, { opacity: 0, duration: 0.4 }),
-          });
+            prune: true,
+            onEnter: (els) => gsap.fromTo(
+              els,
+              { rotateY: -50, rotateX: 10, yPercent: -10, scale: 0.85, filter: 'blur(6px)', opacity: 0.2 },
+              { rotateY: 0, rotateX: 0, yPercent: 0, scale: 1, filter: 'blur(0px)', opacity: 1, duration: 2.2, ease: 'power4.out' }
+            ),
+          }))
+          .to(container, { boxShadow: '0 25px 80px rgba(19,173,199,0.35)', duration: 0.6, ease: 'sine.out' }, '<0.4')
+          .to(container, { boxShadow: '0 10px 30px rgba(0,0,0,0.25)', duration: 0.8, ease: 'sine.inOut' }, '>-0.2');
         });
       },
       { threshold: 0.4 }
