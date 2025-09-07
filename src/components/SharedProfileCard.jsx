@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { gsap } from 'gsap';
-import Flip from 'gsap/Flip';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ProfileCard from './ProfileCard';
 
-gsap.registerPlugin(Flip, ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 const getSlot = (id) => document.getElementById(id);
 
@@ -25,23 +24,57 @@ const SharedProfileCard = () => {
     home.appendChild(container);
     setMounted(true);
 
-    const flipTo = (target) => {
+    const flyTo = (target) => {
       if (!target || target === currentSlot.current) return;
-      const state = Flip.getState(container);
-      target.appendChild(container);
-      currentSlot.current = target;
-      return Flip.from(state, {
-        duration: 1.0,
-        ease: 'power3.inOut',
-        absolute: true,
-        prune: true,
-        nested: true,
-        onEnter: (els) => gsap.fromTo(els, { rotateY: -25, yPercent: -6, scale: 0.95, opacity: 0.2, filter: 'blur(6px)' }, { rotateY: 0, yPercent: 0, scale: 1, opacity: 1, filter: 'blur(0px)', duration: 0.8, ease: 'power3.out' })
+      const start = container.getBoundingClientRect();
+      const end = target.getBoundingClientRect();
+
+      // Ghost element animates while real card teleports at the end
+      const ghost = container.cloneNode(true);
+      Object.assign(ghost.style, {
+        position: 'fixed',
+        left: `${start.left}px`,
+        top: `${start.top}px`,
+        width: `${start.width}px`,
+        height: `${start.height}px`,
+        zIndex: 1000,
+        pointerEvents: 'none',
       });
+      document.body.appendChild(ghost);
+      container.style.visibility = 'hidden';
+
+      const scaleX = end.width / start.width;
+      const scaleY = end.height / start.height;
+
+      const tl = gsap.timeline({
+        defaults: { ease: 'power4.inOut' },
+        onComplete: () => {
+          target.appendChild(container);
+          container.style.visibility = '';
+          ghost.remove();
+          currentSlot.current = target;
+        }
+      });
+
+      tl.fromTo(
+        ghost,
+        { filter: 'blur(4px)', opacity: 0.85, rotateY: -12, rotateX: 6, transformOrigin: 'top left' },
+        {
+          x: end.left - start.left,
+          y: end.top - start.top,
+          scaleX,
+          scaleY,
+          rotateY: 0,
+          rotateX: 0,
+          filter: 'blur(0px)',
+          opacity: 1,
+          duration: 1.1,
+        }
+      );
     };
 
-    const toAbout = () => flipTo(aboutSlot);
-    const toHome = () => flipTo(home);
+    const toAbout = () => flyTo(aboutSlot);
+    const toHome = () => flyTo(home);
 
     const st = ScrollTrigger.create({
       trigger: aboutSection,
@@ -52,18 +85,7 @@ const SharedProfileCard = () => {
     });
 
     // gentle parallax while scrolling through about
-    const p = gsap.to(container, {
-      yPercent: -6,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: aboutSection,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 0.5,
-      }
-    });
-
-    return () => { st.kill(); p.kill(); };
+    return () => { st.kill(); };
   }, [container]);
 
   if (!mounted) return null;
