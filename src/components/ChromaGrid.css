@@ -108,6 +108,27 @@
   display: flex;
   gap: 0.5rem;
   margin-top: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tech-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-right: 0.25rem;
+}
+.tech-icons .tech-icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+.tech-icons .tech-icon img {
+  width: 20px;
+  height: 20px;
+  display: block;
+  border-radius: 4px;
 }
 
 .chroma-btn {
