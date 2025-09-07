@@ -10,7 +10,7 @@ const SocialWrapper = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center space-y-4 md:flex-row md:space-y-0 md:space-x-6 text-3xl">
+    <div className="flex flex-wrap justify-center space-x-6 text-3xl">
       {socialLinks.map((social, index) => (
         <SocialIcons key={index} type={social.type} link={social.link} />
       ))}
