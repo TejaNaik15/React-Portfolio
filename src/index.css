@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import './styles/theme.css';
+@import './styles/gradient.css';
 
 
 body {
