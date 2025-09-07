@@ -11,11 +11,18 @@ const About = () => {
   const to = "'wght' 900, 'opsz' 72";
 
   return (
-    <section id="about" ref={sectionRef} className="py-16 text-white text-center px-4 bg-[#1F2937]/60 backdrop-blur-sm scroll-mt-28 md:scroll-mt-40">
+    <section id="about" ref={sectionRef} className="py-16 text-white text-center px-4 bg-[#1F2937] scroll-mt-28 md:scroll-mt-40">
       <div className="container mx-auto max-w-4xl">
-        <h2 className="text-4xl md:text-5xl font-bold mb-2 text-accent-pink">About Me</h2>
-        <div className="mb-8">
+        <h2 className="text-4xl md:text-5xl font-bold mb-2 text-accent-blue">About Me</h2>
+        <div className="mb-8 flex flex-col items-center gap-4">
           <ShinyText text="A glimpse into who I am" speed={6} className="text-2xl md:text-3xl" />
+          <a
+            href="/assets/resume.pdf"
+            download
+            className="inline-block bg-accent-blue text-white px-6 py-3 rounded-full text-lg hover:bg-white/20 border border-accent-blue/40 transition-colors duration-300"
+          >
+            Download Resume
+          </a>
         </div>
         <div className="space-y-4 text-text-muted text-lg md:text-xl leading-relaxed">
           <VariableProximity
