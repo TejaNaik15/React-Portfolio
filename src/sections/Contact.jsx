@@ -18,7 +18,7 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div className="bg-gray-800/60 backdrop-blur-sm p-6 rounded-lg shadow-lg text-left col-span-1 md:col-span-2 mx-auto w-full md:max-w-xl">
-            <h2 className="text-2xl font-semibold mb-4 text-accent-purple">Send a Message</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-accent-blue">Send a Message</h2>
             <form className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-lg font-medium text-text-muted mb-1">Name</label>
