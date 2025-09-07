@@ -1,7 +1,7 @@
 import React from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
 import ChromaGrid from '../components/ChromaGrid';
-import { SiReact, SiNodedotjs, SiExpress, SiTailwindcss, SiTypescript, SiStyledcomponents, SiGsap, SiFirebase, SiVite, SiReactrouter } from 'react-icons/si';
+import { SiReact, SiNodedotjs, SiExpress, SiTailwindcss, SiTypescript, SiStyledcomponents, SiJavascript, SiFirebase, SiVite, SiReactrouter } from 'react-icons/si';
 
 const projectsData = [
   {
