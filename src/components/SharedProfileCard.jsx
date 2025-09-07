@@ -37,18 +37,18 @@ const SharedProfileCard = () => {
           gsap.set(container, { transformStyle: 'preserve-3d' });
           const tl = gsap.timeline();
           tl.add(Flip.from(state, {
-            duration: 2.2,
+            duration: 1.4,
             ease: 'power4.inOut',
             absolute: true,
             prune: true,
             onEnter: (els) => gsap.fromTo(
               els,
-              { rotateY: -50, rotateX: 10, yPercent: -10, scale: 0.85, filter: 'blur(6px)', opacity: 0.2 },
-              { rotateY: 0, rotateX: 0, yPercent: 0, scale: 1, filter: 'blur(0px)', opacity: 1, duration: 2.2, ease: 'power4.out' }
+              { rotateY: -40, rotateX: 8, yPercent: -8, scale: 0.9, filter: 'blur(6px)', opacity: 0.2 },
+              { rotateY: 0, rotateX: 0, yPercent: 0, scale: 1.02, filter: 'blur(0px)', opacity: 1, duration: 1.1, ease: 'power4.out' }
             ),
           }))
-          .to(container, { boxShadow: '0 25px 80px rgba(19,173,199,0.35)', duration: 0.6, ease: 'sine.out' }, '<0.4')
-          .to(container, { boxShadow: '0 10px 30px rgba(0,0,0,0.25)', duration: 0.8, ease: 'sine.inOut' }, '>-0.2');
+          .to(container, { y: -8, duration: 0.25, ease: 'sine.out' }, '>-0.2')
+          .to(container, { y: 0, scale: 1, boxShadow: '0 18px 60px rgba(19,173,199,0.28)', duration: 0.5, ease: 'back.out(1.6)' });
         });
       },
       { threshold: 0.4 }
