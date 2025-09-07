@@ -18,12 +18,10 @@ function App() {
         <div className="fixed top-0 left-0 right-0 z-40 flex justify-center pt-4">
           <GooeyNav
             items={[
-              { label: 'Home', href: '#home' },
               { label: 'About', href: '#about' },
               { label: 'Skills', href: '#skills' },
               { label: 'Projects', href: '#projects' },
               { label: 'Education', href: '#education' },
-              { label: 'Contact', href: '#contact' },
             ]}
           />
         </div>
