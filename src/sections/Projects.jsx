@@ -65,16 +65,16 @@ const colorPalette = ['#4F46E5', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#0
 
 const techIconFor = (name) => {
   const key = String(name).toLowerCase();
-  if (key.includes('react router')) return <SiReactrouter title="React Router" />;
-  if (key.includes('react')) return <SiReact title="React" />;
-  if (key.includes('node')) return <SiNodedotjs title="Node.js" />;
-  if (key.includes('express')) return <SiExpress title="Express" />;
-  if (key.includes('tailwind')) return <SiTailwindcss title="Tailwind CSS" />;
-  if (key.includes('typescript')) return <SiTypescript title="TypeScript" />;
-  if (key.includes('styled')) return <SiStyledcomponents title="Styled Components" />;
-  if (key.includes('gsap')) return <SiJavascript title="GSAP" />;
-  if (key.includes('firebase')) return <SiFirebase title="Firebase" />;
-  if (key.includes('vite')) return <SiVite title="Vite" />;
+  if (key.includes('react router')) return <SiReactrouter title="React Router" style={{ color: '#CA4245' }} />;
+  if (key.includes('react')) return <SiReact title="React" style={{ color: '#61DAFB' }} />;
+  if (key.includes('node')) return <SiNodedotjs title="Node.js" style={{ color: '#339933' }} />;
+  if (key.includes('express')) return <SiExpress title="Express" style={{ color: '#000000' }} />;
+  if (key.includes('tailwind')) return <SiTailwindcss title="Tailwind CSS" style={{ color: '#06B6D4' }} />;
+  if (key.includes('typescript')) return <SiTypescript title="TypeScript" style={{ color: '#3178C6' }} />;
+  if (key.includes('styled')) return <SiStyledcomponents title="Styled Components" style={{ color: '#DB7093' }} />;
+  if (key.includes('gsap')) return <SiJavascript title="GSAP" style={{ color: '#88CE02' }} />;
+  if (key.includes('firebase')) return <SiFirebase title="Firebase" style={{ color: '#FFCA28' }} />;
+  if (key.includes('vite')) return <SiVite title="Vite" style={{ color: '#646CFF' }} />;
   if (key.includes('puter')) return <img src="https://puter.com/favicon.ico" alt="Puter.js" title="Puter.js" />;
   return null;
 };
