@@ -55,8 +55,13 @@ const SharedProfileCard = () => {
       container.style.visibility = 'hidden';
 
 
+      const dx = end.left - start.left;
+      const dy = end.top - start.top;
+      const distance = Math.hypot(dx, dy);
+      const duration = Math.min(1.2, Math.max(0.6, distance / 900));
+
       const tl = gsap.timeline({
-        defaults: { ease: 'power2.inOut' },
+        defaults: { ease: 'power1.inOut' },
         onComplete: () => {
           target.appendChild(container);
           container.style.visibility = '';
@@ -65,18 +70,15 @@ const SharedProfileCard = () => {
         }
       });
 
-      const dx = end.left - start.left;
-      const dy = end.top - start.top;
-
       tl.fromTo(
         ghost,
         { opacity: 1, transformOrigin: 'top left' },
         {
           x: dx,
           y: dy,
-          opacity: 0.9,
-          duration: 0.7,
-          ease: 'power2.inOut'
+          opacity: 1,
+          duration,
+          ease: 'power1.inOut'
         }
       );
     };
