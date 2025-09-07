@@ -25,6 +25,9 @@ const Skills = () => {
     { id: 'vite', img: cdn('vite/vite-original.svg'), height: 260, url: 'https://vitejs.dev' },
     { id: 'c', img: cdn('c/c-original.svg'), height: 240, url: 'https://en.wikipedia.org/wiki/C_(programming_language)' },
     { id: 'python', img: cdn('python/python-original.svg'), height: 300, url: 'https://python.org' },
+    { id: 'firebase', img: cdn('firebase/firebase-plain.svg'), height: 260, url: 'https://firebase.google.com' },
+    { id: 'reactrouter', img: cdn('reactrouter/reactrouter-plain.svg'), height: 240, url: 'https://reactrouter.com' },
+    { id: 'figma', img: cdn('figma/figma-original.svg'), height: 260, url: 'https://www.figma.com' },
   ], []);
 
   return (

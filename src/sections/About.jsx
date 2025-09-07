@@ -12,7 +12,7 @@ const About = () => {
   const to = "'wght' 900, 'opsz' 72";
 
   return (
-    <section id="about" ref={sectionRef} className="py-16 text-white px-4 bg-[#1F2937] scroll-mt-28 md:scroll-mt-40">
+    <section id="about" ref={sectionRef} className="py-16 text-white px-4 bg-primary-dark scroll-mt-28 md:scroll-mt-40">
       <div className="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div id="profile-about-slot" className="min-h-[360px] order-1 md:order-none" />
         <div className="order-2 md:order-none">

@@ -7,7 +7,7 @@
   grid-auto-rows: auto;
   justify-content: center;
   gap: 0.75rem;
-  max-width: 1200px;
+  max-width: none;
   margin: 0 auto;
   padding: 1rem;
   box-sizing: border-box;

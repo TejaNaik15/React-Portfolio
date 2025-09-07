@@ -43,8 +43,6 @@ const SharedProfileCard = () => {
       document.body.appendChild(ghost);
       container.style.visibility = 'hidden';
 
-      const scaleX = end.width / start.width;
-      const scaleY = end.height / start.height;
 
       const tl = gsap.timeline({
         defaults: { ease: 'power2.inOut' },
@@ -65,9 +63,8 @@ const SharedProfileCard = () => {
         {
           x: dx,
           y: dy,
-          scaleX,
-          scaleY,
-          duration: 0.95,
+          opacity: 0.9,
+          duration: 0.7,
           ease: 'power2.inOut'
         }
       );

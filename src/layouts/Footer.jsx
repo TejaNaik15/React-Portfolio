@@ -10,7 +10,7 @@ import SocialWrapper from '../components/SocialWrapper';
 const Footer = () => {
   return (
     <section className="bg-primary-dark text-text-muted py-10 md:py-16 border-t border-white/10">
-      <div className="container mx-auto px-8 flex flex-wrap justify-center lg:justify-between items-start gap-y-12 gap-x-8">
+      <div className="container mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-10 items-start text-center md:text-left">
 
         
         <div className="flex-1 min-w-[280px] max-w-[350px] text-center md:text-left">
@@ -77,7 +77,7 @@ const Footer = () => {
 
       </div>
 
-      <h1 className="text-center text-white text-lg mt-16 border-t border-white/10 pt-8 mx-auto px-8 max-w-6xl">
+      <h1 className="text-center text-white text-lg mt-12 border-t border-white/10 pt-8 mx-auto px-8 max-w-6xl">
         &copy; {new Date().getFullYear()} KELOTH TEJA NAIK. All rights reserved.
       </h1>
 
