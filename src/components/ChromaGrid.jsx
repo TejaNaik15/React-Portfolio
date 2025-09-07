@@ -160,10 +160,16 @@ export const ChromaGrid = ({
           </div>
           <footer className="chroma-info">
             <h3 className="name">{c.title}</h3>
-            {c.handle && <span className="handle">{c.handle}</span>}
             <p className="role">{c.subtitle}</p>
             {c.location && <span className="location">{c.location}</span>}
             <div className="chroma-actions">
+              {Array.isArray(c.techIcons) && c.techIcons.length > 0 && (
+                <div className="tech-icons">
+                  {c.techIcons.map((IconEl, idx) => (
+                    <span key={idx} className="tech-icon">{IconEl}</span>
+                  ))}
+                </div>
+              )}
               <button
                 className={`chroma-btn ${c.liveUrl ? '' : 'disabled'}`}
                 onClick={(e) => {
