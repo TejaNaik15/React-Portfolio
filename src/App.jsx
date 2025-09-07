@@ -4,6 +4,7 @@ import LightRays from './components/LightRays';
 import GooeyNav from './components/GooeyNav';
 import Home from './sections/Home';
 import { useTheme } from './context/ThemeContext.jsx';
+import SharedProfileCard from './components/SharedProfileCard';
 import About from './sections/About';
 import Skills from './sections/Skills';
 import Projects from './sections/Projects';
@@ -28,6 +29,7 @@ function App() {
             ]}
           />
         </div>
+        <SharedProfileCard />
         <main className="relative z-10 flex-grow">
           <Routes>
             <Route
