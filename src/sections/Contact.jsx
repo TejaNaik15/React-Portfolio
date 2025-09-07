@@ -3,13 +3,17 @@ import SocialWrapper from '../components/SocialWrapper';
 import useScrollReveal from '../hooks/useScrollReveal';
 import { FaPhone, FaEnvelope, FaMapMarkedAlt } from 'react-icons/fa';
 import Globe from '../components/Globe';
+import Particles from '../components/Particles';
 
 const Contact = () => {
   const sectionRef = useScrollReveal({ threshold: 0.1 }); 
 
   return (
-    <section id="contact" ref={sectionRef} className="min-h-screen bg-primary-dark text-white p-8 flex flex-col items-center justify-center transition-opacity-transform scroll-mt-28 md:scroll-mt-40">
-      <div className="container mx-auto text-center">
+    <section id="contact" ref={sectionRef} className="relative min-h-screen bg-primary-dark text-white p-8 flex flex-col items-center justify-center transition-opacity-transform overflow-hidden scroll-mt-28 md:scroll-mt-40">
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Particles className="w-full h-full" alphaParticles={true} particleCount={160} speed={0.1} particleBaseSize={70} sizeRandomness={1} />
+      </div>
+      <div className="relative container mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-blue">Contact Me</h1>
 
         <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
@@ -18,7 +22,7 @@ const Contact = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-start">
-          <div className="w-full h-[320px] md:h-[420px] rounded-lg overflow-hidden bg-black/20 order-2 md:order-1">
+          <div className="w-full h-[320px] md:h-[420px] rounded-lg overflow-hidden order-2 md:order-1">
             <Globe className="w-full h-full" />
           </div>
           <div className="bg-gray-800/60 backdrop-blur-sm p-6 rounded-lg shadow-lg text-left order-1 md:order-2 w-full">
