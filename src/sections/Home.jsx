@@ -4,6 +4,7 @@ import TextPlugin from 'gsap/TextPlugin';
 import ProfileCard from '../components/ProfileCard';
 import SocialIcons from '../components/SocialIcons';
 import ShinyText from '../components/ShinyText';
+import SettingsToggle from '../components/SettingsToggle';
 
 const Home = () => {
   const typeRef = useRef(null);
@@ -52,10 +53,11 @@ const Home = () => {
             <SocialIcons type="email" link="tinkuteja740@gmail.com" />
             <SocialIcons type="github" link="https://github.com/TejaNaik15" />
           </div>
-          <div>
+          <div className="flex items-center gap-3">
             <a href="#projects" className="inline-block bg-accent-blue text-white px-6 py-3 rounded-full text-lg hover:bg-white/20 border border-accent-blue/40 transition-colors duration-300">
               See My Work
             </a>
+            <SettingsToggle />
           </div>
         </div>
         <div className="md:justify-self-end">
