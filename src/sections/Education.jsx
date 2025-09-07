@@ -1,5 +1,6 @@
 import React from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
+import Particles from '../components/Particles';
 
 const eduData = [
   {
@@ -47,8 +48,11 @@ const Education = () => {
   const sectionRef = useScrollReveal({ threshold: 0.1 });
 
   return (
-    <section id="education" ref={sectionRef} className="min-h-screen bg-primary-dark text-white p-8 flex flex-col items-center justify-center scroll-mt-28 md:scroll-mt-40">
-      <div className="container mx-auto w-full max-w-5xl">
+    <section id="education" ref={sectionRef} className="relative min-h-screen bg-primary-dark text-white p-8 flex flex-col items-center justify-center overflow-hidden scroll-mt-28 md:scroll-mt-40">
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Particles className="w-full h-full" alphaParticles={true} particleCount={160} speed={0.1} particleBaseSize={70} sizeRandomness={1} />
+      </div>
+      <div className="relative container mx-auto w-full max-w-5xl">
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-accent-blue text-center">Education</h1>
         <p className="text-center text-text-muted mb-8 max-w-2xl mx-auto">My education has been a journey of self‑discovery and growth. Highlights below.</p>
         <ul className="relative w-full max-w-3xl mx-auto">

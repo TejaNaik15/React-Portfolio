@@ -29,6 +29,17 @@ const SharedProfileCard = () => {
       const start = container.getBoundingClientRect();
       const end = target.getBoundingClientRect();
 
+      const viewportW = window.innerWidth;
+      const viewportH = window.innerHeight;
+      const endOffscreen = end.bottom < 0 || end.top > viewportH || end.right < 0 || end.left > viewportW;
+      const startOffscreen = start.bottom < 0 || start.top > viewportH || start.right < 0 || start.left > viewportW;
+      if (endOffscreen || startOffscreen) {
+        target.appendChild(container);
+        container.style.visibility = '';
+        currentSlot.current = target;
+        return;
+      }
+
       // Ghost element animates while real card teleports at the end
       const ghost = container.cloneNode(true);
       Object.assign(ghost.style, {
@@ -40,14 +51,17 @@ const SharedProfileCard = () => {
         zIndex: 1000,
         pointerEvents: 'none',
       });
-      document.body.appendChild(ghost);
+      (document.querySelector('#root') || document.body).appendChild(ghost);
       container.style.visibility = 'hidden';
 
-      const scaleX = end.width / start.width;
-      const scaleY = end.height / start.height;
+
+      const dx = end.left - start.left;
+      const dy = end.top - start.top;
+      const distance = Math.hypot(dx, dy);
+      const duration = Math.min(1.2, Math.max(0.6, distance / 900));
 
       const tl = gsap.timeline({
-        defaults: { ease: 'power2.inOut' },
+        defaults: { ease: 'power1.inOut' },
         onComplete: () => {
           target.appendChild(container);
           container.style.visibility = '';
@@ -56,19 +70,15 @@ const SharedProfileCard = () => {
         }
       });
 
-      const dx = end.left - start.left;
-      const dy = end.top - start.top;
-
       tl.fromTo(
         ghost,
         { opacity: 1, transformOrigin: 'top left' },
         {
           x: dx,
           y: dy,
-          scaleX,
-          scaleY,
-          duration: 0.95,
-          ease: 'power2.inOut'
+          opacity: 1,
+          duration,
+          ease: 'power1.inOut'
         }
       );
     };
