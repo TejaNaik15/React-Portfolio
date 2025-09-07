@@ -36,7 +36,7 @@ const Home = () => {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center text-white overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center text-white overflow-hidden scroll-mt-28 md:scroll-mt-40">
       <div className="relative z-10 container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div className="space-y-6">
           <h1 ref={headingRef} className="text-4xl md:text-6xl font-extrabold leading-tight">
