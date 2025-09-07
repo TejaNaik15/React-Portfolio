@@ -9,7 +9,7 @@ const Contact = () => {
   return (
     <section id="contact" ref={sectionRef} className="min-h-screen bg-gray-900/60 backdrop-blur-sm text-white p-8 flex flex-col items-center justify-center transition-opacity-transform scroll-mt-28 md:scroll-mt-40">
       <div className="container mx-auto text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-pink">Contact Me</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-blue">Contact Me</h1>
 
         <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
           Feel free to reach out to me for collaborations, job opportunities, or just a chat!
