@@ -47,7 +47,7 @@ const SharedProfileCard = () => {
       const scaleY = end.height / start.height;
 
       const tl = gsap.timeline({
-        defaults: { ease: 'power4.inOut' },
+        defaults: { ease: 'power2.inOut' },
         onComplete: () => {
           target.appendChild(container);
           container.style.visibility = '';
@@ -56,21 +56,26 @@ const SharedProfileCard = () => {
         }
       });
 
+      const dx = end.left - start.left;
+      const dy = end.top - start.top;
+      const midX = dx * 0.5;
+      const midY = dy * 0.5 - 60; // subtle arc
+
       tl.fromTo(
         ghost,
-        { filter: 'blur(4px)', opacity: 0.85, rotateY: -12, rotateX: 6, transformOrigin: 'top left' },
-        {
-          x: end.left - start.left,
-          y: end.top - start.top,
-          scaleX,
-          scaleY,
-          rotateY: 0,
-          rotateX: 0,
-          filter: 'blur(0px)',
-          opacity: 1,
-          duration: 1.1,
-        }
-      );
+        { filter: 'blur(6px)', opacity: 0.9, rotateY: -10, rotateX: 5, transformOrigin: 'top left' },
+        { x: midX, y: midY, scaleX: (1 + scaleX) / 2, scaleY: (1 + scaleY) / 2, rotateY: -3, rotateX: 2, duration: 1.1 }
+      ).to(ghost, {
+        x: dx,
+        y: dy,
+        scaleX,
+        scaleY,
+        rotateY: 0,
+        rotateX: 0,
+        filter: 'blur(0px)',
+        opacity: 1,
+        duration: 1.1
+      });
     };
 
     const toAbout = () => flyTo(aboutSlot);
