@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
 import Masonry from '../components/Masonry';
+import Particles from '../components/Particles';
 
 const cdn = (path) => `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${path}`;
 
@@ -31,8 +32,11 @@ const Skills = () => {
   ], []);
 
   return (
-    <section id="skills" ref={sectionRef} className="min-h-screen bg-primary-dark text-white p-8 flex flex-col items-center justify-center transition-opacity-transform scroll-mt-28 md:scroll-mt-40">
-      <div className="container mx-auto text-center">
+    <section id="skills" ref={sectionRef} className="relative min-h-screen bg-primary-dark text-white p-8 flex flex-col items-center justify-center transition-opacity-transform overflow-hidden scroll-mt-28 md:scroll-mt-40">
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Particles className="w-full h-full" alphaParticles={true} particleCount={160} speed={0.1} particleBaseSize={70} sizeRandomness={1} />
+      </div>
+      <div className="relative z-10 container mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-blue">My Skills</h1>
         <Masonry items={items} animateFrom="random" colorShiftOnHover={true} />
       </div>
