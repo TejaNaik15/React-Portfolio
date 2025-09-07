@@ -5,6 +5,7 @@ import GooeyNav from './components/GooeyNav';
 import Home from './sections/Home';
 import { useTheme } from './context/ThemeContext.jsx';
 import SharedProfileCard from './components/SharedProfileCard';
+import { FaUser, FaTools, FaFolderOpen, FaGraduationCap } from 'react-icons/fa';
 import About from './sections/About';
 import Skills from './sections/Skills';
 import Projects from './sections/Projects';
@@ -22,10 +23,10 @@ function App() {
         <div className="fixed top-0 left-0 right-0 z-40 flex justify-center pt-4">
           <GooeyNav
             items={[
-              { label: 'About', href: '#about' },
-              { label: 'Skills', href: '#skills' },
-              { label: 'Projects', href: '#projects' },
-              { label: 'Education', href: '#education' },
+              { label: 'About', href: '#about', icon: <FaUser /> },
+              { label: 'Skills', href: '#skills', icon: <FaTools /> },
+              { label: 'Projects', href: '#projects', icon: <FaFolderOpen /> },
+              { label: 'Education', href: '#education', icon: <FaGraduationCap /> },
             ]}
           />
         </div>

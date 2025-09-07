@@ -24,7 +24,7 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" ref={sectionRef} className="min-h-screen bg-gray-800/60 backdrop-blur-sm text-white p-8 flex flex-col items-center justify-center scroll-mt-28 md:scroll-mt-40">
+    <section id="education" ref={sectionRef} className="min-h-screen bg-primary-dark text-white p-8 flex flex-col items-center justify-center scroll-mt-28 md:scroll-mt-40">
       <div className="container mx-auto text-center w-full">
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-blue">Education</h1>
         <div className="w-full h-[70vh] max-h-[800px] rounded-2xl overflow-hidden border border-white/10">
