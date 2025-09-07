@@ -1,6 +1,7 @@
 import React from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
 import ChromaGrid from '../components/ChromaGrid';
+import { SiReact, SiNodedotjs, SiExpress, SiTailwindcss, SiTypescript, SiStyledcomponents, SiGsap, SiFirebase, SiVite, SiReactrouter } from 'react-icons/si';
 
 const projectsData = [
   {
@@ -45,7 +46,7 @@ const projectsData = [
     title: 'AI-Resume Analyzer',
     description: 'Upload your resume, analyze it, and view AI-driven insights such as scores, summaries, and improvement suggestions.',
     image: '/assets/Screenshot 2025-09-06 202225.png',
-    technologies: ['React Router v7', 'Typescript', 'Tailwind css'],
+    technologies: ['React Router v7', 'Typescript', 'Tailwind CSS', 'Puter.js'],
     githubLink: 'https://github.com/TejaNaik15/resume-analyzer-ai',
     liveDemoLink: 'https://resume-analyzer-ai-two.vercel.app/',
   },
@@ -62,6 +63,22 @@ const projectsData = [
 
 const colorPalette = ['#4F46E5', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#06B6D4'];
 
+const techIconFor = (name) => {
+  const key = String(name).toLowerCase();
+  if (key.includes('react router')) return <SiReactrouter title="React Router" />;
+  if (key.includes('react')) return <SiReact title="React" />;
+  if (key.includes('node')) return <SiNodedotjs title="Node.js" />;
+  if (key.includes('express')) return <SiExpress title="Express" />;
+  if (key.includes('tailwind')) return <SiTailwindcss title="Tailwind CSS" />;
+  if (key.includes('typescript')) return <SiTypescript title="TypeScript" />;
+  if (key.includes('styled')) return <SiStyledcomponents title="Styled Components" />;
+  if (key.includes('gsap')) return <SiGsap title="GSAP" />;
+  if (key.includes('firebase')) return <SiFirebase title="Firebase" />;
+  if (key.includes('vite')) return <SiVite title="Vite" />;
+  if (key.includes('puter')) return <img src="https://puter.com/favicon.ico" alt="Puter.js" title="Puter.js" />;
+  return null;
+};
+
 const Projects = () => {
   const sectionRef = useScrollReveal({ threshold: 0.1 });
 
@@ -69,21 +86,25 @@ const Projects = () => {
     const color = colorPalette[idx % colorPalette.length];
     const liveUrl = p.liveDemoLink && p.liveDemoLink !== '#' ? p.liveDemoLink : undefined;
     const codeUrl = p.githubLink && p.githubLink !== '#' ? p.githubLink : undefined;
+    const techIcons = Array.isArray(p.technologies)
+      ? p.technologies.map((t) => techIconFor(t)).filter(Boolean)
+      : [];
     return {
       image: p.image,
       title: p.title,
       subtitle: p.description,
-      handle: p.technologies.join(' · '),
+      handle: '',
       borderColor: color,
       gradient: `linear-gradient(145deg, ${color}, #000)`,
       liveUrl,
       codeUrl,
       url: liveUrl || codeUrl,
+      techIcons,
     };
   });
 
   return (
-    <section id="projects" ref={sectionRef} className="min-h-screen bg-gray-900/60 backdrop-blur-sm text-white p-8 flex flex-col items-center justify-center">
+    <section id="projects" ref={sectionRef} className="min-h-screen bg-gray-900/60 backdrop-blur-sm text-white p-8 flex flex-col items-center justify-center scroll-mt-28 md:scroll-mt-40">
       <div className="container mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-pink">My Projects</h1>
         <div className="flex justify-center">
