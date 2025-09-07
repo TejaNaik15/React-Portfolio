@@ -29,6 +29,17 @@ const SharedProfileCard = () => {
       const start = container.getBoundingClientRect();
       const end = target.getBoundingClientRect();
 
+      const viewportW = window.innerWidth;
+      const viewportH = window.innerHeight;
+      const endOffscreen = end.bottom < 0 || end.top > viewportH || end.right < 0 || end.left > viewportW;
+      const startOffscreen = start.bottom < 0 || start.top > viewportH || start.right < 0 || start.left > viewportW;
+      if (endOffscreen || startOffscreen) {
+        target.appendChild(container);
+        container.style.visibility = '';
+        currentSlot.current = target;
+        return;
+      }
+
       // Ghost element animates while real card teleports at the end
       const ghost = container.cloneNode(true);
       Object.assign(ghost.style, {
@@ -40,7 +51,7 @@ const SharedProfileCard = () => {
         zIndex: 1000,
         pointerEvents: 'none',
       });
-      document.body.appendChild(ghost);
+      (document.querySelector('#root') || document.body).appendChild(ghost);
       container.style.visibility = 'hidden';
 
 

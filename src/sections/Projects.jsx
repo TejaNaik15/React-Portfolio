@@ -105,7 +105,7 @@ const Projects = () => {
 
   return (
     <section id="projects" ref={sectionRef} className="min-h-screen bg-primary-dark text-white p-8 flex flex-col items-center justify-center scroll-mt-28 md:scroll-mt-40">
-      <div className="w-full max-w-none px-4 md:px-8 text-center">
+      <div className="container mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-blue">My Projects</h1>
         <div className="flex justify-center">
           <ChromaGrid items={items} columns={3} rows={2} radius={280} />
