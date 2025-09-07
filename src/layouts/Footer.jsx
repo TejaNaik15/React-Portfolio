@@ -62,15 +62,20 @@ const Footer = () => {
         
         <div className="flex-1 min-w-[280px] max-w-[350px] text-center md:text-left">
           <h3 className="text-3xl font-bold text-accent-blue mb-4">Contact Info</h3>
-          <p className="text-lg mb-3 flex items-center justify-center md:justify-start">
-            <FaPhone className="mr-3 text-accent-blue" /> +91 7569474682
-          </p>
-          <p className="text-lg mb-3 flex items-center justify-center md:justify-start">
-            <FaEnvelope className="mr-3 text-accent-blue" /> tinkuteja740@gmail.com
-          </p>
-          <p className="text-lg mb-6 flex items-center justify-center md:justify-start">
-            <FaMapMarkedAlt className="mr-3 text-accent-blue" /> TS, India-500100
-          </p>
+          <div className="space-y-3">
+            <div className="text-lg flex items-center justify-center md:justify-start gap-3">
+              <FaPhone className="text-accent-blue w-5 h-5" />
+              <span className="leading-none">+91 7569474682</span>
+            </div>
+            <div className="text-lg flex items-center justify-center md:justify-start gap-3">
+              <FaEnvelope className="text-accent-blue w-5 h-5" />
+              <span className="leading-none">tinkuteja740@gmail.com</span>
+            </div>
+            <div className="text-lg flex items-center justify-center md:justify-start gap-3">
+              <FaMapMarkedAlt className="text-accent-blue w-5 h-5" />
+              <span className="leading-none">TS, India-500100</span>
+            </div>
+          </div>
 
           <SocialWrapper /> 
         </div>
