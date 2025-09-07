@@ -72,7 +72,7 @@ const techIconFor = (name) => {
   if (key.includes('tailwind')) return <SiTailwindcss title="Tailwind CSS" />;
   if (key.includes('typescript')) return <SiTypescript title="TypeScript" />;
   if (key.includes('styled')) return <SiStyledcomponents title="Styled Components" />;
-  if (key.includes('gsap')) return <SiGsap title="GSAP" />;
+  if (key.includes('gsap')) return <SiJavascript title="GSAP" />;
   if (key.includes('firebase')) return <SiFirebase title="Firebase" />;
   if (key.includes('vite')) return <SiVite title="Vite" />;
   if (key.includes('puter')) return <img src="https://puter.com/favicon.ico" alt="Puter.js" title="Puter.js" />;
