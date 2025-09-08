@@ -13,6 +13,7 @@ import Education from './sections/Education';
 import Contact from './sections/Contact';
 import Footer from './layouts/Footer';
 import FloatingCoffeeButton from './components/FloatingCoffeeButton';
+import SmoothCursor from './components/SmoothCursor';
 
 function App() {
   const { theme } = useTheme();
