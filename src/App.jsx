@@ -50,6 +50,7 @@ function App() {
             
           </Routes>
         </main>
+        <FloatingCoffeeButton />
         <Footer />
       </div>
     </Router>
