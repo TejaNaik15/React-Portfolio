@@ -22,6 +22,7 @@ function App() {
     <Router>
       <div className="relative flex flex-col min-h-screen bg-primary-dark" style={{ ['--rays-color']: rays }}>
         <LightRays raysColor={rays} />
+        <SmoothCursor />
         <div className="fixed top-0 left-0 right-0 z-40 flex justify-center pt-4">
           <GooeyNav
             items={[
