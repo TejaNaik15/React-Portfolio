@@ -31,6 +31,7 @@ export const BorderBeam = ({
         background: `conic-gradient(from 0deg, ${colors.join(',')})`,
         animation: rotate ? 'border-beam-rotate var(--beam-duration) linear infinite' : 'none'
       }}
+      aria-hidden
       
       
     />
