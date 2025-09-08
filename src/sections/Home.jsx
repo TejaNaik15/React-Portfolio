@@ -49,7 +49,7 @@ const Home = () => {
         <div className="space-y-6">
           <h1 ref={headingRef} className="text-4xl md:text-6xl font-extrabold leading-tight">
             Hi, I am<br />
-            <span className="bg-gradient-to-r from-accent-blue via-accent-purple to-accent-blue bg-clip-text text-transparent">
+            <span className="name-gradient">
               <AnimatedName text="Keloth Teja Naik" />
             </span>
           </h1>
