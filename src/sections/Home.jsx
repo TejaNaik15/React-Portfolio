@@ -4,6 +4,7 @@ import TextPlugin from 'gsap/TextPlugin';
 import ProfileCard from '../components/ProfileCard';
 import SocialIcons from '../components/SocialIcons';
 import ShinyText from '../components/ShinyText';
+import AnimatedName from '../components/AnimatedName.jsx';
 import Particles from '../components/Particles';
 import { AnimatedThemeToggler } from '@/components/magicui/animated-theme-toggler.jsx';
 
@@ -45,7 +46,10 @@ const Home = () => {
       <div className="relative z-10 container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div className="space-y-6">
           <h1 ref={headingRef} className="text-4xl md:text-6xl font-extrabold leading-tight">
-            Hi, I am<br /> <span className="gradient-name jello">Keloth Teja Naik</span>
+            Hi, I am<br />
+            <span className="bg-gradient-to-r from-accent-blue via-accent-purple to-accent-blue bg-clip-text text-transparent">
+              <AnimatedName text="Keloth Teja Naik" />
+            </span>
           </h1>
            <p ref={subRef} className="text-lg md:text-2xl text-text-muted">
             I'm into <span className="text-white"><span ref={typeRef} className="border-r-2 border-white pr-1" /></span>
