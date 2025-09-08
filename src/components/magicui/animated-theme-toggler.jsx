@@ -52,6 +52,6 @@ export const AnimatedThemeToggler = ({ className = '' }) => {
       </AnimatePresence>
     </button>
   );
-
+};
 
 export default AnimatedThemeToggler;
