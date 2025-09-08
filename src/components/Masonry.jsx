@@ -9,7 +9,7 @@ const useMedia = (queries, values, defaultValue) => {
     const handler = () => setValue(get);
     queries.forEach((q) => matchMedia(q).addEventListener('change', handler));
     return () => queries.forEach((q) => matchMedia(q).removeEventListener('change', handler));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, [queries]);
   return value;
 };
@@ -141,7 +141,7 @@ const Masonry = ({
       }
     });
     hasMounted.current = true;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, [grid, imagesReady, stagger, animateFrom, blurToFocus, duration, ease]);
 
   const handleMouseEnter = (e, item) => {
