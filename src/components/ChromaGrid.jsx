@@ -201,14 +201,17 @@ export const ChromaGrid = ({
                 </div>
               )}
               <button
-                className={`chroma-btn ${c.liveUrl ? '' : 'disabled'}`}
+                className={`relative chroma-btn ${c.liveUrl ? '' : 'disabled'}`}
                 onClick={(e) => {
                   e.stopPropagation();
                   if (c.liveUrl) window.open(c.liveUrl, '_blank', 'noopener,noreferrer');
                 }}
                 aria-disabled={!c.liveUrl}
               >
-                Live Demo
+                <span className="relative z-10">Live Demo</span>
+                <span className="absolute inset-0 rounded-full pointer-events-none" aria-hidden>
+                  <BorderBeam duration={8} size={80} />
+                </span>
               </button>
               <button
                 className={`chroma-btn outline ${c.codeUrl ? '' : 'disabled'}`}
