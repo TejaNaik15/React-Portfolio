@@ -18,7 +18,7 @@ const Contact = () => {
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-blue">Contact Me</h1>
 
         <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-          Feel free to reach out to me for collaborations, job opportunities, or just a chat!
+          Feel free to reach out to me for collaborations, job opportunities, or just a chat:)
           You can connect with me via email or LinkedIn.
         </p>
 
