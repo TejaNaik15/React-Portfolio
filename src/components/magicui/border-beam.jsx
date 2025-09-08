@@ -4,7 +4,8 @@ export const BorderBeam = ({
   duration = 8,
   size = 140,
   colors = ['#13ADC7', '#945DD6', '#FF3C78'],
-  className = 'border-beam'
+  className = 'border-beam',
+  rotate = true,
 }) => {
   const ref = useRef(null);
 
@@ -28,7 +29,7 @@ export const BorderBeam = ({
         WebkitMaskComposite: 'xor',
         maskComposite: 'exclude',
         background: `conic-gradient(from 0deg, ${colors.join(',')})`,
-        animation: 'border-beam-rotate var(--beam-duration) linear infinite'
+        animation: rotate ? 'border-beam-rotate var(--beam-duration) linear infinite' : 'none'
       }}
       aria-hidden
     />
