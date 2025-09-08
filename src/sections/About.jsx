@@ -59,7 +59,7 @@ const About = () => {
             >
               <span className="relative z-10 inline-flex items-center gap-2">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v9.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414L11 13.586V4a1 1 0 0 1 1-1z"/><path d="M5 20a2 2 0 0 1-2-2v-2a1 1 0 1 1 2 0v2h14v-2a1 1 0 1 1 2 0v2a2 2 0 0 1-2 2H5z"/></svg>
-                Download Resume
+                 Resume
               </span>
               <span className="absolute inset-0 rounded-full pointer-events-none" aria-hidden>
                 <BorderBeam duration={8} size={120} colors={["#13ADC7","#945DD6","#FF3C78"]} />
