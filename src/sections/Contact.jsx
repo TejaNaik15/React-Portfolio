@@ -4,6 +4,7 @@ import useScrollReveal from '../hooks/useScrollReveal';
 import { FaPhone, FaEnvelope, FaMapMarkedAlt } from 'react-icons/fa';
 import { Globe } from '@/components/magicui/globe.jsx';
 import Particles from '../components/Particles';
+import { BorderBeam } from '@/components/magicui/border-beam.jsx';
 
 const Contact = () => {
   const sectionRef = useScrollReveal({ threshold: 0.1 }); 
