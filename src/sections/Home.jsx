@@ -5,6 +5,7 @@ import ProfileCard from '../components/ProfileCard';
 import SocialIcons from '../components/SocialIcons';
 import ShinyText from '../components/ShinyText';
 import AnimatedName from '../components/AnimatedName.jsx';
+import { BorderBeam } from '@/components/magicui/border-beam.jsx';
 import Particles from '../components/Particles';
 import { AnimatedThemeToggler } from '@/components/magicui/animated-theme-toggler.jsx';
 
