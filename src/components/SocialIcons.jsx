@@ -36,7 +36,7 @@ const SocialIcons = ({ type, link }) => {
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-white hover:text-accent-blue transition-colors duration-300 text-3xl"
+      className="social-icon text-white hover:text-accent-blue transition-colors duration-300 text-3xl transform transition-transform hover:-translate-y-0.5"
       aria-label={ariaLabel}
     >
       <IconComponent />
