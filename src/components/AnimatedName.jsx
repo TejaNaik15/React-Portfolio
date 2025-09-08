@@ -7,7 +7,7 @@ const Letter = ({ ch, idx }) => (
   <motion.span
     whileHover={{ y: -6, scale: 1.12, rotate: -6, color: '#2563eb' }}
     transition={spring}
-    className="inline-block cursor-default will-change-transform bg-clip-text text-transparent"
+    className="inline-block cursor-default will-change-transform name-gradient"
     style={{ transitionProperty: 'transform, color' }}
   >
     {ch}
