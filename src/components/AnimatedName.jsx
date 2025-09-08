@@ -5,7 +5,7 @@ const spring = { type: 'spring', stiffness: 600, damping: 18 };
 
 const Letter = ({ ch, idx }) => (
   <motion.span
-    whileHover={{ y: -4, scale: 1.12, rotate: [-2, 2, -1, 0], color: '#2563eb' }}
+    whileHover={{ y: -6, scale: 1.12, rotate: -6, color: '#2563eb' }}
     transition={spring}
     className="inline-block cursor-default will-change-transform"
     style={{ transitionProperty: 'transform, color' }}
