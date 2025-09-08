@@ -1,7 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import './ChromaGrid.css';
-import { BorderBeam } from '@/components/magicui/border-beam.jsx';
 
 export const ChromaGrid = ({
   items,
@@ -130,26 +129,8 @@ export const ChromaGrid = ({
     const y = e.clientY - rect.top;
     card.style.setProperty('--mouse-x', `${x}px`);
     card.style.setProperty('--mouse-y', `${y}px`);
-
-    const rx = -((y / rect.height) - 0.5) * 10; // tilt X
-    const ry = ((x / rect.width) - 0.5) * 12;  // tilt Y
-    card.style.setProperty('--rx', `${rx}deg`);
-    card.style.setProperty('--ry', `${ry}deg`);
-    card.style.setProperty('--tz', `18px`);
   };
 
-  const handleCardEnter = (e) => {
-    const card = e.currentTarget;
-    card.classList.add('active');
-  };
-
-  const handleCardLeave = (e) => {
-    const card = e.currentTarget;
-    card.classList.remove('active');
-    card.style.removeProperty('--rx');
-    card.style.removeProperty('--ry');
-    card.style.removeProperty('--tz');
-  };
 
   return (
     <div
@@ -167,9 +148,7 @@ export const ChromaGrid = ({
         <article
           key={i}
           className="chroma-card"
-          onMouseEnter={handleCardEnter}
           onMouseMove={handleCardMove}
-          onMouseLeave={handleCardLeave}
           onClick={() => handleCardClick(c)}
           style={{
             '--card-border': c.borderColor || 'transparent',
@@ -177,7 +156,6 @@ export const ChromaGrid = ({
             cursor: c.url ? 'pointer' : 'default'
           }}
         >
-          <BorderBeam className="border-beam" duration={10} size={120} colors={["#13ADC7","#945DD6","#FF3C78"]} rotate={false} />
           <div className="chroma-img-wrapper">
             <img src={c.image} alt={c.title} loading="lazy" />
             <div className="visit-hint">
@@ -207,11 +185,8 @@ export const ChromaGrid = ({
                   if (c.liveUrl) window.open(c.liveUrl, '_blank', 'noopener,noreferrer');
                 }}
                 aria-disabled={!c.liveUrl}
-              >
-                <span className="relative z-10">Live Demo</span>
-                <span className="absolute inset-0 rounded-full pointer-events-none" aria-hidden>
-                  <BorderBeam duration={8} size={80} />
-                </span>
+>
+                Live Demo
               </button>
               <button
                 className={`relative chroma-btn outline ${c.codeUrl ? '' : 'disabled'}`}
@@ -220,11 +195,8 @@ export const ChromaGrid = ({
                   if (c.codeUrl) window.open(c.codeUrl, '_blank', 'noopener,noreferrer');
                 }}
                 aria-disabled={!c.codeUrl}
-              >
-                <span className="relative z-10">Code</span>
-                <span className="absolute inset-0 rounded-full pointer-events-none" aria-hidden>
-                  <BorderBeam duration={8} size={80} />
-                </span>
+>
+                Code
               </button>
             </div>
           </footer>
