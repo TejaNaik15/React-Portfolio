@@ -27,6 +27,10 @@ body::-webkit-scrollbar-thumb {
 
 html { scroll-behavior: smooth; }
 
+:root { --color-light-blue: #13ADC7; --color-light-purple: #945DD6; }
+
+.name-gradient{ background: -webkit-linear-gradient(135deg, var(--color-light-blue), var(--color-light-purple), var(--color-light-blue), var(--color-light-purple)); -webkit-background-clip:text; background-clip:text; color: transparent; }
+
 .transition-opacity-transform {
   opacity: 0;
   transform: translateY(20px); 
