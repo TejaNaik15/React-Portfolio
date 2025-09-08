@@ -177,7 +177,7 @@ export const ChromaGrid = ({
             cursor: c.url ? 'pointer' : 'default'
           }}
         >
-          <BorderBeam className="border-beam" duration={10} size={120} colors={["#13ADC7","#945DD6","#FF3C78"]} />
+          <BorderBeam className="border-beam" duration={10} size={120} colors={["#13ADC7","#945DD6","#FF3C78"]} rotate={false} />
           <div className="chroma-img-wrapper">
             <img src={c.image} alt={c.title} loading="lazy" />
             <div className="visit-hint">
