@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="pointer-events-none absolute inset-0 opacity-90 bg-gradient-to-t from-secondary-dark via-primary-dark to-primary-dark footer-gradient" />
       <div className="relative container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start text-center md:text-left">
 
-        {/* About Section */}
+        
         <div className="flex-1 min-w-[280px] max-w-[350px] mx-auto">
           <h3 className="text-2xl sm:text-3xl font-bold text-accent-blue mb-4">Teja's Portfolio</h3>
           <p className="text-base sm:text-lg leading-relaxed">
@@ -23,7 +23,7 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Quick Links Section */}
+        
         <div className="flex-1 min-w-[200px] max-w-[250px] mx-auto">
           <h3 className="text-2xl sm:text-3xl font-bold text-accent-blue mb-4">Quick Links</h3>
           <ul className="space-y-3">
@@ -40,7 +40,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Contact Info Section */}
+        
         <div className="flex-1 min-w-[280px] max-w-[350px] mx-auto">
           <h3 className="text-2xl sm:text-3xl font-bold text-accent-blue mb-4">Contact Info</h3>
           <div className="space-y-3 text-base sm:text-lg">
