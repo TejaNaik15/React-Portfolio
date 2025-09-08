@@ -12,5 +12,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <App />
       </MusicProvider>
     </ThemeProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
