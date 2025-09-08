@@ -12,6 +12,7 @@ import Projects from './sections/Projects';
 import Education from './sections/Education';
 import Contact from './sections/Contact';
 import Footer from './layouts/Footer';
+import FloatingCoffeeButton from './components/FloatingCoffeeButton';
 
 function App() {
   const { theme } = useTheme();
