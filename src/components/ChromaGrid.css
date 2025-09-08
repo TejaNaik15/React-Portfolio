@@ -106,6 +106,8 @@
   object-fit: cover;
   border-radius: 10px;
   display: block;
+  transform: translateZ(10px);
+  transition: transform 0.25s ease;
 }
 
 .chroma-info {
