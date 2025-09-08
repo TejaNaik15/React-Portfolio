@@ -52,6 +52,8 @@
   --spotlight-color: rgba(255, 255, 255, 0.3);
 }
 
+.chroma-card .border-beam { pointer-events:none; position:absolute; inset:0; border-radius:20px; }
+
 .chroma-card:hover {
   border-color: var(--card-border);
 }
@@ -137,7 +139,7 @@
   margin-top: 0.5rem;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .tech-icons {
@@ -145,6 +147,8 @@
   align-items: center;
   gap: 0.4rem;
   margin-right: 0.25rem;
+  max-width: 50%;
+  overflow: hidden;
 }
 .tech-icons .tech-icon svg {
   width: 20px;
@@ -163,10 +167,11 @@
   border: 1px solid rgba(255,255,255,0.25);
   background: rgba(255,255,255,0.06);
   color: #fff;
-  padding: 0.4rem 0.8rem;
+  padding: 0.35rem 0.7rem;
   border-radius: 999px;
   font-size: 0.9rem;
   line-height: 1;
+  white-space: nowrap;
   transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
 }
 .chroma-btn:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.45); }
