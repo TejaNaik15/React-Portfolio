@@ -42,8 +42,10 @@
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid #333;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.25s ease;
   background: var(--card-gradient);
+  transform-style: preserve-3d;
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(var(--tz, 0px));
 
   --mouse-x: 50%;
   --mouse-y: 50%;
@@ -53,6 +55,8 @@
 .chroma-card:hover {
   border-color: var(--card-border);
 }
+
+.chroma-card.active { box-shadow: 0 12px 40px rgba(0,0,0,0.45); }
 
 .chroma-card::before {
   content: '';
@@ -79,13 +83,36 @@
   transition: background 0.3s ease;
 }
 
+.chroma-img-wrapper .visit-hint {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.5);
+  color: #cbd5e1;
+  border: 1px solid rgba(255,255,255,0.15);
+  opacity: 0;
+  transform: translate3d(0,6px,0);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.chroma-card.active .visit-hint { opacity: 1; transform: translate3d(0,0,0); }
+
 .chroma-img-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
   display: block;
+  transform: translateZ(10px);
+  transition: transform 0.25s ease;
 }
+
+.chroma-card.active .chroma-img-wrapper img { transform: translateZ(22px) scale(1.02); }
 
 .chroma-info {
   position: relative;
