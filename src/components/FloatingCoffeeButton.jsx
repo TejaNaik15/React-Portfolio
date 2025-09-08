@@ -42,7 +42,7 @@ const FloatingCoffeeButton = () => {
           href={COFFEE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="fixed z-40 right-3 bottom-3 md:right-5 md:bottom-5 group"
+          className="fixed z-50 right-3 bottom-3 md:right-5 md:bottom-5 group"
           initial={{ opacity: 0, y: 20, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.9 }}
