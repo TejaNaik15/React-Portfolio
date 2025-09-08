@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import './ChromaGrid.css';
+import { BorderBeam } from '@/components/magicui/border-beam.jsx';
 
 export const ChromaGrid = ({
   items,
