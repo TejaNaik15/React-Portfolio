@@ -48,12 +48,18 @@
   --mouse-x: 50%;
   --mouse-y: 50%;
   --spotlight-color: rgba(255, 255, 255, 0.3);
+  transform-style: preserve-3d;
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(var(--tz, 0px));
 }
 
 
 .chroma-card:hover {
   border-color: var(--card-border);
 }
+
+.chroma-card.active { box-shadow: 0 12px 40px rgba(0,0,0,0.35); }
+
+.chroma-card.active .chroma-img-wrapper img { transform: translateZ(22px) scale(1.02); }
 
 
 .chroma-card::before {
