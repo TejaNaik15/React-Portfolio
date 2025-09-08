@@ -65,7 +65,7 @@ const Home = () => {
           </div>
           <div className="flex items-center gap-3">
             <a href="#projects" className="relative inline-block bg-accent-blue text-white px-6 py-3 rounded-full text-lg hover:bg-white/20 border border-accent-blue/40 transition-colors duration-300 overflow-hidden">
-              <span className="relative z-10">See My Work</span>
+              <span className="relative z-10">See My Projects</span>
               <span className="absolute inset-0 rounded-full pointer-events-none" aria-hidden>
                 <BorderBeam duration={8} size={120} colors={["#13ADC7","#945DD6","#FF3C78"]} />
               </span>
