@@ -214,14 +214,17 @@ export const ChromaGrid = ({
                 </span>
               </button>
               <button
-                className={`chroma-btn outline ${c.codeUrl ? '' : 'disabled'}`}
+                className={`relative chroma-btn outline ${c.codeUrl ? '' : 'disabled'}`}
                 onClick={(e) => {
                   e.stopPropagation();
                   if (c.codeUrl) window.open(c.codeUrl, '_blank', 'noopener,noreferrer');
                 }}
                 aria-disabled={!c.codeUrl}
               >
-                Code
+                <span className="relative z-10">Code</span>
+                <span className="absolute inset-0 rounded-full pointer-events-none" aria-hidden>
+                  <BorderBeam duration={8} size={80} />
+                </span>
               </button>
             </div>
           </footer>
