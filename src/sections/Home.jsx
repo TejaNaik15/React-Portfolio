@@ -71,6 +71,7 @@ const Home = () => {
               </span>
             </a>
             <AnimatedThemeToggler />
+            <MusicToggle />
           </div>
         </div>
         <div id="profile-home-slot" className="md:justify-self-end min-h-[360px]" />
