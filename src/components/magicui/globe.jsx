@@ -9,6 +9,7 @@ export const Globe = ({ className = '' }) => {
       </div>
     </div>
   );
+}; 
 
 
 export default Globe;
