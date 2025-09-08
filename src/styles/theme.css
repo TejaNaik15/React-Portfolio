@@ -2,22 +2,34 @@
 .theme-light { color-scheme: light; }
 
 /* Base text/background overrides for light theme */
+.theme-light body { background-color: #f8fafc; color: #0f172a; }
 .theme-light .bg-primary-dark { background-color: #f8fafc !important; }
+.theme-light .bg-secondary-dark { background-color: #eef2f7 !important; }
+.theme-light .bg-secondary-dark\/70 { background-color: rgba(238, 242, 247, 0.7) !important; }
+.theme-light .bg-primary-dark\/80 { background-color: rgba(248, 250, 252, 0.8) !important; }
 .theme-light .text-white { color: #0f172a !important; }
+.theme-light .text-white\/80 { color: rgba(15, 23, 42, 0.8) !important; }
 .theme-light .text-text-muted { color: #334155 !important; }
 .theme-light h1, .theme-light h2, .theme-light h3, .theme-light h4 { color: #0f172a; }
 .theme-light a { color: #0f172a; }
+.theme-light .border-white\/10 { border-color: rgba(0,0,0,0.1) !important; }
+.theme-light .bg-black\/20 { background-color: rgba(0,0,0,0.04) !important; }
+.theme-light .hover\:bg-black\/30:hover { background-color: rgba(0,0,0,0.06) !important; }
 
-/* Sections with blurred dark backgrounds -> soften for light */
-.theme-light .bg-gray-800\/60 { background-color: rgba(148, 163, 184, 0.16) !important; }
-.theme-light .bg-gray-900\/60 { background-color: rgba(100, 116, 139, 0.12) !important; }
+/* Tooltip/gray surfaces */
+.theme-light .bg-gray-800, .theme-light .bg-gray-700 { background-color: #e2e8f0 !important; }
+.theme-light .bg-gray-800\/60 { background-color: rgba(203, 213, 225, 0.6) !important; }
+.theme-light .bg-gray-900, .theme-light .bg-gray-900\/60 { background-color: rgba(255,255,255,0.9) !important; }
+
+/* Footer gradient override */
+.theme-light .footer-gradient { background: linear-gradient(to top, #ffffff, #f8fafc, #eef2f7) !important; opacity: 1 !important; }
 
 /* Nav (gooey) */
 .theme-light .gooey-nav-container nav ul { background: rgba(255,255,255,0.75); border-color: rgba(0,0,0,0.1); }
 .theme-light .gooey-nav-container nav ul li { color: #0f172a; }
 .theme-light .gooey-nav-container .effect.text { color: #0f172a; }
 
-/* Buttons */
+/* Buttons/CTAs */
 .theme-light .chroma-btn { color: #0f172a; border-color: rgba(0,0,0,0.2); background: rgba(15,23,42,0.04); }
 .theme-light .chroma-btn:hover { background: rgba(15,23,42,0.08); border-color: rgba(0,0,0,0.35); }
 
