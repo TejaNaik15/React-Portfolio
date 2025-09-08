@@ -2,7 +2,7 @@ import React from 'react';
 import SocialWrapper from '../components/SocialWrapper';
 import useScrollReveal from '../hooks/useScrollReveal';
 import { FaPhone, FaEnvelope, FaMapMarkedAlt } from 'react-icons/fa';
-import Globe from '../components/Globe';
+import { Globe } from '@/components/magicui/globe.jsx';
 import Particles from '../components/Particles';
 
 const Contact = () => {
@@ -22,8 +22,9 @@ const Contact = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-start">
-          <div className="w-full h-[320px] md:h-[420px] rounded-lg overflow-hidden order-2 md:order-1">
-            <Globe className="w-full h-full" />
+          <div className="relative flex w-full h-[360px] md:h-[460px] items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-primary-dark/60 px-10 pb-24 pt-6 md:pb-40 order-2 md:order-1">
+            <Globe className="top-16 md:top-20" />
+            <div className="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_150%,rgba(0,0,0,0.2),rgba(255,255,255,0))]" />
           </div>
           <div className="bg-gray-800/60 backdrop-blur-sm p-6 rounded-lg shadow-lg text-left order-1 md:order-2 w-full">
             <h2 className="text-2xl font-semibold mb-4 text-accent-blue">Send a Message</h2>
