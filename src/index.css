@@ -7,7 +7,7 @@
 
 
 body {
-  scrollbar-width: thick;
+  scrollbar-width: thin;
   scrollbar-color: #888 #333; 
 }
 
