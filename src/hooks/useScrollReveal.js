@@ -12,7 +12,7 @@ const useScrollReveal = (options = {}, dependencies = []) => {
     if (!el) return;
 
     const ctx = gsap.context(() => {
-      // Base fade/slide reveal
+      
       gsap.fromTo(
         el,
         { opacity: 0, y: 40 },
@@ -30,7 +30,7 @@ const useScrollReveal = (options = {}, dependencies = []) => {
         }
       );
 
-      // Stagger immediate children for richer effect
+      
       const children = Array.from(el.children || []);
       if (children.length) {
         gsap.fromTo(
