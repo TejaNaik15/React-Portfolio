@@ -62,7 +62,7 @@ const About = () => {
                 Download Resume
               </span>
               <span className="absolute inset-0 rounded-full pointer-events-none" aria-hidden>
-                <svg width="0" height="0" />
+                <BorderBeam duration={8} size={120} colors={["#13ADC7","#945DD6","#FF3C78"]} />
               </span>
             </a>
             <div className="flex items-center gap-3">
