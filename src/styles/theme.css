@@ -29,15 +29,19 @@
 .theme-light .gooey-nav-container nav ul li { color: #0f172a; }
 .theme-light .gooey-nav-container .effect.text { color: #0f172a; }
 
+/* Social icons */
+.theme-light a.social-icon { color: #0f172a !important; }
+.theme-light a.social-icon:hover { color: #2563eb !important; }
+
 /* Buttons/CTAs */
 .theme-light .chroma-btn { color: #0f172a; border-color: rgba(0,0,0,0.2); background: rgba(15,23,42,0.04); }
 .theme-light .chroma-btn:hover { background: rgba(15,23,42,0.08); border-color: rgba(0,0,0,0.35); }
 
 /* ChromaGrid */
-.theme-light .chroma-info { color: #0f172a; }
+.theme-light .chroma-info { color: #0f172a; background: rgba(255,255,255,0.72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-top: 1px solid rgba(0,0,0,0.08); border-radius: 12px; margin: 8px; }
 .theme-light .chroma-info .role, .theme-light .chroma-info .handle { color: #475569; }
 .theme-light .chroma-card { border-color: rgba(0,0,0,0.12); }
-.theme-light .chroma-overlay, .theme-light .chroma-fade { backdrop-filter: grayscale(0.9) brightness(1); -webkit-backdrop-filter: grayscale(0.9) brightness(1); }
+.theme-light .chroma-overlay, .theme-light .chroma-fade { backdrop-filter: grayscale(0.9) brightness(1.02); -webkit-backdrop-filter: grayscale(0.9) brightness(1.02); }
 
 /* Contact form */
 .theme-light input, .theme-light textarea { background: #eef2f7 !important; border-color: #cbd5e1 !important; color: #0f172a !important; }
