@@ -207,7 +207,7 @@ const Particles = ({
       cancelAnimationFrame(animationFrameId);
       if (container.contains(gl.canvas)) container.removeChild(gl.canvas);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, [
     particleCount,
     particleSpread,
