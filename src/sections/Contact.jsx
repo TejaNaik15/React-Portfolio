@@ -57,9 +57,12 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-accent-blue text-white px-6 py-3 rounded-full text-lg hover:bg-accent-purple transition-colors duration-300"
+                className="relative w-full bg-accent-blue text-white px-6 py-3 rounded-full text-lg hover:bg-accent-purple transition-colors duration-300 overflow-hidden"
               >
-                Send Message
+                <span className="relative z-10">Send Message</span>
+                <span className="absolute inset-0 rounded-full pointer-events-none" aria-hidden>
+                  <svg width="0" height="0" />
+                </span>
               </button>
             </form>
           </div>
