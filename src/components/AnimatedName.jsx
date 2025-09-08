@@ -5,9 +5,9 @@ const spring = { type: 'spring', stiffness: 600, damping: 18 };
 
 const Letter = ({ ch, idx }) => (
   <motion.span
-    whileHover={{ y: -6, scale: 1.12, rotate: -6, color: '#2563eb' }}
+    whileHover={{ y: -6, scale: 1.12, rotate: -6, color: '#2563eb', backgroundImage: 'none' }}
     transition={spring}
-    className="inline-block cursor-default will-change-transform"
+    className="inline-block cursor-default will-change-transform bg-gradient-to-r from-accent-blue via-accent-purple to-accent-blue bg-clip-text text-transparent"
     style={{ transitionProperty: 'transform, color' }}
   >
     {ch}
@@ -20,7 +20,7 @@ const AnimatedName = ({ text }) => {
     <span className="inline-flex flex-wrap gap-x-1">
       {letters.map((ch, i) => (
         ch === ' ' ? (
-          <span key={`s-${i}`}>&nbsp;</span>
+          <span key={`s-${i}`} className="w-1" />
         ) : (
           <Letter key={i} ch={ch} idx={i} />
         )
