@@ -14,7 +14,7 @@ const SharedProfileCard = () => {
   const currentSlot = useRef(null);
 
   useEffect(() => {
-    // initial mount into home slot
+    
     const home = getSlot('profile-home-slot');
     const aboutSlot = getSlot('profile-about-slot');
     const aboutSection = document.getElementById('about');
@@ -40,7 +40,7 @@ const SharedProfileCard = () => {
         return;
       }
 
-      // Ghost element animates while real card teleports at the end
+      
       const ghost = container.cloneNode(true);
       Object.assign(ghost.style, {
         position: 'fixed',
@@ -94,7 +94,7 @@ const SharedProfileCard = () => {
       onLeaveBack: () => toHome(),
     });
 
-    // gentle parallax while scrolling through about
+    
     return () => { st.kill(); };
   }, [container]);
 
