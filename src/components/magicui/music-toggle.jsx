@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const DEFAULT_SRC = import.meta.env.VITE_MUSIC_URL || 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
+const DEFAULT_SRC = '/assets/call_your_name.mp3;
 
 export const MusicToggle = ({ className = '' }) => {
   const audioRef = useRef(null);
