@@ -10,7 +10,7 @@ import SocialWrapper from '../components/SocialWrapper';
 const Footer = () => {
   return (
     <section id="footer" className="relative overflow-hidden text-text-muted py-12 px-4 sm:px-6 md:px-8 border-t border-white/10">
-      <div className="pointer-events-none absolute inset-0 opacity-90 bg-gradient-to-t from-secondary-dark via-primary-dark to-primary-dark" />
+      <div className="pointer-events-none absolute inset-0 opacity-90 bg-gradient-to-t from-secondary-dark via-primary-dark to-primary-dark footer-gradient" />
       <div className="relative container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start text-center md:text-left">
 
         {/* About Section */}
