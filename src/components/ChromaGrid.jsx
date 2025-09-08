@@ -129,6 +129,24 @@ export const ChromaGrid = ({
     const y = e.clientY - rect.top;
     card.style.setProperty('--mouse-x', `${x}px`);
     card.style.setProperty('--mouse-y', `${y}px`);
+
+    const rx = -((y / rect.height) - 0.5) * 10;
+    const ry = ((x / rect.width) - 0.5) * 12;
+    card.style.setProperty('--rx', `${rx}deg`);
+    card.style.setProperty('--ry', `${ry}deg`);
+    card.style.setProperty('--tz', `18px`);
+  };
+
+  const handleCardEnter = (e) => {
+    e.currentTarget.classList.add('active');
+  };
+
+  const handleCardLeave = (e) => {
+    const card = e.currentTarget;
+    card.classList.remove('active');
+    card.style.removeProperty('--rx');
+    card.style.removeProperty('--ry');
+    card.style.removeProperty('--tz');
   };
 
 
@@ -148,7 +166,9 @@ export const ChromaGrid = ({
         <article
           key={i}
           className="chroma-card"
+          onMouseEnter={handleCardEnter}
           onMouseMove={handleCardMove}
+          onMouseLeave={handleCardLeave}
           onClick={() => handleCardClick(c)}
           style={{
             '--card-border': c.borderColor || 'transparent',
