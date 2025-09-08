@@ -5,6 +5,7 @@ import ProfileCard from '../components/ProfileCard';
 import SocialIcons from '../components/SocialIcons';
 import ShinyText from '../components/ShinyText';
 import Particles from '../components/Particles';
+import { AnimatedThemeToggler } from '@/components/magicui/animated-theme-toggler.jsx';
 
 const Home = () => {
   const typeRef = useRef(null);
@@ -56,10 +57,11 @@ const Home = () => {
             <SocialIcons type="email" link="tinkuteja740@gmail.com" />
             <SocialIcons type="github" link="https://github.com/TejaNaik15" />
           </div>
-          <div>
+          <div className="flex items-center gap-3">
             <a href="#projects" className="inline-block bg-accent-blue text-white px-6 py-3 rounded-full text-lg hover:bg-white/20 border border-accent-blue/40 transition-colors duration-300">
               See My Work
             </a>
+            <AnimatedThemeToggler />
           </div>
         </div>
         <div id="profile-home-slot" className="md:justify-self-end min-h-[360px]" />
