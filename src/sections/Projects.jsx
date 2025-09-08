@@ -32,7 +32,7 @@ const projectsData = [
     githubLink: 'https://github.com/TejaNaik15/ExpenseTracking',
     liveDemoLink: 'https://expense-tracking-two.vercel.app/',
   },
-  // Added projects
+  
   {
     id: 4,
     title: 'Portfolio Website',
