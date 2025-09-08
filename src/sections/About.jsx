@@ -4,6 +4,7 @@ import ShinyText from '../components/ShinyText';
 import Particles from '../components/Particles';
 import VariableProximity from '../components/VariableProximity';
 import SocialIcons from '../components/SocialIcons';
+import { BorderBeam } from '@/components/magicui/border-beam.jsx';
 
 const About = () => {
   const sectionRef = useScrollReveal({ threshold: 0.1 });
@@ -54,10 +55,15 @@ const About = () => {
             <a
               href="/assets/resume.pdf"
               download
-              className="inline-flex items-center gap-2 bg-accent-blue text-white px-6 py-3 rounded-full text-lg hover:bg-white/20 border border-accent-blue/40 transition-colors duration-300"
+              className="relative inline-flex items-center gap-2 bg-accent-blue text-white px-6 py-3 rounded-full text-lg hover:bg-white/20 border border-accent-blue/40 transition-colors duration-300 overflow-hidden"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v9.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414L11 13.586V4a1 1 0 0 1 1-1z"/><path d="M5 20a2 2 0 0 1-2-2v-2a1 1 0 1 1 2 0v2h14v-2a1 1 0 1 1 2 0v2a2 2 0 0 1-2 2H5z"/></svg>
-              Download Resume
+              <span className="relative z-10 inline-flex items-center gap-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v9.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414L11 13.586V4a1 1 0 0 1 1-1z"/><path d="M5 20a2 2 0 0 1-2-2v-2a1 1 0 1 1 2 0v2h14v-2a1 1 0 1 1 2 0v2a2 2 0 0 1-2 2H5z"/></svg>
+                Download Resume
+              </span>
+              <span className="absolute inset-0 rounded-full pointer-events-none" aria-hidden>
+                <BorderBeam duration={8} size={120} colors={["#13ADC7","#945DD6","#FF3C78"]} />
+              </span>
             </a>
             <div className="flex items-center gap-3">
               <SocialIcons type="instagram" link="https://instagram.com/" />

@@ -48,11 +48,19 @@
   --mouse-x: 50%;
   --mouse-y: 50%;
   --spotlight-color: rgba(255, 255, 255, 0.3);
+  transform-style: preserve-3d;
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(var(--tz, 0px));
 }
+
 
 .chroma-card:hover {
   border-color: var(--card-border);
 }
+
+.chroma-card.active { box-shadow: 0 12px 40px rgba(0,0,0,0.35); }
+
+.chroma-card.active .chroma-img-wrapper img { transform: translateZ(22px) scale(1.02); }
+
 
 .chroma-card::before {
   content: '';
@@ -79,12 +87,33 @@
   transition: background 0.3s ease;
 }
 
+.chroma-img-wrapper .visit-hint {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.5);
+  color: #cbd5e1;
+  border: 1px solid rgba(255,255,255,0.15);
+  opacity: 0;
+  transform: translate3d(0,6px,0);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.chroma-card:hover .visit-hint { opacity: 1; transform: translate3d(0,0,0); }
+
 .chroma-img-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
   display: block;
+  transform: translateZ(10px);
+  transition: transform 0.25s ease;
 }
 
 .chroma-info {
@@ -110,7 +139,7 @@
   margin-top: 0.5rem;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .tech-icons {
@@ -118,6 +147,8 @@
   align-items: center;
   gap: 0.4rem;
   margin-right: 0.25rem;
+  max-width: 50%;
+  overflow: hidden;
 }
 .tech-icons .tech-icon svg {
   width: 20px;
@@ -136,10 +167,11 @@
   border: 1px solid rgba(255,255,255,0.25);
   background: rgba(255,255,255,0.06);
   color: #fff;
-  padding: 0.4rem 0.8rem;
+  padding: 0.35rem 0.7rem;
   border-radius: 999px;
   font-size: 0.9rem;
   line-height: 1;
+  white-space: nowrap;
   transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
 }
 .chroma-btn:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.45); }

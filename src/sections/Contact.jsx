@@ -2,8 +2,9 @@ import React from 'react';
 import SocialWrapper from '../components/SocialWrapper';
 import useScrollReveal from '../hooks/useScrollReveal';
 import { FaPhone, FaEnvelope, FaMapMarkedAlt } from 'react-icons/fa';
-import Globe from '../components/Globe';
+import { Globe } from '@/components/magicui/globe.jsx';
 import Particles from '../components/Particles';
+import { BorderBeam } from '@/components/magicui/border-beam.jsx';
 
 const Contact = () => {
   const sectionRef = useScrollReveal({ threshold: 0.1 }); 
@@ -22,8 +23,8 @@ const Contact = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-start">
-          <div className="w-full h-[320px] md:h-[420px] rounded-lg overflow-hidden order-2 md:order-1">
-            <Globe className="w-full h-full" />
+          <div className="relative flex w-full h-[360px] md:h-[460px] items-center justify-center overflow-hidden rounded-lg order-2 md:order-1">
+            <Globe className="top-16 md:top-20" />
           </div>
           <div className="bg-gray-800/60 backdrop-blur-sm p-6 rounded-lg shadow-lg text-left order-1 md:order-2 w-full">
             <h2 className="text-2xl font-semibold mb-4 text-accent-blue">Send a Message</h2>
@@ -57,9 +58,12 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-accent-blue text-white px-6 py-3 rounded-full text-lg hover:bg-accent-purple transition-colors duration-300"
+                className="relative w-full bg-accent-blue text-white px-6 py-3 rounded-full text-lg hover:bg-accent-purple transition-colors duration-300 overflow-hidden"
               >
-                Send Message
+                <span className="relative z-10">Send Message</span>
+                <span className="absolute inset-0 rounded-full pointer-events-none" aria-hidden>
+                  <BorderBeam duration={8} size={120} colors={["#13ADC7","#945DD6","#FF3C78"]} />
+                </span>
               </button>
             </form>
           </div>

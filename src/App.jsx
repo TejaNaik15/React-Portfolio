@@ -12,6 +12,8 @@ import Projects from './sections/Projects';
 import Education from './sections/Education';
 import Contact from './sections/Contact';
 import Footer from './layouts/Footer';
+import FloatingCoffeeButton from './components/FloatingCoffeeButton';
+import SmoothCursor from './components/SmoothCursor';
 
 function App() {
   const { theme } = useTheme();
@@ -20,6 +22,7 @@ function App() {
     <Router>
       <div className="relative flex flex-col min-h-screen bg-primary-dark" style={{ ['--rays-color']: rays }}>
         <LightRays raysColor={rays} />
+        <SmoothCursor />
         <div className="fixed top-0 left-0 right-0 z-40 flex justify-center pt-4">
           <GooeyNav
             items={[
@@ -49,6 +52,7 @@ function App() {
             
           </Routes>
         </main>
+        <FloatingCoffeeButton />
         <Footer />
       </div>
     </Router>

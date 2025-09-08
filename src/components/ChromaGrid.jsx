@@ -129,7 +129,26 @@ export const ChromaGrid = ({
     const y = e.clientY - rect.top;
     card.style.setProperty('--mouse-x', `${x}px`);
     card.style.setProperty('--mouse-y', `${y}px`);
+
+    const rx = -((y / rect.height) - 0.5) * 10;
+    const ry = ((x / rect.width) - 0.5) * 12;
+    card.style.setProperty('--rx', `${rx}deg`);
+    card.style.setProperty('--ry', `${ry}deg`);
+    card.style.setProperty('--tz', `18px`);
   };
+
+  const handleCardEnter = (e) => {
+    e.currentTarget.classList.add('active');
+  };
+
+  const handleCardLeave = (e) => {
+    const card = e.currentTarget;
+    card.classList.remove('active');
+    card.style.removeProperty('--rx');
+    card.style.removeProperty('--ry');
+    card.style.removeProperty('--tz');
+  };
+
 
   return (
     <div
@@ -147,7 +166,9 @@ export const ChromaGrid = ({
         <article
           key={i}
           className="chroma-card"
+          onMouseEnter={handleCardEnter}
           onMouseMove={handleCardMove}
+          onMouseLeave={handleCardLeave}
           onClick={() => handleCardClick(c)}
           style={{
             '--card-border': c.borderColor || 'transparent',
@@ -157,6 +178,13 @@ export const ChromaGrid = ({
         >
           <div className="chroma-img-wrapper">
             <img src={c.image} alt={c.title} loading="lazy" />
+            <div className="visit-hint">
+              <span>Visit Site</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 17L17 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M8 7H17V16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+            </div>
           </div>
           <footer className="chroma-info">
             <h3 className="name">{c.title}</h3>
@@ -171,23 +199,23 @@ export const ChromaGrid = ({
                 </div>
               )}
               <button
-                className={`chroma-btn ${c.liveUrl ? '' : 'disabled'}`}
+                className={`relative chroma-btn ${c.liveUrl ? '' : 'disabled'}`}
                 onClick={(e) => {
                   e.stopPropagation();
                   if (c.liveUrl) window.open(c.liveUrl, '_blank', 'noopener,noreferrer');
                 }}
                 aria-disabled={!c.liveUrl}
-              >
+>
                 Live Demo
               </button>
               <button
-                className={`chroma-btn outline ${c.codeUrl ? '' : 'disabled'}`}
+                className={`relative chroma-btn outline ${c.codeUrl ? '' : 'disabled'}`}
                 onClick={(e) => {
                   e.stopPropagation();
                   if (c.codeUrl) window.open(c.codeUrl, '_blank', 'noopener,noreferrer');
                 }}
                 aria-disabled={!c.codeUrl}
-              >
+>
                 Code
               </button>
             </div>
