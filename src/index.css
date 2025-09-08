@@ -1,9 +1,9 @@
+@import './styles/theme.css';
+@import './styles/gradient.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import './styles/theme.css';
-@import './styles/gradient.css';
 
 
 body {
