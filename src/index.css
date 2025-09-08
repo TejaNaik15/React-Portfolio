@@ -50,6 +50,10 @@ html { scroll-behavior: smooth; }
   50% { border-color: #fff; }
 }
 
+@keyframes border-beam-rotate {
+  to { transform: rotate(360deg); }
+}
+
 
 .initial-hidden-reveal {
   opacity: 0;
