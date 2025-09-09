@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaCoffee } from 'react-icons/fa';
 
-const COFFEE_URL = import.meta.env.VITE_COFFEE_URL || 'https://www.buymeacoffee.com/';
+const COFFEE_URL ='https://buymeacoffee.com/tejanaik15';
 
 const FloatingCoffeeButton = () => {
   const [footerVisible, setFooterVisible] = useState(false);
