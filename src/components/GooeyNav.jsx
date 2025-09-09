@@ -169,6 +169,6 @@ const GooeyNav = ({
       <span className="effect text" ref={textRef} />
     </div>
   );
-
+};
 
 export default GooeyNav;
