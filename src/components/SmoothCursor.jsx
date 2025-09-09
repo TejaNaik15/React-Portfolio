@@ -53,6 +53,6 @@ const SmoothCursor = () => {
       <div ref={dotRef} className="cursor-dot" />
     </div>
   );
-
+};
 
 export default SmoothCursor;
