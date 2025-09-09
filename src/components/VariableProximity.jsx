@@ -167,7 +167,7 @@ const VariableProximity = forwardRef((props, ref) => {
       <span className="sr-only">{label}</span>
     </span>
   );
-
+});
 
 VariableProximity.displayName = 'VariableProximity';
 export default VariableProximity;
