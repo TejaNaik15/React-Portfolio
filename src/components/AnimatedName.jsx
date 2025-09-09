@@ -27,6 +27,6 @@ const AnimatedName = ({ text }) => {
       ))}
     </span>
   );
-
+};
 
 export default AnimatedName;
