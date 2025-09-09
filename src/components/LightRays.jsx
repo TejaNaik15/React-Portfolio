@@ -244,7 +244,7 @@ const LightRays = ({
           renderer.render({ scene: mesh });
           animationIdRef.current = requestAnimationFrame(loop);
         } catch (error) {
-          // eslint-disable-next-line no-console
+          
           console.warn('WebGL rendering error:', error);
           return;
         }
@@ -271,7 +271,7 @@ const LightRays = ({
               canvas.parentNode.removeChild(canvas);
             }
           } catch (error) {
-            // eslint-disable-next-line no-console
+            
             console.warn('Error during WebGL cleanup:', error);
           }
         }
