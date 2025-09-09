@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaEnvelope } from 'react-icons/fa';
 
-const SocialIcons = ({ type, link }) => {
+const SocialIcons = ({ type, link }) => 
   let IconComponent;
   let ariaLabel;
 
