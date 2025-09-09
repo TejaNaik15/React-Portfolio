@@ -1,5 +1,5 @@
 .light-rays-container {
-  position: fixed;
+  position: cover;
   inset: 0;
   width: 100vw;
   height: 100vh;
