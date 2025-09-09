@@ -66,8 +66,8 @@ const About = () => {
               </span>
             </a>
             <div className="flex items-center gap-3">
-              <SocialIcons type="instagram" link="https://instagram.com/" />
-              <SocialIcons type="twitter" link="https://twitter.com/" />
+              <SocialIcons type="instagram" link="https://www.instagram.com/eren_yeager9_" />
+              <SocialIcons type="twitter" link="https://x.com/TEJA_NAIKK" />
             </div>
           </div>
         </div>
