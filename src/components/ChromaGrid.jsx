@@ -226,6 +226,6 @@ export const ChromaGrid = ({
       <div ref={fadeRef} className="chroma-fade" />
     </div>
   );
-
+};
 
 export default ChromaGrid;
