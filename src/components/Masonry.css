@@ -1,5 +1,5 @@
 .list {
-  position: relative;
+  position: absolute;
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
