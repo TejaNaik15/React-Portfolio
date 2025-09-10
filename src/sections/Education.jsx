@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import Particles from "../components/Particles"; // Make sure Particles.jsx is available
+import Particles from "../components/Particles"; // Ensure this exists
 
 const eduData = [
   {
@@ -54,10 +54,7 @@ const Education = () => {
   }, [scrollYProgress, activeIndex]);
 
   return (
-    <section
-      ref={scrollRef}
-      className="relative min-h-screen p-8 bg-gray-900 text-white overflow-hidden"
-    >
+    <section ref={scrollRef} className="relative min-h-screen p-8 bg-gray-900 text-white overflow-hidden">
       {/* Particle Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Particles
@@ -70,15 +67,20 @@ const Education = () => {
         />
       </div>
 
-      {/* Section Title */}
-      <h2 className="relative z-10 text-4xl font-bold text-center mb-8">Education</h2>
+      {/* Title */}
+      <h2 className="relative z-10 text-4xl font-bold text-center text-indigo-400 mb-8">
+        My Education
+      </h2>
+      <p className="relative z-10 text-center text-gray-300 mb-12">
+        Scroll to explore my educational background
+      </p>
 
-      {/* Timeline Container */}
-      <div className="relative max-w-3xl mx-auto z-10">
-        <div className="absolute left-1/2 w-1 bg-gray-600 h-full transform -translate-x-1/2"></div>
+      {/* Timeline */}
+      <div className="relative max-w-4xl mx-auto">
+        <div className="absolute left-1/2 w-1 bg-gray-700 h-full transform -translate-x-1/2"></div>
 
         <motion.div
-          className="absolute left-1/2 w-1 bg-blue-500 rounded"
+          className="absolute left-1/2 w-1 bg-indigo-500 rounded"
           style={{
             height: progressHeight,
             transform: "translateX(-50%)",
@@ -90,20 +92,20 @@ const Education = () => {
             <div
               className={`w-6 h-6 rounded-full border-4 ${
                 index <= activeIndex
-                  ? "bg-blue-500 border-blue-500"
+                  ? "bg-indigo-500 border-indigo-500"
                   : "bg-gray-900 border-gray-500"
               } absolute left-1/2 transform -translate-x-1/2`}
             />
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-gray-800 p-6 rounded shadow-lg w-full max-w-xl"
+              viewport={{ once: false, margin: "-100px" }}
+              transition={{ duration: 0.7, delay: index * 0.2 }}
+              className="bg-gray-800 p-6 rounded shadow-lg w-full max-w-lg text-indigo-100"
             >
-              <span className="text-sm text-blue-400 font-semibold">{item.year}</span>
-              <h3 className="text-xl font-bold mt-2">{item.title}</h3>
+              <span className="text-indigo-300 font-semibold">{item.year}</span>
+              <h3 className="text-xl font-bold mt-2 text-indigo-400">{item.title}</h3>
               <h4 className="text-md text-gray-400 mt-1">{item.subtitle}</h4>
               <p className="text-gray-300 mt-2">{item.description}</p>
             </motion.div>
