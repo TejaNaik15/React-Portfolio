@@ -1,63 +1,114 @@
-import React from 'react';
-import useScrollReveal from '../hooks/useScrollReveal';
-import Particles from '../components/Particles';
+import React, { useRef, useState, useEffect } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import Particles from "../components/Particles"; // Make sure Particles.jsx is available
 
 const eduData = [
   {
-    school: 'CMR Institute of Technology, Hyderabad',
-    degree: 'B.Tech (Artificial Intelligence & Data Science)',
-    date: '2021 – 2025',
-    desc: 'Coursework in Web Development, Data Structures, Algorithms, DBMS, Operating Systems, and ML. Built multiple MERN projects and led tech fests.'
+    year: "2021 – 2025",
+    title: "CMR Institute of Technology, Hyderabad",
+    subtitle: "B.Tech (Artificial Intelligence & Data Science)",
+    description:
+      "Coursework in Web Development, Data Structures, Algorithms, DBMS, Operating Systems, and ML. Built multiple MERN projects and led tech fests.",
   },
   {
-    school: 'Sri Chaitanya Junior College',
-    degree: 'Intermediate (MPC)',
-    date: '2019 – 2021',
-    desc: 'Focused on Mathematics and Physics fundamentals. Participated in science exhibitions and olympiads.'
+    year: "2019 – 2021",
+    title: "Sri Chaitanya Junior College",
+    subtitle: "Intermediate (MPC)",
+    description:
+      "Focused on Mathematics and Physics fundamentals. Participated in science exhibitions and olympiads.",
   },
   {
-    school: 'Montessori High School, Khammam',
-    degree: 'SSC',
-    date: 'Up to 2019',
-    
-    desc: 'Excelled in academics and extracurriculars; developed strong problem-solving foundations.'
-  }
+    year: "Up to 2019",
+    title: "Montessori High School, Khammam",
+    subtitle: "SSC",
+    description:
+      "Excelled in academics and extracurriculars; developed strong problem-solving foundations.",
+  },
 ];
 
-const TimelineItem = ({ item, isLast }) => (
-  <li className="relative pl-10 pb-10">
-    <span className="absolute left-3 top-1.5 h-3 w-3 rounded-full bg-accent-blue ring-4 ring-accent-blue/20" />
-    {!isLast && <span className="absolute left-4 top-4 bottom-0 w-px bg-gradient-to-b from-accent-blue/30 to-transparent" />}
-    <div className="w-full max-w-2xl border border-white/10 rounded-lg p-4 md:p-5 bg-black/20 hover:bg-black/30 transition-all duration-300 shadow-[0_4px_24px_rgba(23,92,230,0.15)] hover:shadow-[0_8px_28px_rgba(0,0,0,0.2)]">
-      <div className="flex items-start gap-3">
-        <div className="h-12 w-12 rounded-md bg-black/40 flex items-center justify-center text-accent-blue font-semibold select-none">{item.date.split(' ')[0]}</div>
-        <div className="flex-1">
-          <h3 className="text-xl font-semibold text-white">{item.school}</h3>
-          <p className="text-text-muted">{item.degree} · <span className="text-white/80">{item.date}</span></p>
-          {item.grade && <p className="mt-1 text-text-muted">{item.grade}</p>}
-          <p className="mt-2 text-text-muted">{item.desc}</p>
-        </div>
-      </div>
-    </div>
-  </li>
-);
-
 const Education = () => {
-  const sectionRef = useScrollReveal({ threshold: 0.1 });
+  const scrollRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(-1);
+
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ["start start", "end end"],
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  const progressHeight = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
+
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.onChange((v) => {
+      const newIndex = Math.floor(v * eduData.length);
+      if (newIndex !== activeIndex && newIndex >= 0 && newIndex < eduData.length) {
+        setActiveIndex(newIndex);
+      }
+    });
+    return () => unsubscribe();
+  }, [scrollYProgress, activeIndex]);
 
   return (
-    <section id="education" ref={sectionRef} className="relative min-h-screen bg-primary-dark text-white p-8 flex flex-col items-center justify-center overflow-hidden scroll-mt-28 md:scroll-mt-40">
+    <section
+      ref={scrollRef}
+      className="relative min-h-screen p-8 bg-gray-900 text-white overflow-hidden"
+    >
+      {/* Particle Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <Particles className="w-full h-full" alphaParticles={true} particleCount={160} speed={0.1} particleBaseSize={70} sizeRandomness={1} />
+        <Particles
+          className="w-full h-full"
+          alphaParticles={true}
+          particleCount={160}
+          speed={0.1}
+          particleBaseSize={70}
+          sizeRandomness={1}
+        />
       </div>
-      <div className="relative container mx-auto w-full max-w-5xl">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-accent-blue text-center">Education</h1>
-        <p className="text-center text-text-muted mb-8 max-w-2xl mx-auto">My education has been a journey of self‑discovery and growth. Highlights below.</p>
-        <ul className="relative w-full max-w-3xl mx-auto">
-          {eduData.map((e, i) => (
-            <TimelineItem key={i} item={e} isLast={i === eduData.length - 1} />
-          ))}
-        </ul>
+
+      {/* Section Title */}
+      <h2 className="relative z-10 text-4xl font-bold text-center mb-8">Education</h2>
+
+      {/* Timeline Container */}
+      <div className="relative max-w-3xl mx-auto z-10">
+        <div className="absolute left-1/2 w-1 bg-gray-600 h-full transform -translate-x-1/2"></div>
+
+        <motion.div
+          className="absolute left-1/2 w-1 bg-blue-500 rounded"
+          style={{
+            height: progressHeight,
+            transform: "translateX(-50%)",
+          }}
+        />
+
+        {eduData.map((item, index) => (
+          <div key={index} className="relative flex flex-col items-center mb-16">
+            <div
+              className={`w-6 h-6 rounded-full border-4 ${
+                index <= activeIndex
+                  ? "bg-blue-500 border-blue-500"
+                  : "bg-gray-900 border-gray-500"
+              } absolute left-1/2 transform -translate-x-1/2`}
+            />
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className="bg-gray-800 p-6 rounded shadow-lg w-full max-w-xl"
+            >
+              <span className="text-sm text-blue-400 font-semibold">{item.year}</span>
+              <h3 className="text-xl font-bold mt-2">{item.title}</h3>
+              <h4 className="text-md text-gray-400 mt-1">{item.subtitle}</h4>
+              <p className="text-gray-300 mt-2">{item.description}</p>
+            </motion.div>
+          </div>
+        ))}
       </div>
     </section>
   );
