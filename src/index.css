@@ -32,16 +32,17 @@ html { scroll-behavior: smooth; }
 .name-gradient {
   background: linear-gradient(
     270deg,
-    #8b5cf6,
-    #3b82f6,
-    #06b6d4,
-    #8b5cf6
+    #ff0080,
+    #7928ca,
+    #0070f3,
+    #00dfd8,
+    #ff0080
   );
-  background-size: 400% 400%;
+  background-size: 800% 800%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: gradientMove 6s ease infinite;
+  animation: gradientMove 8s ease infinite;
 }
 
 @keyframes gradientMove {
