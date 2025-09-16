@@ -43,6 +43,14 @@ html { scroll-behavior: smooth; }
   animation: gradientMove 5s ease infinite;
 }
 
+
+@media (prefers-color-scheme: light) {
+  .name-gradient {
+    -webkit-text-stroke: 1px #00dfd8;
+    text-stroke: 1px #00dfd8;
+  }
+}
+
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
