@@ -155,15 +155,22 @@ extend({ CPPNShaderMaterial });
 
 function ShaderPlane({ tint = '#0b1220' }) {
   const materialRef = useRef();
+  const meshRef = useRef();
   useFrame((state) => {
-    if (!materialRef.current) return;
-    materialRef.current.iTime = state.clock.elapsedTime;
-    const { width, height } = state.size;
-    materialRef.current.iResolution.set(width, height);
+    if (materialRef.current) {
+      materialRef.current.iTime = state.clock.elapsedTime;
+      const { width, height } = state.size;
+      materialRef.current.iResolution.set(width, height);
+    }
+    // Always scale the plane to the current viewport so it fills the canvas
+    if (meshRef.current) {
+      const { width: vw, height: vh } = state.viewport;
+      meshRef.current.scale.set(vw, vh, 1);
+    }
   });
   return (
-    <mesh position={[0, 0, -0.5]}>
-      <planeGeometry args={[4, 4]} />
+    <mesh ref={meshRef} position={[0, 0, -0.5]}>
+      <planeGeometry args={[1, 1]} />
       <cPPNShaderMaterial ref={materialRef} uTint={new THREE.Color(tint)} side={THREE.DoubleSide} />
     </mesh>
   );
