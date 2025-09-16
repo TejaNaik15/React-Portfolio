@@ -49,7 +49,6 @@ html { scroll-behavior: smooth; }
   100% { background-position: 0% 50%; }
 }
 
-
 .transition-opacity-transform {
   opacity: 0;
   transform: translateY(20px); 
