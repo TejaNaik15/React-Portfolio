@@ -14,7 +14,7 @@ const About = () => {
   const to = "'wght' 900, 'opsz' 72";
 
   return (
-    <section id="about" ref={sectionRef} className="relative py-16 text-white px-4 bg-primary-dark overflow-hidden scroll-mt-28 md:scroll-mt-40">
+    <section id="about" ref={sectionRef} className="relative w-full py-16 text-white px-4 bg-primary-dark overflow-hidden scroll-mt-28 md:scroll-mt-40">
       <ShaderBackground />
       <div className="relative z-10 container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div id="profile-about-slot" className="min-h-[360px] order-1 md:order-none" />
