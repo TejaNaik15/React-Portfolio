@@ -1,6 +1,6 @@
 import React from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
-import ShaderBackground from '@/components/ShaderBackground.jsx';
+import Particles from '../components/Particles';
 import ScrollTimeline from '../components/ScrollTimeline';
 
 const educationEvents = [
@@ -34,11 +34,20 @@ const Education = () => {
     <section
       id="education"
       ref={sectionRef}
-      className="relative min-h-screen bg-primary-dark text-white px-4 sm:px-6 md:px-8 py-12 flex flex-col items-center justify-center overflow-hidden scroll-mt-28 md:scroll-mt-40"
+      className="relative min-h-screen bg-primary-dark text-white px-6 py-16 md:px-8 flex flex-col items-center justify-center overflow-hidden scroll-mt-28 md:scroll-mt-40"
     >
-      <ShaderBackground />
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Particles
+          className="w-full h-full"
+          alphaParticles={true}
+          particleCount={140}
+          speed={0.1}
+          particleBaseSize={70}
+          sizeRandomness={1}
+        />
+      </div>
       <div className="relative container mx-auto w-full max-w-6xl">
-        <h1 className="text-4xl md:text-5xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-accent-blue via-accent-purple to-accent-pink text-center">Education</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-3 text-accent-blue text-center">Education</h1>
         <p className="text-center text-text-muted mb-10 max-w-2xl mx-auto">
           My education has been a journey of self‑discovery and growth. Highlights below.
         </p>

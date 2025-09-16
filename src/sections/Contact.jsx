@@ -3,17 +3,19 @@ import SocialWrapper from '../components/SocialWrapper';
 import useScrollReveal from '../hooks/useScrollReveal';
 import { FaPhone, FaEnvelope, FaMapMarkedAlt } from 'react-icons/fa';
 import { Globe } from '@/components/magicui/globe.jsx';
-import ShaderBackground from '@/components/ShaderBackground.jsx';
+import Particles from '../components/Particles';
 import { BorderBeam } from '@/components/magicui/border-beam.jsx';
 
 const Contact = () => {
   const sectionRef = useScrollReveal({ threshold: 0.1 }); 
 
   return (
-    <section id="contact" ref={sectionRef} className="relative min-h-screen bg-primary-dark text-white px-4 sm:px-6 md:px-8 py-12 flex flex-col items-center justify-center transition-opacity-transform overflow-hidden scroll-mt-28 md:scroll-mt-40">
-      <ShaderBackground />
+    <section id="contact" ref={sectionRef} className="relative min-h-screen bg-primary-dark text-white p-8 flex flex-col items-center justify-center transition-opacity-transform overflow-hidden scroll-mt-28 md:scroll-mt-40">
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Particles className="w-full h-full" alphaParticles={true} particleCount={160} speed={0.1} particleBaseSize={70} sizeRandomness={1} />
+      </div>
       <div className="relative container mx-auto text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-accent-blue via-accent-purple to-accent-pink">Contact Me</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-blue">Contact Me</h1>
 
         <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
           Feel free to reach out to me for collaborations, job opportunities, or just a chat:)
