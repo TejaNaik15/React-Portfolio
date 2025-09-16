@@ -1,7 +1,7 @@
 import React from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
 import ShinyText from '../components/ShinyText';
-import Particles from '../components/Particles';
+import ShaderBackground from '@/components/ShaderBackground.jsx';
 import VariableProximity from '../components/VariableProximity';
 import SocialIcons from '../components/SocialIcons';
 import { BorderBeam } from '@/components/magicui/border-beam.jsx';
@@ -15,9 +15,7 @@ const About = () => {
 
   return (
     <section id="about" ref={sectionRef} className="relative py-16 text-white px-4 bg-primary-dark overflow-hidden scroll-mt-28 md:scroll-mt-40">
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <Particles className="w-full h-full" alphaParticles={true} particleCount={180} speed={0.1} particleBaseSize={70} sizeRandomness={1} />
-      </div>
+      <ShaderBackground />
       <div className="relative z-10 container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div id="profile-about-slot" className="min-h-[360px] order-1 md:order-none" />
         <div className="order-2 md:order-none">

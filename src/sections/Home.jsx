@@ -7,7 +7,7 @@ import ShinyText from '../components/ShinyText';
 import AnimatedName from '../components/AnimatedName.jsx';
 import { BorderBeam } from '@/components/magicui/border-beam.jsx';
 import { MusicToggle } from '@/components/magicui/music-toggle.jsx';
-import Particles from '../components/Particles';
+import ShaderBackground from '@/components/ShaderBackground.jsx';
 import { AnimatedThemeToggler } from '@/components/magicui/animated-theme-toggler.jsx';
 
 const Home = () => {
@@ -42,9 +42,7 @@ const Home = () => {
 
   return (
     <section id="home" className="relative bg-primary-dark min-h-screen flex items-center text-white overflow-hidden scroll-mt-28 md:scroll-mt-40">
-      <div className="absolute inset-0 z-0">
-        <Particles className="w-full h-full" interactive={true} moveParticlesOnHover={true} alphaParticles={true} particleCount={280} speed={0.12} particleBaseSize={80} sizeRandomness={1} />
-      </div>
+      <ShaderBackground />
       <div className="relative z-10 container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div className="space-y-6">
           <h1 ref={headingRef} className="text-4xl md:text-6xl font-extrabold leading-tight">
