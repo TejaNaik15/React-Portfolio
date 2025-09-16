@@ -36,7 +36,7 @@ const Skills = () => {
   const textColorClass = theme === 'light' ? 'text-black' : 'text-white';
 
   return (
-    <section id="skills" ref={sectionRef} className={`relative w-full min-h-screen min-h-[100svh] bg-primary-dark ${textColorClass} px-4 sm:px-6 md:px-8 py-12 flex flex-col items-center justify-center transition-opacity-transform overflow-hidden scroll-mt-28 md:scroll-mt-40`}>
+    <section id="skills" ref={sectionRef} className={`relative min-h-screen min-h-[100svh] bg-primary-dark ${textColorClass} px-4 sm:px-6 md:px-8 py-12 flex flex-col items-center justify-center transition-opacity-transform overflow-hidden scroll-mt-28 md:scroll-mt-40`}>
       <ShaderBackground />
 
       <div className="relative z-10 container mx-auto text-center">

@@ -22,7 +22,7 @@
 .theme-light .bg-gray-900, .theme-light .bg-gray-900\/60 { background-color: rgba(255,255,255,0.9) !important; }
 
 
-.theme-light .footer-gradient { background: linear-gradient(to top, rgba(255,255,255,0.95), rgba(248,250,252,0.85), rgba(238,242,247,0.8)) !important; opacity: 0.85 !important; }
+.theme-light .footer-gradient { background: linear-gradient(to top, #ffffff, #f8fafc, #eef2f7) !important; opacity: 1 !important; }
 
 
 .theme-light .gooey-nav-container nav ul { background: rgba(255,255,255,0.75); border-color: rgba(0,0,0,0.1); }

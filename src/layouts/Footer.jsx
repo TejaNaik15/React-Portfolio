@@ -6,14 +6,12 @@ import {
   FaMapMarkedAlt,
 } from 'react-icons/fa';
 import SocialWrapper from '../components/SocialWrapper'; 
-import ShaderBackground from '@/components/ShaderBackground.jsx';
 
 const Footer = () => {
   return (
     <section id="footer" className="relative overflow-hidden text-text-muted py-12 px-4 sm:px-6 md:px-8 border-t border-white/10">
-      <ShaderBackground />
-      <div className="pointer-events-none absolute inset-0 z-10 opacity-60 bg-gradient-to-t from-secondary-dark via-primary-dark to-primary-dark footer-gradient" />
-      <div className="relative z-20 container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start text-center md:text-left">
+      <div className="pointer-events-none absolute inset-0 opacity-90 bg-gradient-to-t from-secondary-dark via-primary-dark to-primary-dark footer-gradient" />
+      <div className="relative container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start text-center md:text-left">
 
         
         <div className="flex-1 min-w-[280px] max-w-[350px] mx-auto">
@@ -66,7 +64,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <h1 className="relative z-20 text-center text-white text-base sm:text-lg mt-12 border-t border-white/10 pt-6 mx-auto px-4 sm:px-6 md:px-8 max-w-6xl break-words">
+      <h1 className="relative text-center text-white text-base sm:text-lg mt-12 border-t border-white/10 pt-6 mx-auto px-4 sm:px-6 md:px-8 max-w-6xl break-words">
         © {new Date().getFullYear()} KELOTH TEJA NAIK. All rights reserved.
       </h1>
     </section>

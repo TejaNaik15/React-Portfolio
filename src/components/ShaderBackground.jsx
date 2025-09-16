@@ -183,7 +183,7 @@ export default function ShaderBackground({ className = '', tintDark = '#0b1220',
   }, [theme]);
 
   return (
-    <div ref={containerRef} className={`absolute inset-0 z-0 w-full h-full ${className}`} aria-hidden>
+    <div ref={containerRef} className={`absolute inset-0 -z-10 w-full h-full ${className}`} aria-hidden>
       <Canvas camera={camera} gl={{ antialias: true, alpha: true }} dpr={[1, 2]} style={{ width: '100%', height: '100%' }}>
         <ShaderPlane tint={tint} />
       </Canvas>
