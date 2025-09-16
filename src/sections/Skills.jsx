@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
-import Particles from '../components/Particles';
+import ShaderBackground from '@/components/ShaderBackground.jsx';
 import { ThreeDScrollTriggerContainer, ThreeDScrollTriggerRow } from '../components/ThreeDScrollTrigger';
+import { useTheme } from '@/context/ThemeContext.jsx';
 
 const cdn = (path) => `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${path}`;
 
@@ -31,14 +32,15 @@ const Skills = () => {
     { id: 'figma', name: 'Figma', img: cdn('figma/figma-original.svg'), height: 260, url: 'https://www.figma.com' },
   ], []);
 
+  const { theme } = useTheme();
+  const textColorClass = theme === 'light' ? 'text-black' : 'text-white';
+
   return (
-    <section id="skills" ref={sectionRef} className="relative min-h-screen bg-primary-dark text-white p-8 flex flex-col items-center justify-center transition-opacity-transform overflow-hidden scroll-mt-28 md:scroll-mt-40">
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <Particles className="w-full h-full" alphaParticles={true} particleCount={160} speed={0.1} particleBaseSize={70} sizeRandomness={1} />
-      </div>
+    <section id="skills" ref={sectionRef} className={`relative min-h-screen min-h-[100svh] bg-primary-dark ${textColorClass} px-4 sm:px-6 md:px-8 py-12 flex flex-col items-center justify-center transition-opacity-transform overflow-hidden scroll-mt-28 md:scroll-mt-40`}>
+      <ShaderBackground />
 
       <div className="relative z-10 container mx-auto text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-blue">My Skills</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-accent-blue via-accent-purple to-accent-pink">My Skills</h1>
 
         {/* Horizontally scrolling, responsive skills rows */}
         <SkillsRows items={items} />
@@ -57,7 +59,7 @@ function SkillsRows({ items }) {
   const rowB = items.filter((_, idx) => idx % 2 === 1);
 
   return (
-    <ThreeDScrollTriggerContainer className="space-y-6 select-none">
+    <ThreeDScrollTriggerContainer className="space-y-6 select-none w-full">
       <ThreeDScrollTriggerRow baseVelocity={6} direction={1} className="py-2">
         {rowA.map((item) => (
           <SkillPill key={item.id} item={item} />
@@ -74,18 +76,23 @@ function SkillsRows({ items }) {
 }
 
 function SkillPill({ item }) {
+  const { theme } = useTheme();
+  const isLight = theme === 'light';
+  const shell = isLight ? 'border-black/10 bg-black/5 hover:bg-black/10' : 'border-white/10 bg-white/5 hover:bg-white/10';
+  const ring = isLight ? 'ring-black/10' : 'ring-white/10';
+  const textColor = isLight ? 'text-black/80 group-hover:text-black' : 'text-white/90 group-hover:text-white';
   return (
     <a
       href={item.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative mx-2 my-2 inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-colors backdrop-blur-sm shadow-[0_4px_24px_rgba(23,92,230,0.08)] hover:shadow-[0_8px_28px_rgba(0,0,0,0.22)]"
+      className={`group relative mx-2 my-2 inline-flex items-center gap-3 px-4 py-2 rounded-full border ${shell} transition-colors backdrop-blur-sm shadow-[0_4px_24px_rgba(23,92,230,0.08)] hover:shadow-[0_8px_28px_rgba(0,0,0,0.22)]`}
       aria-label={item.name}
     >
-      <span className="relative flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#13ADC7]/20 to-[#945DD6]/20 ring-1 ring-white/10 shadow-[0_0_16px_rgba(148,93,214,0.25)] group-hover:shadow-[0_0_24px_rgba(19,173,199,0.35)] transition-shadow">
+      <span className={`relative flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#13ADC7]/20 to-[#945DD6]/20 ring-1 ${ring} shadow-[0_0_16px_rgba(148,93,214,0.25)] group-hover:shadow-[0_0_24px_rgba(19,173,199,0.35)] transition-shadow`}>
         <img src={item.img} alt="" className="w-6 h-6 md:w-8 md:h-8 object-contain" loading="lazy" />
       </span>
-      <span className="text-sm md:text-base font-medium text-white/90 group-hover:text-white whitespace-nowrap">
+      <span className={`text-sm md:text-base font-medium ${textColor} whitespace-nowrap`}>
         {item.name}
       </span>
     </a>
