@@ -29,7 +29,7 @@ html { scroll-behavior: smooth; }
 
 :root { --color-light-blue: #13ADC7; --color-light-purple: #945DD6; }
 
-.name-gradient{ background: -webkit-linear-gradient(135deg, var(--color-light-blue), var(--color-light-purple), var(--color-light-blue), var(--color-light-purple)); -webkit-background-clip:text; background-clip:text; color: transparent; }
+.name-gradient{ background: linear-gradient(135deg, #ff6ec4, #7873f5, #42e695, #f9d423); -webkit-background-clip:text; background-clip:text; color: transparent; }
 
 .transition-opacity-transform {
   opacity: 0;
