@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
-import Masonry from '../components/Masonry';
 import Particles from '../components/Particles';
+import { ThreeDScrollTriggerContainer, ThreeDScrollTriggerRow } from '../components/ThreeDScrollTrigger';
 
 const cdn = (path) => `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${path}`;
 
@@ -40,27 +40,54 @@ const Skills = () => {
       <div className="relative z-10 container mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-blue">My Skills</h1>
 
-        <Masonry items={items.map(item => ({
-          ...item,
-          content: (
-            <a
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative flex flex-col items-center justify-center p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition"
-            >
-              <img src={item.img} alt={item.name} className="w-20 h-20 object-contain" />
-              
-              {/* Tooltip */}
-              <span className="absolute bottom-2 opacity-0 group-hover:opacity-100 bg-gray-900 text-white text-sm px-2 py-1 rounded shadow transition-opacity">
-                {item.name}
-              </span>
-            </a>
-          )
-        }))} animateFrom="random" colorShiftOnHover={true} />
+        {/* Horizontally scrolling, responsive skills rows */}
+        <SkillsRows items={items} />
       </div>
     </section>
   );
 };
 
 export default Skills;
+
+// ————————————————————————————————————————————————
+// Local components for skills marquee rows
+
+function SkillsRows({ items }) {
+  const rowA = items.filter((_, idx) => idx % 2 === 0);
+  const rowB = items.filter((_, idx) => idx % 2 === 1);
+
+  return (
+    <ThreeDScrollTriggerContainer className="space-y-6 select-none">
+      <ThreeDScrollTriggerRow baseVelocity={6} direction={1} className="py-2">
+        {rowA.map((item) => (
+          <SkillPill key={item.id} item={item} />
+        ))}
+      </ThreeDScrollTriggerRow>
+
+      <ThreeDScrollTriggerRow baseVelocity={5} direction={-1} className="py-2">
+        {rowB.map((item) => (
+          <SkillPill key={item.id} item={item} />
+        ))}
+      </ThreeDScrollTriggerRow>
+    </ThreeDScrollTriggerContainer>
+  );
+}
+
+function SkillPill({ item }) {
+  return (
+    <a
+      href={item.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative mx-2 my-2 inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-colors backdrop-blur-sm shadow-[0_4px_24px_rgba(23,92,230,0.08)] hover:shadow-[0_8px_28px_rgba(0,0,0,0.22)]"
+      aria-label={item.name}
+    >
+      <span className="relative flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#13ADC7]/20 to-[#945DD6]/20 ring-1 ring-white/10 shadow-[0_0_16px_rgba(148,93,214,0.25)] group-hover:shadow-[0_0_24px_rgba(19,173,199,0.35)] transition-shadow">
+        <img src={item.img} alt="" className="w-6 h-6 md:w-8 md:h-8 object-contain" loading="lazy" />
+      </span>
+      <span className="text-sm md:text-base font-medium text-white/90 group-hover:text-white whitespace-nowrap">
+        {item.name}
+      </span>
+    </a>
+  );
+}
