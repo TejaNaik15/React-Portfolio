@@ -54,7 +54,7 @@ const Home = () => {
             </span>
           </h1>
            <p ref={subRef} className="text-lg md:text-2xl text-text-muted">
-            I'm into <span className="text-white"><span ref={typeRef} className="border-r-2 border-white pr-1" /></span>
+            I'm into <span className="text-white"><span ref={typeRef} className="typing-gradient border-r-2 border-white pr-1" /></span>
           </p>
           <ShinyText text="I’m a passionate MERN Stack Developer specializing in building modern, responsive, and scalable web applications." speed={6} className="text-2xl md:text-3xl mb-2" />
          
