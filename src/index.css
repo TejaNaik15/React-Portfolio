@@ -32,13 +32,12 @@ html { scroll-behavior: smooth; }
 .name-gradient {
   background: linear-gradient(
     270deg,
-    #ff6ec4,
-    #7873f5,
-    #42e695,
-    #f9d423,
-    #ff6ec4
+    #8b5cf6,
+    #3b82f6,
+    #06b6d4,
+    #8b5cf6
   );
-  background-size: 800% 800%;
+  background-size: 400% 400%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
