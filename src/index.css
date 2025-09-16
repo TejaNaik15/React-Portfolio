@@ -29,7 +29,8 @@ html { scroll-behavior: smooth; }
 
 :root { --color-light-blue: #13ADC7; --color-light-purple: #945DD6; }
 
-.name-gradient {
+.name-gradient,
+.typing-gradient {
   background: linear-gradient(
     270deg,
     #00dfd8,
@@ -44,7 +45,8 @@ html { scroll-behavior: smooth; }
 }
 
 
-.theme-light .name-gradient {
+.theme-light .name-gradient,
+.theme-light .typing-gradient {
   -webkit-text-stroke: 1px #00dfd8;
   text-stroke: 1px #00dfd8;
 }
