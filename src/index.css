@@ -29,7 +29,28 @@ html { scroll-behavior: smooth; }
 
 :root { --color-light-blue: #13ADC7; --color-light-purple: #945DD6; }
 
-.name-gradient{ background: linear-gradient(135deg, #ff6ec4, #7873f5, #42e695, #f9d423); -webkit-background-clip:text; background-clip:text; color: transparent; }
+.name-gradient {
+  background: linear-gradient(
+    270deg,
+    #ff6ec4,
+    #7873f5,
+    #42e695,
+    #f9d423,
+    #ff6ec4
+  );
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientMove 6s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 
 .transition-opacity-transform {
   opacity: 0;
