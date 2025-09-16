@@ -44,11 +44,9 @@ html { scroll-behavior: smooth; }
 }
 
 
-@media (prefers-color-scheme: light) {
-  .name-gradient {
-    -webkit-text-stroke: 1px #00dfd8;
-    text-stroke: 1px #00dfd8;
-  }
+.theme-light .name-gradient {
+  -webkit-text-stroke: 1px #00dfd8;
+  text-stroke: 1px #00dfd8;
 }
 
 @keyframes gradientMove {
