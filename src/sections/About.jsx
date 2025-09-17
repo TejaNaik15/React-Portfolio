@@ -27,7 +27,7 @@ const About = () => {
           </div>
           <div className="space-y-4 text-text-muted text-lg md:text-xl leading-relaxed">
             <VariableProximity
-              label={"Hello there! I'm Teja Naik, a dedicated MERN Stack Developer fueled by curiosity and a relentless passion for crafting innovative web solutions."}
+              label={"I'm a passionate recent graduate embarking on my journey as a MERN stack developer. Currently honing my skills in MongoDB, Express.js, React, and Node.js, I'm also strengthening my foundation in Data Structures and Algorithms."}
               fromFontVariationSettings={from}
               toFontVariationSettings={to}
               containerRef={containerRef}
@@ -35,7 +35,7 @@ const About = () => {
               falloff="gaussian"
             />
             <VariableProximity
-              label={"My expertise spans across the entire MERN ecosystem – building robust APIs with Node.js and Express.js, managing data flow with MongoDB, and creating dynamic, responsive UIs with React. What truly drives me is the constant evolution of technology."}
+              label={"As a fresher eager to make my mark in the tech world, I bring fresh perspectives, boundless enthusiasm, and a genuine love for problem-solving through code. I'm always excited to learn new technologies, collaborate on innovative projects, and contribute meaningfully to development teams."}
               fromFontVariationSettings={from}
               toFontVariationSettings={to}
               containerRef={containerRef}
@@ -43,7 +43,7 @@ const About = () => {
               falloff="gaussian"
             />
             <VariableProximity
-              label={"I thrive on learning new paradigms, embracing emerging tools, and continuously refining my skills to build more efficient and impactful applications. I believe that great software is a blend of clean code, thoughtful architecture, and a commitment to continuous improvement."}
+              label={"My goal is to build user-friendly applications that make a real difference while continuously growing as a developer. What truly drives me is the constant evolution of technology and the endless possibilities it brings."}
               fromFontVariationSettings={from}
               toFontVariationSettings={to}
               containerRef={containerRef}
@@ -51,6 +51,14 @@ const About = () => {
               falloff="gaussian"
             />
           </div>
+          
+          {/* Funny Quote Section */}
+          <div className="mt-8 mb-6 p-4 bg-accent-blue/10 border border-accent-blue/30 rounded-lg">
+            <p className="text-center text-xl md:text-2xl font-black text-accent-blue leading-relaxed">
+              "I speak fluent JavaScript, but I'm still learning to communicate with humans." 
+            </p>
+          </div>
+
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <a
               href="/assets/resume.pdf"
