@@ -138,9 +138,8 @@ html { scroll-behavior: smooth; }
   --orbitRing: rgba(0, 0, 0, 0.2);
 }
 
-/* Tape color per theme (uses currentColor inside SVG) */
-.tape { color: #ffffff; }
-.theme-light .tape { color: #000000; }
+/* Tape color (black in both themes as requested) */
+.tape { color: #000000; }
 
 /* Footer bottom text visibility per theme */
 .footer-bottom { color: rgba(255, 255, 255, 0.7); }
