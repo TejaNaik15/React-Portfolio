@@ -22,7 +22,7 @@ async function setupLenis() {
 const Column = ({ images, y }) => {
   return (
     <motion.div
-      className="relative -top-[45%] flex h-full w-1/4 min-w-[220px] flex-col gap-[2vw] first:top-[-45%] [&:nth-child(2)]:top-[-95%] [&:nth-child(3)]:top-[-45%] [&:nth-child(4)]:top-[-75%]"
+      className="relative -top-[45%] flex h-full w-1/4 min-w-[160px] sm:min-w-[200px] md:min-w-[220px] flex-col gap-[2vw] first:top-[-45%] [&:nth-child(2)]:top-[-95%] [&:nth-child(3)]:top-[-45%] [&:nth-child(4)]:top-[-75%]"
       style={{ y }}
     >
       {images.map((it, i) => {
@@ -61,11 +61,16 @@ const Skiper30 = ({ images = [] }) => {
     offset: ['start end', 'end start'],
   });
 
-  const { height } = dimension;
-  const y = useTransform(scrollYProgress, [0, 1], [0, height * 2]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, height * 3.3]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [0, height * 1.25]);
-  const y4 = useTransform(scrollYProgress, [0, 1], [0, height * 3]);
+  const { height, width } = dimension;
+  const isSmall = width < 640; // Tailwind sm breakpoint
+  const f1 = isSmall ? 1.2 : 2.0;
+  const f2 = isSmall ? 2.0 : 3.3;
+  const f3 = isSmall ? 0.8 : 1.25;
+  const f4 = isSmall ? 1.6 : 3.0;
+  const y = useTransform(scrollYProgress, [0, 1], [0, height * f1]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, height * f2]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, height * f3]);
+  const y4 = useTransform(scrollYProgress, [0, 1], [0, height * f4]);
 
   useEffect(() => {
     let cleanup = () => {};
@@ -112,7 +117,7 @@ const Skiper30 = ({ images = [] }) => {
         </div>
       </div>
 
-      <div ref={gallery} className="relative box-border flex h-[175vh] gap-[2vw] overflow-hidden p-[2vw]">
+      <div ref={gallery} className="relative box-border flex h-[130vh] sm:h-[150vh] md:h-[175vh] gap-[2vw] overflow-hidden p-[3vw] sm:p-[2.5vw] md:p-[2vw]">
         <Column images={col1} y={y} />
         <Column images={col2} y={y2} />
         <Column images={col3} y={y3} />
