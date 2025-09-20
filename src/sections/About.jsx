@@ -26,13 +26,13 @@ const About = () => {
             <ShinyText text="A glimpse into who I am" speed={6} className="text-2xl md:text-3xl" />
           </div>
           <div className="space-y-4 text-text-muted leading-relaxed">
-            <ScrollReveal size="md" align="left" containerClassName="max-w-prose" textClassName="md:text-xl">
+            <ScrollReveal size="sm" align="left" containerClassName="max-w-prose" textClassName="text-base md:text-lg">
               {"I'm a passionate recent graduate embarking on my journey as a MERN stack developer. Currently honing my skills in MongoDB, Express.js, React, and Node.js, I'm also strengthening my foundation in Data Structures and Algorithms."}
             </ScrollReveal>
-            <ScrollReveal size="md" align="left" containerClassName="max-w-prose" textClassName="md:text-xl">
+            <ScrollReveal size="sm" align="left" containerClassName="max-w-prose" textClassName="text-base md:text-lg">
               {"As a fresher eager to make my mark in the tech world, I bring fresh perspectives, boundless enthusiasm, and a genuine love for problem-solving through code. I'm always excited to learn new technologies, collaborate on innovative projects, and contribute meaningfully to development teams."}
             </ScrollReveal>
-            <ScrollReveal size="md" align="left" containerClassName="max-w-prose" textClassName="md:text-xl">
+            <ScrollReveal size="sm" align="left" containerClassName="max-w-prose" textClassName="text-base md:text-lg">
               {"My goal is to build user-friendly applications that make a real difference while continuously growing as a developer. What truly drives me is the constant evolution of technology and the endless possibilities it brings."}
             </ScrollReveal>
           </div>
