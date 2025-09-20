@@ -4,7 +4,7 @@ import ShinyText from '../components/ShinyText';
 import Particles from '../components/Particles';
 import SocialIcons from '../components/SocialIcons';
 import ScrollReveal from '../components/ScrollReveal';
-import FallingText from '../components/FallingText';
+import DecryptedText from '../components/DecryptedText';
 import { BorderBeam } from '@/components/magicui/border-beam.jsx';
 
 const About = () => {
@@ -27,32 +27,38 @@ const About = () => {
             <ShinyText text="A glimpse into who I am" speed={6} className="text-2xl md:text-3xl" />
           </div>
           <div className="space-y-3 text-text-muted leading-normal">
-            <FallingText
-              className="max-w-prose"
+            <DecryptedText
               text={"I'm a passionate recent graduate embarking on my journey as a MERN stack developer. Currently honing my skills in MongoDB, Express.js, React, and Node.js, I'm also strengthening my foundation in Data Structures and Algorithms."}
-              trigger="scroll"
-              gravity={0.6}
-              fontSize="1rem"
-              backgroundColor="transparent"
-              wireframes={false}
+              animateOn="view"
+              sequential
+              revealDirection="start"
+              speed={35}
+              maxIterations={10}
+              parentClassName="block max-w-prose text-base md:text-lg"
+              className="text-text-muted"
+              encryptedClassName="text-white/40"
             />
-            <FallingText
-              className="max-w-prose"
+            <DecryptedText
               text={"As a fresher eager to make my mark in the tech world, I bring fresh perspectives, boundless enthusiasm, and a genuine love for problem-solving through code. I'm always excited to learn new technologies, collaborate on innovative projects, and contribute meaningfully to development teams."}
-              trigger="scroll"
-              gravity={0.6}
-              fontSize="1rem"
-              backgroundColor="transparent"
-              wireframes={false}
+              animateOn="view"
+              sequential
+              revealDirection="start"
+              speed={35}
+              maxIterations={10}
+              parentClassName="block max-w-prose text-base md:text-lg"
+              className="text-text-muted"
+              encryptedClassName="text-white/40"
             />
-            <FallingText
-              className="max-w-prose"
+            <DecryptedText
               text={"My goal is to build user-friendly applications that make a real difference while continuously growing as a developer. What truly drives me is the constant evolution of technology and the endless possibilities it brings."}
-              trigger="scroll"
-              gravity={0.6}
-              fontSize="1rem"
-              backgroundColor="transparent"
-              wireframes={false}
+              animateOn="view"
+              sequential
+              revealDirection="start"
+              speed={35}
+              maxIterations={10}
+              parentClassName="block max-w-prose text-base md:text-lg"
+              className="text-text-muted"
+              encryptedClassName="text-white/40"
             />
           </div>
           
