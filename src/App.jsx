@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LightRays from './components/LightRays';
 import GooeyNav from './components/GooeyNav';
@@ -14,47 +14,13 @@ import Contact from './sections/Contact';
 import Footer from './layouts/Footer';
 import FloatingCoffeeButton from './components/FloatingCoffeeButton';
 import SmoothCursor from './components/SmoothCursor';
-import Loader from './components/Loader';
 
 function App() {
   const { theme } = useTheme();
   const rays = theme === 'light' ? '#000000' : '#ffffff';
-  const [isLoading, setIsLoading] = useState(true);
-  const [showContent, setShowContent] = useState(false);
-
-  const handleLoaderComplete = () => {
-    setIsLoading(false);
-    // Small delay to ensure smooth transition
-    setTimeout(() => {
-      setShowContent(true);
-    }, 100);
-  };
-
-  // Prevent scrolling while loading
-  useEffect(() => {
-    if (isLoading) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isLoading]);
-
   return (
     <Router>
-      {/* Loader Component */}
-      {isLoading && <Loader onComplete={handleLoaderComplete} />}
-      
-      {/* Main App Content */}
-      <div 
-        className={`relative flex flex-col min-h-screen bg-primary-dark transition-opacity duration-500 ${
-          showContent ? 'opacity-100' : 'opacity-0'
-        }`} 
-        style={{ ['--rays-color']: rays }}
-      >
+      <div className="relative flex flex-col min-h-screen bg-primary-dark" style={{ ['--rays-color']: rays }}>
         <LightRays raysColor={rays} />
         <SmoothCursor />
         <div className="fixed top-0 left-0 right-0 z-40 flex justify-center pt-4">
@@ -91,6 +57,6 @@ function App() {
       </div>
     </Router>
   );
-}
+ }
 
 export default App;
