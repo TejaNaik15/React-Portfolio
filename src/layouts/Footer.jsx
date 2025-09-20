@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaLinkedin, FaTwitter, FaGithub, FaInstagram } from 'react-icons/fa';
 
 const tapeSvg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="95" height="80" viewBox="0 0 95 80" fill="none">
@@ -22,13 +22,35 @@ const Footer = () => {
         </div>
 
         {/* brand and blurb */}
-        <div className="flex flex-1 flex-col items-start gap-2">
+        <div className="flex flex-1 flex-col items-start gap-3">
           <div className="text-2xl font-extrabold tracking-tight">
-            <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Teja Naik</span>
+            <span className="bg-gradient-to-r from-[#00dfd8] to-[#945DD6] bg-clip-text text-transparent">Teja Naik</span>
           </div>
           <p className="w-full text-sm text-white/70 md:w-4/5">
             Designing and building delightful web experiences — from motion-rich interactions to performant UIs.
           </p>
+          <p className="text-xs text-white/60 italic">Thank you for visiting my portfolio — your time means a lot. Keep Rising 🚀</p>
+          {/* Newsletter capture */}
+          <form
+            action="https://formspree.io/f/xbldnnny" /* Replace with your Formspree form ID */
+            method="POST"
+            className="mt-2 flex w-full max-w-md items-center gap-2"
+          >
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="Enter your email to get updates"
+              className="flex-1 rounded-xl bg-white/10 px-3 py-2 text-sm text-white placeholder-white/50 outline-none ring-1 ring-white/10 focus:ring-2 focus:ring-cyan-400"
+              aria-label="Email address"
+            />
+            <button
+              type="submit"
+              className="rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 px-3 py-2 text-sm font-medium text-white shadow hover:from-cyan-400 hover:to-purple-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            >
+              Subscribe
+            </button>
+          </form>
         </div>
 
         {/* link sections */}
@@ -66,6 +88,12 @@ const Footer = () => {
           </a>
           <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="hover:text-white">
             <FaTwitter className="h-5 w-5" />
+          </a>
+          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-white">
+            <FaGithub className="h-5 w-5" />
+          </a>
+          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-white">
+            <FaInstagram className="h-5 w-5" />
           </a>
         </div>
       </div>
