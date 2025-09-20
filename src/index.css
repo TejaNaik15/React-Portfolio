@@ -129,3 +129,19 @@ html { scroll-behavior: smooth; }
 .theme-light .skill-legend-label {
   color: #111827; /* gray-900 */
 }
+
+/* Orbit rings visibility per theme */
+.orbit-surface {
+  --orbitRing: rgba(255, 255, 255, 0.18);
+}
+.theme-light .orbit-surface {
+  --orbitRing: rgba(0, 0, 0, 0.2);
+}
+
+/* Tape color per theme (uses currentColor inside SVG) */
+.tape { color: #ffffff; }
+.theme-light .tape { color: #000000; }
+
+/* Footer bottom text visibility per theme */
+.footer-bottom { color: rgba(255, 255, 255, 0.7); }
+.theme-light .footer-bottom { color: #111827; }

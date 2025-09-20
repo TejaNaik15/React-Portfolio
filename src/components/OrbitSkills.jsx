@@ -173,7 +173,7 @@ const OrbitSkills = ({
   return (
     <div ref={containerRef} className="relative mx-auto flex w-full items-center justify-center">
       {/* Responsive square stage */}
-      <div className="relative aspect-square w-[92vw] max-w-[900px] sm:w-[85vw] md:w-[70vw] lg:w-[60vw]">
+      <div className="orbit-surface relative aspect-square w-[92vw] max-w-[900px] sm:w-[85vw] md:w-[70vw] lg:w-[60vw]">
         {/* Starfield background */}
         <canvas ref={starCanvasRef} className="absolute inset-0 h-full w-full rounded-full" />
         {/* Glow */}
@@ -182,9 +182,9 @@ const OrbitSkills = ({
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-cyan-400/40 to-purple-500/40 ring-1 ring-white/10" />
         {/* Rings outlines */}
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-1/2 top-1/2 h-[65%] w-[65%] -translate-x-1/2 -translate-y-1/2 rounded-full ring-1 ring-white/10" />
-          <div className="absolute left-1/2 top-1/2 h-[85%] w-[85%] -translate-x-1/2 -translate-y-1/2 rounded-full ring-1 ring-white/10" />
-          <div className="absolute left-1/2 top-1/2 h-[100%] w-[100%] -translate-x-1/2 -translate-y-1/2 rounded-full ring-1 ring-white/10" />
+          <div className="absolute left-1/2 top-1/2 h-[65%] w-[65%] -translate-x-1/2 -translate-y-1/2 rounded-full border" style={{ borderColor: 'var(--orbitRing)' }} />
+          <div className="absolute left-1/2 top-1/2 h-[85%] w-[85%] -translate-x-1/2 -translate-y-1/2 rounded-full border" style={{ borderColor: 'var(--orbitRing)' }} />
+          <div className="absolute left-1/2 top-1/2 h-[100%] w-[100%] -translate-x-1/2 -translate-y-1/2 rounded-full border" style={{ borderColor: 'var(--orbitRing)' }} />
         </div>
         {/* Animated rings with icons */}
         {renderRing(rings[0], size * 0.25, 0)}
