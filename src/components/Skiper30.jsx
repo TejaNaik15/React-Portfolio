@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 const Column = ({ images, y }) => {
   return (
     <motion.div
-      className="relative -top-[45%] flex h-full w-1/4 min-w-[160px] sm:min-w-[200px] md:min-w-[220px] flex-col gap-[2vw] first:top-[-45%] [&:nth-child(2)]:top-[-95%] [&:nth-child(3)]:top-[-45%] [&:nth-child(4)]:top-[-75%]"
+      className="relative flex h-full w-1/3 sm:w-1/4 min-w-[140px] sm:min-w-[180px] md:min-w-[200px] flex-col gap-4 sm:gap-6"
       style={{ y }}
     >
       {images.map((it, i) => {
@@ -13,12 +13,12 @@ const Column = ({ images, y }) => {
         const label = typeof it === 'string' ? '' : it.label || '';
         const href = typeof it === 'string' ? undefined : it.href;
         return (
-          <div key={i} className="group relative h-full w-full overflow-hidden rounded-xl bg-black/20 ring-1 ring-white/5">
+          <div key={i} className="group relative aspect-square w-full overflow-hidden rounded-xl bg-black/20 ring-1 ring-white/5">
             {/* Clickable area */}
             <a href={href} target={href ? '_blank' : undefined} rel={href ? 'noopener noreferrer' : undefined} aria-label={label || 'skill'} className="absolute inset-0">
               {/* Themed gradient overlay */}
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-cyan-400/10 via-purple-500/10 to-transparent" />
-              <img src={src} alt={label || 'image'} className="pointer-events-none h-full w-full object-contain p-6" />
+              <img src={src} alt={label || 'image'} className="pointer-events-none h-full w-full object-contain p-4 sm:p-6" />
             </a>
             {label && (
               <div className="pointer-events-none absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-black/60 px-3 py-1 text-xs text-white opacity-0 backdrop-blur-md transition-opacity duration-300 group-hover:opacity-100 shadow-lg">
@@ -46,10 +46,10 @@ const Skiper30 = ({ images = [] }) => {
 
   const { height, width } = dimension;
   const isSmall = width < 640; // Tailwind sm breakpoint
-  const f1 = isSmall ? 1.2 : 2.0;
-  const f2 = isSmall ? 2.0 : 3.3;
-  const f3 = isSmall ? 0.8 : 1.25;
-  const f4 = isSmall ? 1.6 : 3.0;
+  const f1 = isSmall ? 0.6 : 1.0;  // gentler parallax
+  const f2 = isSmall ? 0.9 : 1.6;
+  const f3 = isSmall ? 0.5 : 0.9;
+  const f4 = isSmall ? 0.8 : 1.4;
   const y = useTransform(scrollYProgress, [0, 1], [0, height * f1]);
   const y2 = useTransform(scrollYProgress, [0, 1], [0, height * f2]);
   const y3 = useTransform(scrollYProgress, [0, 1], [0, height * f3]);
@@ -67,48 +67,22 @@ const Skiper30 = ({ images = [] }) => {
     };
   }, []);
 
-  // Ensure we have enough images; repeat if needed
-  const pool = images.length ? images : [
-    '/images/lummi/img15.png',
-    '/images/lummi/img21.png',
-    '/images/lummi/img3.png',
-    '/images/lummi/img4.png',
-    '/images/lummi/img5.png',
-    '/images/lummi/img6.png',
-    '/images/lummi/img7.png',
-    '/images/lummi/img8.png',
-    '/images/lummi/img24.png',
-    '/images/lummi/img10.png',
-  ];
-
-  const col1 = pool.slice(0, 3);
-  const col2 = pool.slice(3, 6);
-  const col3 = pool.slice(6, 9);
-  const col4 = pool.slice(6, 9); // reuse for 4th column like reference
+  const pool = images.length ? images : [];
+  // Split into unique columns without duplication
+  const cols = 4;
+  const perCol = Math.ceil(pool.length / cols);
+  const col1 = pool.slice(0, perCol);
+  const col2 = pool.slice(perCol, perCol * 2);
+  const col3 = pool.slice(perCol * 2, perCol * 3);
+  const col4 = pool.slice(perCol * 3, perCol * 4);
 
   return (
     <section className="w-full bg-gradient-to-b from-transparent via-black/40 to-black text-white">
-      <div className="relative flex h-screen items-center justify-center">
-        <div className="absolute left-1/2 top-[10%] grid -translate-x-1/2 content-start justify-items-center gap-6 text-center">
-          <span className="relative max-w-[12ch] text-xs uppercase leading-tight opacity-60 after:absolute after:left-1/2 after:top-full after:h-16 after:w-px after:bg-gradient-to-b after:from-white/30 after:to-white/0 after:content-['']">
-            scroll down to see
-          </span>
-        </div>
-      </div>
-
-      <div ref={gallery} className="relative box-border flex h-[130vh] sm:h-[150vh] md:h-[175vh] gap-[2vw] overflow-hidden p-[3vw] sm:p-[2.5vw] md:p-[2vw]">
+      <div ref={gallery} className="relative box-border flex h-[120vh] sm:h-[130vh] md:h-[150vh] gap-4 sm:gap-6 overflow-hidden px-4 sm:px-6 md:px-8 py-8">
         <Column images={col1} y={y} />
         <Column images={col2} y={y2} />
         <Column images={col3} y={y3} />
         <Column images={col4} y={y4} />
-      </div>
-
-      <div className="relative flex h-screen items-center justify-center">
-        <div className="absolute left-1/2 top-[10%] grid -translate-x-1/2 content-start justify-items-center gap-6 text-center">
-          <span className="relative max-w-[12ch] text-xs uppercase leading-tight opacity-60 after:absolute after:left-1/2 after:top-full after:h-16 after:w-px after:bg-gradient-to-b after:from-white/30 after:to-white/0 after:content-['']">
-            scroll up to see
-          </span>
-        </div>
       </div>
     </section>
   );
