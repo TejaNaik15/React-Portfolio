@@ -12,26 +12,31 @@ const BoxReveal = ({
   duration = 0.6,
   delay = 0,
   className = '',
+  direction = 'ltr', // 'ltr' | 'rtl'
+  overlayStyle = {}, // custom style e.g., gradient
 }) => {
   return (
     <div className={`relative inline-block overflow-hidden ${className}`}>
-      {/* Content container (masked during reveal) */}
+      {/* Content container (fades in once the sweep is mostly done) */}
       <motion.div
-        initial={{ opacity: 0.0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.2, delay: delay + duration * 0.6 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: '0px 0px -10% 0px' }}
+        transition={{ duration: 0.28, delay: delay + duration * 0.5 }}
+        style={{ willChange: 'opacity' }}
       >
         {children}
       </motion.div>
 
-      {/* Sweeping box overlay */}
+      {/* Sweeping box overlay (on top) */}
       <motion.span
         aria-hidden
         className="absolute inset-0 block"
         initial={{ x: '0%' }}
-        animate={{ x: '110%' }}
+        whileInView={{ x: direction === 'rtl' ? '-110%' : '110%' }}
+        viewport={{ once: true, margin: '0px 0px -10% 0px' }}
         transition={{ ease: 'easeInOut', duration, delay }}
-        style={{ backgroundColor: boxColor }}
+        style={{ backgroundColor: boxColor, zIndex: 10, willChange: 'transform', ...overlayStyle }}
       />
     </div>
   );

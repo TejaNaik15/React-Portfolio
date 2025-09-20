@@ -27,17 +27,17 @@ const About = () => {
             <ShinyText text="A glimpse into who I am" speed={6} className="text-2xl md:text-3xl" />
           </div>
           <div className="space-y-3 text-text-muted leading-normal">
-            <BoxReveal boxColor="#00dfd8" duration={0.6}>
+            <BoxReveal boxColor="#00dfd8" duration={0.6} delay={0} direction="ltr">
               <p className="max-w-prose text-base md:text-lg">
                 I'm a passionate recent graduate embarking on my journey as a MERN stack developer. Currently honing my skills in <span className="font-semibold text-[#00dfd8]">MongoDB</span>, <span className="font-semibold text-[#00dfd8]">Express.js</span>, <span className="font-semibold text-[#00dfd8]">React</span>, and <span className="font-semibold text-[#00dfd8]">Node.js</span>, I'm also strengthening my foundation in <span className="font-semibold text-[#00dfd8]">Data Structures and Algorithms</span>.
               </p>
             </BoxReveal>
-            <BoxReveal boxColor="#945DD6" duration={0.6}>
+            <BoxReveal boxColor="#945DD6" duration={0.6} delay={0.15} direction="rtl" overlayStyle={{ background: 'linear-gradient(90deg, #945DD6 0%, #00dfd8 100%)' }}>
               <p className="max-w-prose text-base md:text-lg">
                 As a fresher eager to make my mark in the tech world, I bring fresh perspectives, boundless enthusiasm, and a genuine love for problem-solving through code. I'm always excited to learn new technologies, collaborate on innovative projects, and contribute meaningfully to development teams.
               </p>
             </BoxReveal>
-            <BoxReveal boxColor="#00dfd8" duration={0.6}>
+            <BoxReveal boxColor="#00dfd8" duration={0.6} delay={0.3} direction="ltr" overlayStyle={{ background: 'linear-gradient(90deg, #00dfd8 0%, rgba(0,223,216,0.6) 60%, transparent 100%)' }}>
               <p className="max-w-prose text-base md:text-lg">
                 My goal is to build user-friendly applications that make a real difference while continuously growing as a developer. What truly drives me is the constant evolution of technology and the endless possibilities it brings.
               </p>
