@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
 import Particles from '../components/Particles';
-import StickyCard002 from '../components/StickyCard002';
+import Skiper30 from '../components/Skiper30';
 
 const cdn = (path) => `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${path}`;
 
@@ -31,29 +31,8 @@ const Skills = () => {
     { id: 'figma', name: 'Figma', img: cdn('figma/figma-original.svg'), height: 260, url: 'https://www.figma.com' },
   ], []);
 
-  // Brand colors for captions/background accents
-  const brandColors = useMemo(() => ({
-    html5: '#E44D26',
-    css3: '#1572B6',
-    javascript: '#F7DF1E',
-    typescript: '#3178C6',
-    react: '#61DAFB',
-    nodejs: '#68A063',
-    java: '#ED1D25',
-    mongodb: '#4DB33D',
-    express: '#AAAAAA',
-    tailwind: '#38BDF8',
-    nextjs: '#000000',
-    git: '#F05032',
-    github: '#181717',
-    bootstrap: '#7952B3',
-    vite: '#646CFF',
-    c: '#A8B9CC',
-    python: '#3776AB',
-    firebase: '#FFCA28',
-    reactrouter: '#CA4245',
-    figma: '#F24E1E',
-  }), []);
+  // Use Devicon skill icons with labels and links
+  const images = useMemo(() => items.map((it) => ({ src: it.img, label: it.name, href: it.url })), [items]);
 
   return (
     <section id="skills" ref={sectionRef} className="relative min-h-screen bg-primary-dark text-white p-8 flex flex-col items-center justify-center transition-opacity-transform overflow-hidden scroll-mt-28 md:scroll-mt-40">
@@ -63,14 +42,26 @@ const Skills = () => {
 
       <div className="relative z-10 container mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-blue">My Skills</h1>
-        {/* Sticky stacked skill cards with GSAP scrolling transitions */}
-        <div className="mx-auto max-w-5xl">
-          <StickyCard002
-            cards={items.map((it) => ({ id: it.id, image: it.img, alt: it.name, label: it.name, color: brandColors[it.id] || '#00dfd8' }))}
-            imageClassName="object-contain bg-gradient-to-br from-gray-900 via-black to-gray-800 p-6 sm:p-8 md:p-10 lg:p-12"
-            containerClassName="backdrop-blur-sm"
-          />
-          <p className="mt-6 text-sm text-gray-300">Scroll to reveal the stack.</p>
+        {/* Parallax columns gallery using Framer Motion */}
+        <div className="mx-auto w-full">
+          <Skiper30 images={images} />
+          <p className="mt-6 text-sm text-gray-300">Scroll to explore the stack.</p>
+        </div>
+
+        {/* Responsive legend grid for quick glance on small devices */}
+        <div className="mx-auto mt-10 grid w-full max-w-5xl grid-cols-3 gap-4 px-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
+          {items.map((it) => (
+            <a
+              key={it.id}
+              href={it.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 rounded-lg bg-white/5 p-2 ring-1 ring-white/10 transition hover:bg-white/10"
+            >
+              <img src={it.img} alt={it.name} className="h-6 w-6 object-contain" />
+              <span className="text-xs text-gray-200 group-hover:text-white">{it.name}</span>
+            </a>
+          ))}
         </div>
       </div>
     </section>
