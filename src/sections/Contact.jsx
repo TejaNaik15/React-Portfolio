@@ -61,8 +61,7 @@ const Contact = () => {
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-blue">Contact Me</h1>
 
         <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-          Feel free to reach out to me for collaborations, job opportunities, or just a chat:)
-          You can connect with me via email or LinkedIn.
+          Write me an email using the form below — I usually reply within 24 hours. Prefer socials? You can also reach me on LinkedIn.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-start">
