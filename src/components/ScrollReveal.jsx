@@ -1,6 +1,10 @@
 import React, { useRef, useMemo } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { cn } from '../lib/utils';
+
+// Lightweight className merge utility to avoid external dependency
+function cn(...classes) {
+  return classes.filter(Boolean).join(' ');
+}
 
 const sizeClasses = {
   sm: 'text-lg md:text-xl',
