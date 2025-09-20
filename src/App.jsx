@@ -14,7 +14,6 @@ import Contact from './sections/Contact';
 import Footer from './layouts/Footer';
 import FloatingCoffeeButton from './components/FloatingCoffeeButton';
 import SmoothCursor from './components/SmoothCursor';
-import Chatbot from './components/Chatbot';
 
 function App() {
   const { theme } = useTheme();
@@ -54,7 +53,6 @@ function App() {
           </Routes>
         </main>
         <FloatingCoffeeButton />
-        <Chatbot />
         <Footer />
       </div>
     </Router>
