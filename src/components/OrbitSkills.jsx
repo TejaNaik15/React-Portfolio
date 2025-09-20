@@ -3,8 +3,13 @@ import { gsap } from 'gsap';
 
 // Orbiting skills visualization
 // props: items: [{ src, label, href }]
+// optional props: ringSizes (px array), ringSpeeds (seconds per rotation)
 // themed to portfolio: cyan/purple glows, dark background
-const OrbitSkills = ({ items = [] }) => {
+const OrbitSkills = ({
+  items = [],
+  ringSizes = [48, 56, 64], // inner, mid, outer icon sizes
+  ringSpeeds = [18, 26, 34], // seconds for full rotation per ring (outer slowest)
+}) => {
   const containerRef = useRef(null);
   const ringRefs = useRef([]);
   const [size, setSize] = useState(600);
@@ -32,10 +37,20 @@ const OrbitSkills = ({ items = [] }) => {
     const ro = new ResizeObserver(updateSize);
     if (containerRef.current) ro.observe(containerRef.current);
 
-    // rotate rings continuously, alternate direction
+    // entry fade-in
+    if (containerRef.current) {
+      gsap.from(containerRef.current, {
+        opacity: 0,
+        scale: 0.95,
+        duration: 0.8,
+        ease: 'power2.out',
+      });
+    }
+
+    // rotate rings continuously, alternate direction with configurable speeds
     ringRefs.current.forEach((el, idx) => {
       if (!el) return;
-      const duration = 30 - idx * 6; // outer slower
+      const duration = ringSpeeds[idx] || ringSpeeds[ringSpeeds.length - 1] || 28;
       const clockwise = idx % 2 === 0; // alternate
       gsap.to(el, {
         rotate: clockwise ? 360 : -360,
@@ -67,20 +82,22 @@ const OrbitSkills = ({ items = [] }) => {
           const angle = i * angleStep;
           const x = Math.cos(angle) * radius;
           const y = Math.sin(angle) * radius;
+          const sizePx = ringSizes[index] || ringSizes[ringSizes.length - 1] || 56;
           return (
             <a
               key={`${it.label}-${i}`}
               href={it.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute block h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 -translate-x-1/2 -translate-y-1/2 rounded-xl bg-black/30 ring-1 ring-white/10 backdrop-blur hover:bg-white/10 transition"
+              className="absolute block -translate-x-1/2 -translate-y-1/2 rounded-xl bg-black/30 ring-1 ring-white/10 backdrop-blur hover:bg-white/10 transition"
               style={{ left: `calc(50% + ${x}px)`, top: `calc(50% + ${y}px)` }}
               title={it.label}
             >
               <img
                 src={it.src}
                 alt={it.label}
-                className="h-full w-full p-2 object-contain"
+                className="object-contain"
+                style={{ height: sizePx, width: sizePx, padding: Math.max(6, Math.round(sizePx * 0.15)) }}
               />
             </a>
           );

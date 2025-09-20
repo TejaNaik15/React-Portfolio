@@ -44,21 +44,25 @@ const Skills = () => {
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-blue">My Skills</h1>
         {/* Orbiting skills visualization */}
         <div className="mx-auto w-full">
-          <OrbitSkills items={images} />
+          <OrbitSkills
+            items={images}
+            ringSizes={[44, 54, 64]} // inner, mid, outer icon sizes
+            ringSpeeds={[16, 22, 30]} // inner faster, outer slower for depth
+          />
         </div>
 
         {/* Responsive legend grid for quick glance on small devices */}
-        <div className="mx-auto mt-10 grid w-full max-w-5xl grid-cols-3 gap-4 px-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
+        <div className="mx-auto mt-10 grid w-full max-w-5xl grid-cols-3 gap-3 px-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
           {items.map((it) => (
             <a
               key={it.id}
               href={it.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 rounded-lg bg-white/5 p-2 ring-1 ring-white/10 transition hover:bg-white/10"
+              className="group flex min-w-0 items-center gap-2 rounded-lg bg-white/5 p-2 ring-1 ring-white/10 transition hover:bg-white/10"
             >
-              <img src={it.img} alt={it.name} className="h-6 w-6 object-contain" />
-              <span className="text-xs text-gray-200 group-hover:text-white">{it.name}</span>
+              <img src={it.img} alt={it.name} className="h-6 w-6 flex-shrink-0 object-contain" />
+              <span className="truncate text-[10px] sm:text-xs text-gray-200 group-hover:text-white" title={it.name}>{it.name}</span>
             </a>
           ))}
         </div>
