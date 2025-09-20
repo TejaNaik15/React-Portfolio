@@ -5,7 +5,7 @@ import { FaPhone, FaEnvelope, FaMapMarkedAlt } from 'react-icons/fa';
 import { Globe } from '@/components/magicui/globe.jsx';
 import Particles from '../components/Particles';
 import { BorderBeam } from '@/components/magicui/border-beam.jsx';
-import emailjs from '@emailjs/browser';
+// Removed @emailjs/browser to avoid build-time dependency issues on Vercel
 
 const Contact = () => {
   const sectionRef = useScrollReveal({ threshold: 0.1 }); 
@@ -24,13 +24,18 @@ const Contact = () => {
         setStatus('⚠️ Email service not configured.');
         return;
       }
-      const res = await emailjs.sendForm(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        formRef.current,
-        PUBLIC_KEY
-      );
-      if (res?.status === 200) {
+      // Build form data for EmailJS REST API
+      const formData = new FormData(formRef.current);
+      formData.append('service_id', SERVICE_ID);
+      formData.append('template_id', TEMPLATE_ID);
+      formData.append('user_id', PUBLIC_KEY);
+
+      const res = await fetch('https://api.emailjs.com/api/v1.0/email/send-form', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (res.ok) {
         setStatus('✅ Message sent successfully!');
         e.target.reset();
       } else {
