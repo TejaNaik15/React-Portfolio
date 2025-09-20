@@ -4,6 +4,7 @@ import ShinyText from '../components/ShinyText';
 import Particles from '../components/Particles';
 import SocialIcons from '../components/SocialIcons';
 import ScrollReveal from '../components/ScrollReveal';
+import FallingText from '../components/FallingText';
 import { BorderBeam } from '@/components/magicui/border-beam.jsx';
 
 const About = () => {
@@ -19,22 +20,40 @@ const About = () => {
         <Particles className="w-full h-full" alphaParticles={true} particleCount={180} speed={0.1} particleBaseSize={70} sizeRandomness={1} />
       </div>
       <div className="relative z-10 container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div id="profile-about-slot" className="min-h-[360px] order-1 md:order-none" />
+        <div id="profile-about-slot" className="min-h-[320px] order-1 md:order-none" />
         <div className="order-2 md:order-none">
           <h2 className="text-4xl md:text-5xl font-bold mb-2 text-accent-blue">About Me</h2>
           <div className="mb-6">
             <ShinyText text="A glimpse into who I am" speed={6} className="text-2xl md:text-3xl" />
           </div>
-          <div className="space-y-4 text-text-muted leading-relaxed">
-            <ScrollReveal size="sm" align="left" containerClassName="max-w-prose" textClassName="text-base md:text-lg">
-              {"I'm a passionate recent graduate embarking on my journey as a MERN stack developer. Currently honing my skills in MongoDB, Express.js, React, and Node.js, I'm also strengthening my foundation in Data Structures and Algorithms."}
-            </ScrollReveal>
-            <ScrollReveal size="sm" align="left" containerClassName="max-w-prose" textClassName="text-base md:text-lg">
-              {"As a fresher eager to make my mark in the tech world, I bring fresh perspectives, boundless enthusiasm, and a genuine love for problem-solving through code. I'm always excited to learn new technologies, collaborate on innovative projects, and contribute meaningfully to development teams."}
-            </ScrollReveal>
-            <ScrollReveal size="sm" align="left" containerClassName="max-w-prose" textClassName="text-base md:text-lg">
-              {"My goal is to build user-friendly applications that make a real difference while continuously growing as a developer. What truly drives me is the constant evolution of technology and the endless possibilities it brings."}
-            </ScrollReveal>
+          <div className="space-y-3 text-text-muted leading-normal">
+            <FallingText
+              className="max-w-prose"
+              text={"I'm a passionate recent graduate embarking on my journey as a MERN stack developer. Currently honing my skills in MongoDB, Express.js, React, and Node.js, I'm also strengthening my foundation in Data Structures and Algorithms."}
+              trigger="scroll"
+              gravity={0.6}
+              fontSize="1rem"
+              backgroundColor="transparent"
+              wireframes={false}
+            />
+            <FallingText
+              className="max-w-prose"
+              text={"As a fresher eager to make my mark in the tech world, I bring fresh perspectives, boundless enthusiasm, and a genuine love for problem-solving through code. I'm always excited to learn new technologies, collaborate on innovative projects, and contribute meaningfully to development teams."}
+              trigger="scroll"
+              gravity={0.6}
+              fontSize="1rem"
+              backgroundColor="transparent"
+              wireframes={false}
+            />
+            <FallingText
+              className="max-w-prose"
+              text={"My goal is to build user-friendly applications that make a real difference while continuously growing as a developer. What truly drives me is the constant evolution of technology and the endless possibilities it brings."}
+              trigger="scroll"
+              gravity={0.6}
+              fontSize="1rem"
+              backgroundColor="transparent"
+              wireframes={false}
+            />
           </div>
           
           {/* Funny Quote Section */}

@@ -144,3 +144,21 @@ html { scroll-behavior: smooth; }
 /* Footer bottom text visibility per theme */
 .footer-bottom { color: rgba(255, 255, 255, 0.7); }
 .theme-light .footer-bottom { color: #111827; }
+
+/* Footer light-mode text overrides */
+.theme-light .site-footer,
+.theme-light .site-footer .plain-text,
+.theme-light .site-footer p,
+.theme-light .site-footer h1,
+.theme-light .site-footer h2,
+.theme-light .site-footer h3,
+.theme-light .site-footer h4,
+.theme-light .site-footer h5,
+.theme-light .site-footer h6,
+.theme-light .site-footer a,
+.theme-light .site-footer small,
+.theme-light .site-footer span,
+.theme-light .site-footer li {
+  color: #000000 !important;
+}
+.theme-light .site-footer a:hover { opacity: 0.8; }
