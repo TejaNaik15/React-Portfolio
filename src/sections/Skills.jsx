@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
 import Particles from '../components/Particles';
-import Skiper30 from '../components/Skiper30';
+import OrbitSkills from '../components/OrbitSkills';
 
 const cdn = (path) => `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${path}`;
 
@@ -31,7 +31,7 @@ const Skills = () => {
     { id: 'figma', name: 'Figma', img: cdn('figma/figma-original.svg'), height: 260, url: 'https://www.figma.com' },
   ], []);
 
-  // Use Devicon skill icons with labels and links
+  // Build data for OrbitSkills: {src,label,href}
   const images = useMemo(() => items.map((it) => ({ src: it.img, label: it.name, href: it.url })), [items]);
 
   return (
@@ -42,10 +42,9 @@ const Skills = () => {
 
       <div className="relative z-10 container mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-accent-blue">My Skills</h1>
-        {/* Parallax columns gallery using Framer Motion */}
+        {/* Orbiting skills visualization */}
         <div className="mx-auto w-full">
-          <Skiper30 images={images} />
-          <p className="mt-6 text-sm text-gray-300">Scroll to explore the stack.</p>
+          <OrbitSkills items={images} />
         </div>
 
         {/* Responsive legend grid for quick glance on small devices */}
