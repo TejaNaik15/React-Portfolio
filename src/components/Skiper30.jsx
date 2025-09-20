@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 // Optional smooth scrolling with Lenis (will gracefully skip if not installed)
 async function setupLenis() {
   try {
-    const mod = await import('lenis');
+    const mod = await import(/* @vite-ignore */ 'lenis');
     const Lenis = mod.default || mod;
     const lenis = new Lenis();
     const raf = (time) => {
