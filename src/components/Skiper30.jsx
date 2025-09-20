@@ -1,23 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-// Optional smooth scrolling with Lenis (will gracefully skip if not installed)
-async function setupLenis() {
-  try {
-    const mod = await import(/* @vite-ignore */ 'lenis');
-    const Lenis = mod.default || mod;
-    const lenis = new Lenis();
-    const raf = (time) => {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    };
-    requestAnimationFrame(raf);
-    return () => lenis && lenis.destroy && lenis.destroy();
-  } catch (e) {
-    // Lenis not installed; ignore
-    return () => {};
-  }
-}
 
 const Column = ({ images, y }) => {
   return (
@@ -73,9 +56,6 @@ const Skiper30 = ({ images = [] }) => {
   const y4 = useTransform(scrollYProgress, [0, 1], [0, height * f4]);
 
   useEffect(() => {
-    let cleanup = () => {};
-    setupLenis().then((c) => (cleanup = c));
-
     const resize = () => {
       setDimension({ width: window.innerWidth, height: window.innerHeight });
     };
@@ -84,7 +64,6 @@ const Skiper30 = ({ images = [] }) => {
 
     return () => {
       window.removeEventListener('resize', resize);
-      cleanup();
     };
   }, []);
 
