@@ -36,7 +36,6 @@ body::-webkit-scrollbar-thumb {
   border: 3px solid #333;
 }
 
-html { scroll-behavior: smooth; }
 
 :root { --color-light-blue: #13ADC7; --color-light-purple: #945DD6; }
 

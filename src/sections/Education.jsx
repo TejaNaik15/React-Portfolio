@@ -40,9 +40,9 @@ const Education = () => {
         <Particles
           className="w-full h-full"
           alphaParticles={true}
-          particleCount={140}
-          speed={0.1}
-          particleBaseSize={70}
+          particleCount={100}
+          speed={0.08}
+          particleBaseSize={60}
           sizeRandomness={1}
         />
       </div>
@@ -55,7 +55,7 @@ const Education = () => {
         <ScrollTimeline
           events={educationEvents}
           className="max-w-5xl mx-auto"
-          parallaxIntensity={0.15}
+          parallaxIntensity={0.1}
           progressIndicator={true}
           progressLineWidth={3}
           progressLineCap="round"

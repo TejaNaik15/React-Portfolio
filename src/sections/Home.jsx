@@ -43,7 +43,7 @@ const Home = () => {
   return (
     <section id="home" className="relative bg-primary-dark min-h-screen flex items-center text-white overflow-hidden scroll-mt-28 md:scroll-mt-40">
       <div className="absolute inset-0 z-0">
-        <Particles className="w-full h-full" interactive={true} moveParticlesOnHover={true} alphaParticles={true} particleCount={280} speed={0.12} particleBaseSize={80} sizeRandomness={1} />
+        <Particles className="w-full h-full" interactive={true} moveParticlesOnHover={true} alphaParticles={true} particleCount={160} speed={0.1} particleBaseSize={70} sizeRandomness={1} />
       </div>
       <div className="relative z-10 container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div className="space-y-6">
