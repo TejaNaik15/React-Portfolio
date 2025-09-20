@@ -1,13 +1,45 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import SocialWrapper from '../components/SocialWrapper';
 import useScrollReveal from '../hooks/useScrollReveal';
 import { FaPhone, FaEnvelope, FaMapMarkedAlt } from 'react-icons/fa';
 import { Globe } from '@/components/magicui/globe.jsx';
 import Particles from '../components/Particles';
 import { BorderBeam } from '@/components/magicui/border-beam.jsx';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const sectionRef = useScrollReveal({ threshold: 0.1 }); 
+  const formRef = useRef(null);
+  const [status, setStatus] = useState('');
+
+  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    setStatus('');
+    try {
+      if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+        setStatus('⚠️ Email service not configured.');
+        return;
+      }
+      const res = await emailjs.sendForm(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        formRef.current,
+        PUBLIC_KEY
+      );
+      if (res?.status === 200) {
+        setStatus('✅ Message sent successfully!');
+        e.target.reset();
+      } else {
+        setStatus('❌ Failed to send message. Try again.');
+      }
+    } catch (err) {
+      setStatus('❌ Failed to send message. Try again.');
+    }
+  };
 
   return (
     <section id="contact" ref={sectionRef} className="relative min-h-screen bg-primary-dark text-white p-8 flex flex-col items-center justify-center transition-opacity-transform overflow-hidden scroll-mt-28 md:scroll-mt-40">
@@ -28,32 +60,38 @@ const Contact = () => {
           </div>
           <div className="bg-gray-800/60 backdrop-blur-sm p-6 rounded-lg shadow-lg text-left order-1 md:order-2 w-full">
             <h2 className="text-2xl font-semibold mb-4 text-accent-blue">Send a Message</h2>
-            <form className="space-y-4">
+            <form ref={formRef} onSubmit={sendEmail} className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-lg font-medium text-text-muted mb-1">Name</label>
                 <input
                   type="text"
+                  name="user_name"
                   id="name"
                   className="w-full p-3 rounded-md bg-gray-700/70 border border-gray-600 focus:border-accent-pink focus:ring focus:ring-accent-pink focus:ring-opacity-50 outline-none"
                   placeholder="Your Name"
+                  required
                 />
               </div>
               <div>
                 <label htmlFor="email" className="block text-lg font-medium text-text-muted mb-1">Email</label>
                 <input
                   type="email"
+                  name="user_email"
                   id="email"
                   className="w-full p-3 rounded-md bg-gray-700/70 border border-gray-600 focus:border-accent-pink focus:ring focus:ring-accent-pink focus:ring-opacity-50 outline-none"
                   placeholder="your.email@example.com"
+                  required
                 />
               </div>
               <div>
                 <label htmlFor="message" className="block text-lg font-medium text-text-muted mb-1">Message</label>
                 <textarea
+                  name="message"
                   id="message"
                   rows="5"
                   className="w-full p-3 rounded-md bg-gray-700/70 border border-gray-600 focus:border-accent-pink focus:ring focus:ring-accent-pink focus:ring-opacity-50 outline-none"
                   placeholder="Your message..."
+                  required
                 ></textarea>
               </div>
               <button
@@ -65,6 +103,7 @@ const Contact = () => {
                   <BorderBeam duration={8} size={120} colors={["#13ADC7","#945DD6","#FF3C78"]} />
                 </span>
               </button>
+              {status && <p className="mt-2 text-sm text-center">{status}</p>}
             </form>
           </div>
         </div>
