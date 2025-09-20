@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaLinkedin, FaTwitter, FaGithub, FaInstagram } from 'react-icons/fa';
+import { FiPhone, FiMail, FiMapPin } from 'react-icons/fi';
 
 const tapeSvg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="95" height="80" viewBox="0 0 95 80" fill="none">
@@ -48,9 +49,18 @@ const Footer = () => {
           <div className="flex flex-col gap-2 md:gap-3">
             <h4 className="text-xs font-semibold uppercase tracking-wide text-white/60">Contact Info</h4>
             <div className="flex flex-col items-start gap-2 text-sm">
-              <a className="text-white/80 hover:text-white" href="tel:+917569474682">+91 7569474682</a>
-              <a className="text-white/80 hover:text-white" href="mailto:tinkuteja740@gmail.com">tinkuteja740@gmail.com</a>
-              <span className="text-white/70">Hyderabad</span>
+              <a className="hover:text-white flex items-center gap-2 text-white/80" href="tel:+917569474682">
+                <FiPhone className="h-4 w-4" aria-hidden />
+                <span>+91 7569474682</span>
+              </a>
+              <a className="hover:text-white flex items-center gap-2 text-white/80" href="mailto:tinkuteja740@gmail.com">
+                <FiMail className="h-4 w-4" aria-hidden />
+                <span>tinkuteja740@gmail.com</span>
+              </a>
+              <span className="flex items-center gap-2 text-white/70">
+                <FiMapPin className="h-4 w-4" aria-hidden />
+                <span>Hyderabad</span>
+              </span>
             </div>
           </div>
         </div>
