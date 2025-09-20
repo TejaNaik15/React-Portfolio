@@ -36,25 +36,20 @@ const Footer = () => {
           <div className="flex flex-col gap-2 md:gap-3">
             <h4 className="text-xs font-semibold uppercase tracking-wide text-white/60">Resources</h4>
             <div className="flex flex-wrap items-start gap-2 text-sm md:flex-col">
-              <a className="text-white/70 hover:text-white" href="#projects">Projects</a>
+              <a className="text-white/70 hover:text-white" href="#home">Home</a>
+              <a className="text-white/70 hover:text-white" href="#about">About</a>
               <a className="text-white/70 hover:text-white" href="#skills">Skills</a>
-              <a className="text-white/50 cursor-not-allowed" href="#">Blog <span className="ml-1 inline-flex rotate-3 rounded-xl bg-white/10 px-3 py-0.5 text-xs">soon</span></a>
+              <a className="text-white/70 hover:text-white" href="#projects">Projects</a>
+              <a className="text-white/70 hover:text-white" href="#education">Education</a>
+              <a className="text-white/70 hover:text-white" href="#contact">Contact</a>
             </div>
           </div>
-          <div className="hidden flex-col gap-2 md:flex md:gap-3">
-            <h4 className="text-xs font-semibold uppercase tracking-wide text-white/60">Company <span className="ml-1 inline-flex rotate-3 rounded-xl bg-white/10 px-3 py-0.5 text-xs">soon</span></h4>
-            <div className="flex flex-wrap items-start gap-2 text-sm md:flex-col">
-              <span className="text-white/50">About</span>
-              <span className="text-white/50">Partners</span>
-              <span className="text-white/50">Careers</span>
-            </div>
-          </div>
-          <div className="hidden flex-col gap-2 md:flex md:gap-3">
-            <h4 className="text-xs font-semibold uppercase tracking-wide text-white/60">Compare <span className="ml-1 inline-flex rotate-3 rounded-xl bg-white/10 px-3 py-0.5 text-xs">soon</span></h4>
+          <div className="flex flex-col gap-2 md:gap-3">
+            <h4 className="text-xs font-semibold uppercase tracking-wide text-white/60">Contact Info</h4>
             <div className="flex flex-col items-start gap-2 text-sm">
-              <span className="text-white/50">Option A</span>
-              <span className="text-white/50">Option B</span>
-              <span className="text-white/50">Option C</span>
+              <a className="text-white/80 hover:text-white" href="tel:+917569474682">+91 7569474682</a>
+              <a className="text-white/80 hover:text-white" href="mailto:tinkuteja740@gmail.com">tinkuteja740@gmail.com</a>
+              <span className="text-white/70">Hyderabad</span>
             </div>
           </div>
         </div>
@@ -64,11 +59,6 @@ const Footer = () => {
       <div className="mx-auto my-3 flex max-w-5xl flex-col items-start justify-between gap-4 px-4 text-sm text-white/70 md:flex-row md:items-center md:px-8">
         <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-8">
           <p className="whitespace-nowrap">©{year} Teja Naik. All rights reserved.</p>
-          <div className="flex flex-row gap-4">
-            <a href="#contact" className="hover:text-white">Contact</a>
-            <a href="#about" className="hover:text-white">About</a>
-            <a href="#skills" className="hover:text-white">Skills</a>
-          </div>
         </div>
         <div className="flex items-center gap-4">
           <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-white">
