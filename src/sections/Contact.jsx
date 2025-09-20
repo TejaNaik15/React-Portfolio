@@ -20,6 +20,12 @@ const Contact = () => {
     e.preventDefault();
     setStatus('');
     try {
+      // TEMP DEBUG: verify env vars presence in runtime (booleans only)
+      console.warn('EMAILJS env present?', {
+        service: !!SERVICE_ID,
+        template: !!TEMPLATE_ID,
+        key: !!PUBLIC_KEY,
+      });
       if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
         setStatus('⚠️ Email service not configured.');
         return;
