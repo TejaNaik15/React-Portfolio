@@ -107,3 +107,25 @@ html { scroll-behavior: smooth; }
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Skills legend theming and truncation */
+.skill-legend-item {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.skill-legend-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.skill-legend-label {
+  color: #e5e7eb; /* gray-200 */
+}
+.theme-light .skill-legend-item {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+.theme-light .skill-legend-item:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+.theme-light .skill-legend-label {
+  color: #111827; /* gray-900 */
+}

@@ -59,10 +59,10 @@ const Skills = () => {
               href={it.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex min-w-0 items-center gap-2 rounded-lg bg-white/5 p-2 ring-1 ring-white/10 transition hover:bg-white/10"
+              className="skill-legend-item group flex min-w-0 items-center gap-2 rounded-lg p-2 ring-1 transition"
             >
               <img src={it.img} alt={it.name} className="h-6 w-6 flex-shrink-0 object-contain" />
-              <span className="truncate text-[10px] sm:text-xs text-gray-200 group-hover:text-white" title={it.name}>{it.name}</span>
+              <span className="skill-legend-label truncate text-[10px] sm:text-xs" title={it.name}>{it.name}</span>
             </a>
           ))}
         </div>

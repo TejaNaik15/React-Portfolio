@@ -11,8 +11,10 @@ const OrbitSkills = ({
   ringSpeeds = [18, 26, 34], // seconds for full rotation per ring (outer slowest)
 }) => {
   const containerRef = useRef(null);
+  const starCanvasRef = useRef(null);
   const ringRefs = useRef([]);
   const [size, setSize] = useState(600);
+  const ringColors = ['#00dfd8', '#9ca3af', '#945DD6']; // inner cyan, mid neutral, outer purple
 
   const rings = useMemo(() => {
     // split items into 3 rings as evenly as possible
@@ -37,6 +39,45 @@ const OrbitSkills = ({
     const ro = new ResizeObserver(updateSize);
     if (containerRef.current) ro.observe(containerRef.current);
 
+    // starfield
+    let rafId;
+    const ctx = starCanvasRef.current ? starCanvasRef.current.getContext('2d') : null;
+    let stars = [];
+    const initStars = () => {
+      if (!ctx || !starCanvasRef.current) return;
+      const dpr = window.devicePixelRatio || 1;
+      const { clientWidth, clientHeight } = starCanvasRef.current;
+      starCanvasRef.current.width = clientWidth * dpr;
+      starCanvasRef.current.height = clientHeight * dpr;
+      ctx.scale(dpr, dpr);
+      const count = Math.floor((clientWidth * clientHeight) / 8000);
+      stars = Array.from({ length: count }, () => ({
+        x: Math.random() * clientWidth,
+        y: Math.random() * clientHeight,
+        r: Math.random() * 1.5 + 0.3,
+        v: Math.random() * 0.15 + 0.05,
+        a: Math.random() * 0.4 + 0.2,
+      }));
+    };
+    const draw = () => {
+      if (!ctx || !starCanvasRef.current) return;
+      const { clientWidth, clientHeight } = starCanvasRef.current;
+      ctx.clearRect(0, 0, clientWidth, clientHeight);
+      ctx.fillStyle = 'rgba(255,255,255,0.9)';
+      stars.forEach((s) => {
+        ctx.globalAlpha = s.a;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fill();
+        s.y += s.v;
+        if (s.y > clientHeight + 2) s.y = -2;
+      });
+      ctx.globalAlpha = 1;
+      rafId = requestAnimationFrame(draw);
+    };
+    initStars();
+    draw();
+
     // entry fade-in
     if (containerRef.current) {
       gsap.from(containerRef.current, {
@@ -58,10 +99,22 @@ const OrbitSkills = ({
         ease: 'none',
         repeat: -1,
       });
+
+      // subtle icon bobbing for liveliness
+      const anchors = el.querySelectorAll('a');
+      gsap.to(anchors, {
+        y: idx % 2 === 0 ? 6 : -6,
+        duration: 2.2 + idx * 0.4,
+        ease: 'sine.inOut',
+        yoyo: true,
+        repeat: -1,
+        stagger: { each: 0.1, from: 'random' },
+      });
     });
 
     return () => {
       ro.disconnect();
+      cancelAnimationFrame(rafId);
       ringRefs.current.forEach((el) => el && gsap.killTweensOf(el));
     };
   }, [rings.length]);
@@ -76,6 +129,7 @@ const OrbitSkills = ({
         className="absolute inset-0"
         style={{
           transformOrigin: '50% 50%',
+          filter: `drop-shadow(0 0 10px ${ringColors[index] || '#ffffff20'}) drop-shadow(0 0 20px ${ringColors[index] || '#ffffff10'})`,
         }}
       >
         {items.map((it, i) => {
@@ -83,21 +137,31 @@ const OrbitSkills = ({
           const x = Math.cos(angle) * radius;
           const y = Math.sin(angle) * radius;
           const sizePx = ringSizes[index] || ringSizes[ringSizes.length - 1] || 56;
+          const needsInvert = /github|express|react router/i.test(it.label || '');
           return (
             <a
               key={`${it.label}-${i}`}
               href={it.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute block -translate-x-1/2 -translate-y-1/2 rounded-xl bg-black/30 ring-1 ring-white/10 backdrop-blur hover:bg-white/10 transition"
+              className="group absolute block -translate-x-1/2 -translate-y-1/2 rounded-xl bg-black/30 ring-1 ring-white/10 backdrop-blur hover:bg-white/10 transition"
               style={{ left: `calc(50% + ${x}px)`, top: `calc(50% + ${y}px)` }}
               title={it.label}
             >
+              {/* hover glow ripple */}
+              <span className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition duration-300 group-hover:opacity-100" style={{
+                boxShadow: `0 0 14px ${(ringColors[index] || '#00dfd8')}55, 0 0 28px ${(ringColors[index] || '#945DD6')}40`
+              }} />
               <img
                 src={it.src}
                 alt={it.label}
                 className="object-contain"
-                style={{ height: sizePx, width: sizePx, padding: Math.max(6, Math.round(sizePx * 0.15)) }}
+                style={{
+                  height: sizePx,
+                  width: sizePx,
+                  padding: Math.max(6, Math.round(sizePx * 0.15)),
+                  filter: needsInvert ? 'invert(1) brightness(1.2)' : 'none',
+                }}
               />
             </a>
           );
@@ -110,6 +174,8 @@ const OrbitSkills = ({
     <div ref={containerRef} className="relative mx-auto flex w-full items-center justify-center">
       {/* Responsive square stage */}
       <div className="relative aspect-square w-[92vw] max-w-[900px] sm:w-[85vw] md:w-[70vw] lg:w-[60vw]">
+        {/* Starfield background */}
+        <canvas ref={starCanvasRef} className="absolute inset-0 h-full w-full rounded-full" />
         {/* Glow */}
         <div className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,223,216,0.12),rgba(148,93,214,0.06)_45%,transparent_70%)]" />
         {/* Center core */}
