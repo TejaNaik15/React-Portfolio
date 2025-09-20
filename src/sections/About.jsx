@@ -4,7 +4,7 @@ import ShinyText from '../components/ShinyText';
 import Particles from '../components/Particles';
 import SocialIcons from '../components/SocialIcons';
 import ScrollReveal from '../components/ScrollReveal';
-import DecryptedText from '../components/DecryptedText';
+import BoxReveal from '../components/BoxReveal';
 import { BorderBeam } from '@/components/magicui/border-beam.jsx';
 
 const About = () => {
@@ -27,39 +27,21 @@ const About = () => {
             <ShinyText text="A glimpse into who I am" speed={6} className="text-2xl md:text-3xl" />
           </div>
           <div className="space-y-3 text-text-muted leading-normal">
-            <DecryptedText
-              text={"I'm a passionate recent graduate embarking on my journey as a MERN stack developer. Currently honing my skills in MongoDB, Express.js, React, and Node.js, I'm also strengthening my foundation in Data Structures and Algorithms."}
-              animateOn="view"
-              sequential
-              revealDirection="start"
-              speed={35}
-              maxIterations={10}
-              parentClassName="block max-w-prose text-base md:text-lg"
-              className="text-text-muted"
-              encryptedClassName="text-white/40"
-            />
-            <DecryptedText
-              text={"As a fresher eager to make my mark in the tech world, I bring fresh perspectives, boundless enthusiasm, and a genuine love for problem-solving through code. I'm always excited to learn new technologies, collaborate on innovative projects, and contribute meaningfully to development teams."}
-              animateOn="view"
-              sequential
-              revealDirection="start"
-              speed={35}
-              maxIterations={10}
-              parentClassName="block max-w-prose text-base md:text-lg"
-              className="text-text-muted"
-              encryptedClassName="text-white/40"
-            />
-            <DecryptedText
-              text={"My goal is to build user-friendly applications that make a real difference while continuously growing as a developer. What truly drives me is the constant evolution of technology and the endless possibilities it brings."}
-              animateOn="view"
-              sequential
-              revealDirection="start"
-              speed={35}
-              maxIterations={10}
-              parentClassName="block max-w-prose text-base md:text-lg"
-              className="text-text-muted"
-              encryptedClassName="text-white/40"
-            />
+            <BoxReveal boxColor="#00dfd8" duration={0.6}>
+              <p className="max-w-prose text-base md:text-lg">
+                I'm a passionate recent graduate embarking on my journey as a MERN stack developer. Currently honing my skills in <span className="font-semibold text-[#00dfd8]">MongoDB</span>, <span className="font-semibold text-[#00dfd8]">Express.js</span>, <span className="font-semibold text-[#00dfd8]">React</span>, and <span className="font-semibold text-[#00dfd8]">Node.js</span>, I'm also strengthening my foundation in <span className="font-semibold text-[#00dfd8]">Data Structures and Algorithms</span>.
+              </p>
+            </BoxReveal>
+            <BoxReveal boxColor="#945DD6" duration={0.6}>
+              <p className="max-w-prose text-base md:text-lg">
+                As a fresher eager to make my mark in the tech world, I bring fresh perspectives, boundless enthusiasm, and a genuine love for problem-solving through code. I'm always excited to learn new technologies, collaborate on innovative projects, and contribute meaningfully to development teams.
+              </p>
+            </BoxReveal>
+            <BoxReveal boxColor="#00dfd8" duration={0.6}>
+              <p className="max-w-prose text-base md:text-lg">
+                My goal is to build user-friendly applications that make a real difference while continuously growing as a developer. What truly drives me is the constant evolution of technology and the endless possibilities it brings.
+              </p>
+            </BoxReveal>
           </div>
           
           {/* Funny Quote Section */}
