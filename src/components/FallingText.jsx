@@ -8,15 +8,13 @@ const FallingText = ({
   highlightClass = 'highlighted',
   trigger = 'auto',
   backgroundColor = 'transparent',
-  wireframes = false,
-  gravity = 1,
-  mouseConstraintStiffness = 0.2,
+  gravity = 0.6,
   fontSize = '1rem',
 }) => {
   const containerRef = useRef(null);
   const textRef = useRef(null);
-  const canvasContainerRef = useRef(null);
   const [effectStarted, setEffectStarted] = useState(false);
+  const rafRef = useRef(null);
 
   // Build the text spans
   useEffect(() => {
@@ -52,114 +50,93 @@ const FallingText = ({
     }
   }, [trigger]);
 
-  // Physics effect (dynamic import for Matter.js)
+  // Lightweight physics (no dependencies)
   useEffect(() => {
     if (!effectStarted) return;
-    let MatterMod = null;
-    let engine, render, runner;
+    const container = containerRef.current;
+    const words = Array.from(textRef.current.querySelectorAll('.word'));
+    const containerRect = container.getBoundingClientRect();
 
-    let cancelled = false;
+    // Prepare absolute positioning and initial velocities
+    const items = words.map((el) => {
+      const r = el.getBoundingClientRect();
+      const w = r.width;
+      const h = r.height;
+      const x = r.left - containerRect.left + w / 2;
+      const y = r.top - containerRect.top + h / 2;
+      el.style.position = 'absolute';
+      el.style.left = `${x}px`;
+      el.style.top = `${y}px`;
+      el.style.transform = 'translate(-50%, -50%)';
+      return {
+        el,
+        x,
+        y,
+        w,
+        h,
+        vx: (Math.random() - 0.5) * 50, // px/s
+        vy: 0,
+        ang: 0,
+        vang: (Math.random() - 0.5) * 1, // rad/s
+      };
+    });
 
-    (async () => {
-      try {
-        const mod = await import(/* @vite-ignore */ 'matter-js');
-        if (cancelled) return;
-        MatterMod = mod.default ?? mod;
-        const { Engine, Render, World, Bodies, Runner, Mouse, MouseConstraint, Body } = MatterMod;
+    const bg = container.querySelector('.falling-text-canvas');
+    if (bg) bg.style.background = backgroundColor;
 
-        const containerRect = containerRef.current.getBoundingClientRect();
-        const width = containerRect.width;
-        const height = Math.max(containerRect.height, 120);
-        if (width <= 0 || height <= 0) return;
+    let last = performance.now();
+    const restitution = 0.6;
 
-        engine = Engine.create();
-        engine.world.gravity.y = gravity;
+    const step = (now) => {
+      const dt = Math.min(0.032, (now - last) / 1000); // clamp dt to avoid jumps
+      last = now;
+      const width = container.clientWidth;
+      const height = Math.max(container.clientHeight, 120);
 
-        render = Render.create({
-          element: canvasContainerRef.current,
-          engine,
-          options: { width, height, background: backgroundColor, wireframes }
-        });
+      items.forEach((it) => {
+        it.vy += gravity * 980 * dt; // gravity px/s^2 (980 ~ 1g)
+        it.x += it.vx * dt;
+        it.y += it.vy * dt;
+        it.ang += it.vang * dt;
 
-        const boundaryOptions = { isStatic: true, render: { fillStyle: 'transparent' } };
-        const floor = Bodies.rectangle(width / 2, height + 25, width, 50, boundaryOptions);
-        const leftWall = Bodies.rectangle(-25, height / 2, 50, height, boundaryOptions);
-        const rightWall = Bodies.rectangle(width + 25, height / 2, 50, height, boundaryOptions);
-        const ceiling = Bodies.rectangle(width / 2, -25, width, 50, boundaryOptions);
+        // Collisions with walls
+        const halfW = it.w / 2;
+        const halfH = it.h / 2;
+        // Floor
+        if (it.y + halfH > height) {
+          it.y = height - halfH;
+          it.vy *= -restitution;
+          it.vx *= 0.98;
+        }
+        // Ceiling
+        if (it.y - halfH < 0) {
+          it.y = halfH;
+          it.vy *= -restitution;
+        }
+        // Left wall
+        if (it.x - halfW < 0) {
+          it.x = halfW;
+          it.vx *= -restitution;
+        }
+        // Right wall
+        if (it.x + halfW > width) {
+          it.x = width - halfW;
+          it.vx *= -restitution;
+        }
 
-        const wordSpans = textRef.current.querySelectorAll('.word');
-        const wordBodies = [...wordSpans].map((elem) => {
-          const rect = elem.getBoundingClientRect();
-          const x = rect.left - containerRect.left + rect.width / 2;
-          const y = rect.top - containerRect.top + rect.height / 2;
-          const body = Bodies.rectangle(x, y, rect.width, rect.height, {
-            render: { fillStyle: 'transparent' },
-            restitution: 0.8,
-            frictionAir: 0.01,
-            friction: 0.2,
-          });
-          Body.setVelocity(body, { x: (Math.random() - 0.5) * 5, y: 0 });
-          Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.05);
-          return { elem, body };
-        });
+        it.el.style.left = `${it.x}px`;
+        it.el.style.top = `${it.y}px`;
+        it.el.style.transform = `translate(-50%, -50%) rotate(${it.ang}rad)`;
+      });
 
-        wordBodies.forEach(({ elem, body }) => {
-          elem.style.position = 'absolute';
-          elem.style.left = `${body.position.x - body.bounds.max.x + body.bounds.min.x / 2}px`;
-          elem.style.top = `${body.position.y - body.bounds.max.y + body.bounds.min.y / 2}px`;
-          elem.style.transform = 'none';
-        });
-
-        const mouse = Mouse.create(containerRef.current);
-        const mouseConstraint = MouseConstraint.create(engine, {
-          mouse,
-          constraint: { stiffness: mouseConstraintStiffness, render: { visible: false } },
-        });
-        render.mouse = mouse;
-
-        World.add(engine.world, [floor, leftWall, rightWall, ceiling, mouseConstraint, ...wordBodies.map((wb) => wb.body)]);
-
-        runner = Runner.create();
-        Runner.run(runner, engine);
-        Render.run(render);
-
-        const updateLoop = () => {
-          if (!engine) return;
-          wordBodies.forEach(({ body, elem }) => {
-            const { x, y } = body.position;
-            elem.style.left = `${x}px`;
-            elem.style.top = `${y}px`;
-            elem.style.transform = `translate(-50%, -50%) rotate(${body.angle}rad)`;
-          });
-          Engine.update(engine);
-          requestAnimationFrame(updateLoop);
-        };
-        updateLoop();
-      } catch (e) {
-        // If Matter isn't available, fail gracefully: leave static text.
-        // console.warn('Matter.js failed to load or run:', e);
-      }
-    })();
+      rafRef.current = requestAnimationFrame(step);
+    };
+    rafRef.current = requestAnimationFrame(step);
 
     return () => {
-      cancelled = true;
-      try {
-        if (render) {
-          render.stop && render.stop();
-          if (render.canvas && canvasContainerRef.current) {
-            canvasContainerRef.current.removeChild(render.canvas);
-          }
-        }
-        if (runner && MatterMod?.Runner) {
-          MatterMod.Runner.stop(runner);
-        }
-        if (MatterMod?.World && MatterMod?.Engine && engine) {
-          MatterMod.World.clear(engine.world);
-          MatterMod.Engine.clear(engine);
-        }
-      } catch {}
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
-  }, [effectStarted, gravity, wireframes, backgroundColor, mouseConstraintStiffness]);
+  }, [effectStarted, gravity, backgroundColor]);
 
   const handleTrigger = () => {
     if (!effectStarted && (trigger === 'click' || trigger === 'hover')) {
@@ -171,8 +148,6 @@ const FallingText = ({
     <div
       ref={containerRef}
       className={`falling-text-container ${className}`}
-      onClick={trigger === 'click' ? handleTrigger : undefined}
-      onMouseEnter={trigger === 'hover' ? handleTrigger : undefined}
       style={{ position: 'relative', overflow: 'hidden' }}
     >
       <div
@@ -180,7 +155,7 @@ const FallingText = ({
         className="falling-text-target"
         style={{ fontSize, lineHeight: 1.4 }}
       />
-      <div ref={canvasContainerRef} className="falling-text-canvas" />
+      <div className="falling-text-canvas" />
     </div>
   );
 };
